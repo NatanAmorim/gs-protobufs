@@ -2,10 +2,35 @@
 
 ![Licença Proprietária](https://img.shields.io/badge/Licença-Proprietária-red)
 
+- [Submodules](#submodules)
 - [Segurança](#segurança)
 - [Pull Requests](#pull-requests)
 - [Corrigindo Bugs](#corrigindo-bugs)
 - [Licença](#licença)
+
+## Submodules
+
+Esse projeto é um submodule do front-end e do back-end.
+
+- Para adicionar no projeto utilize o seguinte comando (somente adicione se não estiver no arquivo `.gitmodules`).
+
+```bash
+git submodule add https://github.com/NatanAmorim/gs_protobufs
+```
+
+- Para atualizar no seu projeto local utilize um dos seguintes comandos.
+
+```bash
+git submodule init
+```
+
+```bash
+git submodule update
+```
+
+```bash
+git pull --recursive-submodules
+```
 
 ## Licença
 
