@@ -3,6 +3,8 @@
 ![Licença Proprietária](https://img.shields.io/badge/Licença-Proprietária-red)
 
 - [Submodules](#submodules)
+- [Proto3 Language Guide](#proto3-language-guide)
+- [Licença](#licença)
 - [Segurança](#segurança)
 - [Pull Requests](#pull-requests)
 - [Corrigindo Bugs](#corrigindo-bugs)
@@ -14,23 +16,31 @@ Esse projeto é um submodule do front-end e do back-end.
 
 - Para adicionar no projeto utilize o seguinte comando (somente adicione se não estiver no arquivo `.gitmodules`).
 
-```bash
+```sh
 git submodule add https://github.com/NatanAmorim/gs_protobufs
 ```
 
-- Para atualizar no seu projeto local utilize um dos seguintes comandos.
+- Se for a primeira vez que você faz check-out de um repositório, você precisa usar `init` primeiro:
 
-```bash
+```sh
 git submodule init
 ```
 
-```bash
-git submodule update
+- Para atualizar no seu projeto local utilize os seguintes comandos.
+
+```sh
+git submodule update --init
 ```
 
-```bash
-git pull --recursive-submodules
+```sh
+git submodule update --recursive --remote
 ```
+
+## Proto3 Language Guide
+
+- [Language Guide (proto 3)](https://protobuf.dev/programming-guides/proto3) covers how to use the version 3 of Protocol Buffers in your project.
+- gRPC uses a set of well defined [status response codes](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) as part of the RPC API.
+- [gRPC Guides](https://grpc.io/docs/guides/)
 
 ## Licença
 
