@@ -1,32 +1,35 @@
 # README
 
-![Licença Proprietária](https://img.shields.io/badge/Licença-Proprietária-red)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-- [Submodules](#submodules)
+Licensed under the Apache License, Version 2.0; you may not use this app except in compliance with the License. You may obtain a copy of the License at <https://opensource.org/licenses/Apache-2.0>.
+
+- [About](#about)
+- [Git Submodules](#git-submodules)
 - [Proto3 Language Guide](#proto3-language-guide)
-- [Licença](#licença)
-- [Segurança](#segurança)
-- [Pull Requests](#pull-requests)
-- [Corrigindo Bugs](#corrigindo-bugs)
-- [Licença](#licença)
+- [Contributing Guidelines](#contributing-guidelines)
 
-## Submodules
+## About
 
-Esse projeto é um submodule do front-end e do back-end.
+Protobufs used by apps and server in the company "Gislaine Studio de Dança" in Andradina/Brazil.
 
-- Para adicionar no projeto utilize o seguinte comando (somente adicione se não estiver no arquivo `.gitmodules`).
+## Git Submodules
+
+This project is a submodule of the front-end and back-end.
+
+- To add to your project use the following command (only add it if it's not already in the file `.gitmodules`).
 
 ```sh
 git submodule add https://github.com/NatanAmorim/gs_protobufs
 ```
 
-- Se for a primeira vez que você faz check-out de um repositório, você precisa usar `init` primeiro:
+If this is your first time after adding it to the repository, you need to use `init` first:
 
 ```sh
 git submodule init
 ```
 
-- Para atualizar no seu projeto local utilize os seguintes comandos.
+To update on your local project, use one of the following commands.
 
 ```sh
 git submodule update --init
@@ -38,31 +41,62 @@ git submodule update --recursive --remote
 
 ## Proto3 Language Guide
 
+- [gRPC Guides](https://grpc.io/docs/guides/)
 - [Language Guide (proto 3)](https://protobuf.dev/programming-guides/proto3) covers how to use the version 3 of Protocol Buffers in your project.
 - gRPC uses a set of well defined [status response codes](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) as part of the RPC API.
-- [gRPC Guides](https://grpc.io/docs/guides/)
+- [Google Common Types](https://github.com/googleapis/googleapis/tree/master/google/type) This package contains definitions of common types for Google APIs.
+- Protobuf 3 support for Visual Studio Code with the extension [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3).
 
-## Licença
+## Contributing Guidelines
 
-Todo o código do software é propriedade da empresa.
-Toda a documentação e código fonte do software é confidencial.
+We prefer all communications to be in English or Portuguese.
 
-- Os direitos do software da são exclusivos a empresa.
-- A distribuição do código fonte, executável e documentação do software é proibida em qualquer forma ou meio não autorizado.
-- É proibido a terceiros executar, copiar, distribuir, estudar, mudar e melhorar o software.
+This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new Issue.
 
-## Segurança
+For help and questions about using this project, please uses the GitHub discussions.
 
-Se você acredita que encontrou uma vulnerabilidade de segurança no software, encorajamos você a nos informar imediatamente. Investigaremos todos os relatórios legítimos e faremos o possível para corrigir o problema rapidamente.
+### Security
+<!--
+Please do not report security vulnerabilities through public GitHub issues.\
+Instead, please report them to {email-address}.\
+You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
+-->
 
-## Pull Requests
+If you believe you have found a security vulnerability in this software, we encourage you to inform us immediately. We will investigate all legitimate reports and do our best to quickly correct the issue.
 
-- Descreva de forma clara o que deve ser consertado ou adicionado.
-- Tente minimizar a quantidade de alterações no código, use estilos/funções já existentes.
+Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 
-## Corrigindo Bugs
+- Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+- Full paths of source file(s) related to the manifestation of the issue
+- The location of the affected source code (tag/branch/commit or direct URL)
+- Any special configuration required to reproduce the issue
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the issue, including how an attacker might exploit the issue
 
-Para facilitar a resposta a problemas por favor siga essas orientações quando for explicar o problema.
+This information will help us triage your report more quickly.
 
-- Descreva o que deve ser consertado, se for relevante anexe logs/screenshots.
-- Descreva como reproduzir o bug, para que possa ser consertado.
+### Contributing Code
+
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your changes: `git checkout -b my-new-feature`
+3. Make your changes and commit them: `git commit -am 'Add some feature'`
+    - Include tests that cover your changes.
+    - Update the documentation to reflect your changes, where appropriate.
+    - Add an entry to the `CHANGELOG.md` file describing your changes if appropriate.
+4. Push your changes to your fork: `git push origin my-new-feature`
+5. Create a pull request from your fork to the main repository. `gh pr create` (with the GitHub CLI)
+
+### Pull Request
+
+- Clearly describe what you aim to add or fix.
+- Try to minimize code changes and use existing style/functions.
+
+### Reporting Issues and Bugs
+
+If you find a bug, please report it by opening a new issue in the issue tracker. Please include as much detail as possible, including steps to reproduce the bug and any relevant error messages.
+
+To better respond to issues please follow these general guidelines when explaining the problem.
+
+1. Clearly describe what you aim to fix, if relevant attach output/logs/screenshots.
+2. Describe how developers can reproduce the bug.
