@@ -4,14 +4,14 @@ option csharp_namespace = "gs_server";
 package Auth;
 
 service AuthService {
-  rpc Login(LoginRequest) returns (LoginResponse);
-  rpc Logout(LogoutRequest) returns (LogoutResponse);
-  rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
+    rpc Login(LoginRequest) returns (LoginResponse);
+    rpc Logout(LogoutRequest) returns (LogoutResponse);
+    rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
 }
 
 message LoginRequest {
     string email = 1;
-    string senha = 2;
+    string password = 2;
 }
 message LoginResponse {
     string access_token = 1;
@@ -25,8 +25,8 @@ message LogoutRequest {
 message LogoutResponse {}
 
 message NewPasswordRequest {
-    string senha_antiga = 1;
-    string senha_nova = 2;
+    string old_password = 1;
+    string new_password = 2;
 }
 
 message NewPasswordResponse {}
