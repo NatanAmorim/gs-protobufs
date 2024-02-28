@@ -7,15 +7,10 @@ import "Protos/product.proto";
 package Sale;
 
 service SaleService {
-  // Get list
   rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  // Get single
   rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  // Post
   rpc Post(CreateRequest) returns (CreateResponse);
-  // Put
   rpc Put(UpdateRequest) returns (UpdateResponse);
-  // Delete
   rpc Delete(DeleteRequest) returns (DeleteResponse);
 }
 

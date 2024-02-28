@@ -8,17 +8,12 @@ import "Protos/person.proto";
 package Customer;
 
 service CustomerService {
-  // Get list
   rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  // Get single
   rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  // Get list options (Lean data for dropdowns and alike)
+  // Options  are lean data for dropdowns and alike
   rpc GetAllOptions(GetAllOptionsRequest) returns (GetAllOptionsResponse);
-  // Post
   rpc Post(CreateRequest) returns (CreateResponse);
-  // Put
   rpc Put(UpdateRequest) returns (UpdateResponse);
-  // Delete
   rpc Delete(DeleteRequest) returns (DeleteResponse);
 }
 
