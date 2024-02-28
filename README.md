@@ -11,7 +11,7 @@ Licensed under the Apache License, Version 2.0; you may not use this app except 
 
 ## About
 
-Protobufs are used by the server and apps in the company "Gislaine Studio de Dança" in Andradina/Brazil.
+Protobufs used by the server and apps in the company "Gislaine Studio de Dança" in Andradina/Brazil.
 
 ## Git Submodules
 
@@ -20,7 +20,7 @@ This project is a submodule of the front-end and back-end.
 - To add to your project use the following command (only add it if it's not already in the file `.gitmodules`).
 
 ```sh
-git submodule add https://github.com/NatanAmorim/gs_protobufs
+git submodule add https://github.com/NatanAmorim/gs-protobufs
 ```
 
 If this is your first time after adding it to the repository, you need to use `init` first:
