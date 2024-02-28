@@ -3,52 +3,52 @@ option csharp_namespace = "gs_server";
 
 package Product;
 
-service ProductService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service ProductGrpc {
+  rpc GetAll(GetAllProductsRequest) returns (GetAllProductsResponse);
+  rpc GetById(GetProductByIdRequest) returns (GetProductByIdResponse);
+  rpc Post(CreateProductRequest) returns (CreateProductResponse);
+  rpc Put(UpdateProductRequest) returns (UpdateProductResponse);
+  rpc Delete(DeleteProductRequest) returns (DeleteProductResponse);
 }
 
-message GetAllRequest {}
+message GetAllProductsRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse products = 1;
+message GetAllProductsResponse {
+  repeated GetProductByIdResponse products = 1;
 }
 
-message GetByIdRequest {
+message GetProductByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetProductByIdResponse {
   int32 id = 1;
   string name = 2;
   optional bytes picture = 3;
   repeated ProductVariant variants = 4;
 }
 
-message CreateRequest {
+message CreateProductRequest {
   string name = 1;
   optional bytes picture = 2;
   repeated ProductVariant variants = 3;
 }
 
-message CreateResponse {}
+message CreateProductResponse {}
 
-message UpdateRequest {
+message UpdateProductRequest {
   string name = 1;
   optional bytes picture = 2;
   repeated ProductVariant variants = 3;
 }
 
-message UpdateResponse {}
+message UpdateProductResponse {}
 
-message DeleteRequest {
+message DeleteProductRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteProductResponse {}
 
 message ProductVariant {
   int32 id = 1;

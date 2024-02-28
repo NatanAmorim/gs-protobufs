@@ -5,25 +5,25 @@ import "Protos/date.proto";
 
 package Tuition;
 
-service TuitionService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service TuitionGrpc {
+  rpc GetAll(GetAllTuitionsRequest) returns (GetAllTuitionsResponse);
+  rpc GetById(GetTuitionByIdRequest) returns (GetTuitionByIdRequest);
+  rpc Post(CreateTuitionRequest) returns (CreateTuitionResponse);
+  rpc Put(UpdateTuitionRequest) returns (UpdateTuitionResponse);
+  rpc Delete(DeleteTuitionRequest) returns (DeleteTuitionResponse);
 }
 
-message GetAllRequest {}
+message GetAllTuitionsRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse tuitions = 1;
+message GetAllTuitionsResponse {
+  repeated GetTuitionByIdRequest tuitions = 1;
 }
 
-message GetByIdRequest {
+message GetTuitionByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetTuitionByIdResponse {
   int32 id = 1;
   Date.CalendarDate payment_date = 2;
   float total_price = 3;
@@ -32,26 +32,26 @@ message GetByIdResponse {
   string payment_method = 6;
 }
 
-message CreateRequest {
+message CreateTuitionRequest {
   Date.CalendarDate payment_date = 1;
   float total_price = 2;
   float amount_paid = 3;
   float total_discount = 4;
 }
 
-message CreateResponse {}
+message CreateTuitionResponse {}
 
-message UpdateRequest {
+message UpdateTuitionRequest {
   Date.CalendarDate payment_date = 1;
   float total_price = 2;
   float amount_paid = 3;
   float total_discount = 4;
 }
 
-message UpdateResponse {}
+message UpdateTuitionResponse {}
 
-message DeleteRequest {
+message DeleteTuitionRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteTuitionResponse {}

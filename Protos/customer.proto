@@ -7,29 +7,29 @@ import "Protos/person.proto";
 
 package Customer;
 
-service CustomerService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+service CustomerGrpc {
+  rpc GetAll(GetAllCustomersRequest) returns (GetAllCustomersResponse);
+  rpc GetById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
   // Options  are lean data for dropdowns and alike
-  rpc GetAllOptions(GetAllOptionsRequest) returns (GetAllOptionsResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc GetAllOptions(GetAllCustomersOptionsRequest) returns (GetAllCustomersOptionsResponse);
+  rpc Post(CreateCustomerRequest) returns (CreateCustomerResponse);
+  rpc Put(UpdateCustomerRequest) returns (UpdateCustomerResponse);
+  rpc Delete(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
-message GetAllRequest {}
+message GetAllCustomersRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse customers = 1;
+message GetAllCustomersResponse {
+  repeated GetCustomerByIdResponse customers = 1;
 }
 
-message GetByIdRequest {
+message GetCustomerByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetCustomerByIdResponse {
   int32 id = 1;
-  optional User.GetByIdResponse user = 2;
+  optional User.GetUserByIdResponse user = 2;
   Person.Person person = 3;
   Address.Address address = 4;
   optional bytes picture = 5;
@@ -44,14 +44,14 @@ message CustomerOption {
   repeated Person.Person dependents = 4;
 }
 
-message GetAllOptionsRequest {}
+message GetAllCustomersOptionsRequest {}
 
-message GetAllOptionsResponse {
+message GetAllCustomersOptionsResponse {
   repeated CustomerOption customer_options = 1;
 }
 
-message CreateRequest {
-  optional User.GetByIdResponse user = 1;
+message CreateCustomerRequest {
+  optional User.GetUserByIdResponse user = 1;
   Person.Person person = 2;
   Address.Address address = 3;
   optional bytes picture = 4;
@@ -59,10 +59,10 @@ message CreateRequest {
   repeated Person.Person dependents = 6;
 }
 
-message CreateResponse {}
+message CreateCustomerResponse {}
 
-message UpdateRequest {
-  optional User.GetByIdResponse user = 1;
+message UpdateCustomerRequest {
+  optional User.GetUserByIdResponse user = 1;
   Person.Person person = 2;
   Address.Address address = 3;
   optional bytes picture = 4;
@@ -70,10 +70,10 @@ message UpdateRequest {
   repeated Person.Person dependents = 6;
 }
 
-message UpdateResponse {}
+message UpdateCustomerResponse {}
 
-message DeleteRequest {
+message DeleteCustomerRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteCustomerResponse {}

@@ -7,67 +7,67 @@ import "Protos/time_of_day.proto";
 
 package Discipline;
 
-service DisciplineService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service DisciplineGrpc {
+  rpc GetAll(GetAllDisciplinesRequest) returns (GetAllDisciplinesResponse);
+  rpc GetById(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
+  rpc Post(CreateDisciplineRequest) returns (CreateDisciplineResponse);
+  rpc Put(UpdateDisciplineRequest) returns (UpdateDisciplineResponse);
+  rpc Delete(DeleteDisciplineRequest) returns (DeleteDisciplineResponse);
 }
 
-message GetAllRequest {}
+message GetAllDisciplinesRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse disciplines = 1;
+message GetAllDisciplinesResponse {
+  repeated GetDisciplineByIdResponse disciplines = 1;
 }
 
-message GetByIdRequest {
+message GetDisciplineByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetDisciplineByIdResponse {
   int32 id = 1;
   string name = 2;
   float tuition_price = 3;
-  Teacher.GetByIdResponse teacher = 4;
+  Teacher.GetTeacherByIdResponse teacher = 4;
   Time.TimeOfDay start_time = 5;
   Time.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
-  repeated Customer.GetByIdResponse students = 8;
+  repeated Customer.GetCustomerByIdResponse students = 8;
   bool is_active = 9;
 }
 
-message CreateRequest {
+message CreateDisciplineRequest {
   string name = 1;
   float tuition_price = 2;
-  Teacher.GetByIdResponse teacher = 3;
+  Teacher.GetTeacherByIdResponse teacher = 3;
   Time.TimeOfDay start_time = 4;
   Time.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  repeated Customer.GetByIdResponse students = 7;
+  repeated Customer.GetCustomerByIdResponse students = 7;
   optional bool is_active = 8;
 }
 
-message CreateResponse {}
+message CreateDisciplineResponse {}
 
-message UpdateRequest {
+message UpdateDisciplineRequest {
   string name = 1;
   float tuition_price = 2;
-  Teacher.GetByIdResponse teacher = 3;
+  Teacher.GetTeacherByIdResponse teacher = 3;
   Time.TimeOfDay start_time = 4;
   Time.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  repeated Customer.GetByIdResponse students = 7;
+  repeated Customer.GetCustomerByIdResponse students = 7;
   bool is_active = 8;
 }
 
-message UpdateResponse {}
+message UpdateDisciplineResponse {}
 
-message DeleteRequest {
+message DeleteDisciplineRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteDisciplineResponse {}
 
 enum DayOfWeek
 {

@@ -6,29 +6,29 @@ import "Protos/person.proto";
 
 package Teacher;
 
-service TeacherService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+service TeacherGrpc {
+  rpc GetAll(GetAllTeachersRequest) returns (GetAllTeachersResponse);
+  rpc GetById(GetTeacherByIdRequest) returns (GetTeacherByIdResponse);
   // Options  are lean data for dropdowns and alike
-  rpc GetAllOptions(GetAllOptionsRequest) returns (GetAllOptionsResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc GetAllOptions(GetAllTeachersOptionsRequest) returns (GetAllTeachersOptionsResponse);
+  rpc Post(CreateTeacherRequest) returns (CreateTeacherResponse);
+  rpc Put(UpdateTeacherRequest) returns (UpdateTeacherResponse);
+  rpc Delete(DeleteTeacherRequest) returns (DeleteTeacherResponse);
 }
 
-message GetAllRequest {}
+message GetAllTeachersRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse teachers = 1;
+message GetAllTeachersResponse {
+  repeated GetTeacherByIdResponse teachers = 1;
 }
 
-message GetByIdRequest {
+message GetTeacherByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetTeacherByIdResponse {
   int32 id = 1;
-  User.GetByIdResponse user = 2;
+  User.GetUserByIdResponse user = 2;
   Person.Person person = 3;
 }
 
@@ -37,28 +37,28 @@ message TeacherOption {
   Person.Person person = 2;
 }
 
-message GetAllOptionsRequest {}
+message GetAllTeachersOptionsRequest {}
 
-message GetAllOptionsResponse {
+message GetAllTeachersOptionsResponse {
   repeated TeacherOption teacher_options = 1;
 }
 
-message CreateRequest {
-  User.GetByIdResponse user = 1;
+message CreateTeacherRequest {
+  User.GetUserByIdResponse user = 1;
   Person.Person person = 2;
 }
 
-message CreateResponse {}
+message CreateTeacherResponse {}
 
-message UpdateRequest {
-  User.GetByIdResponse user = 1;
+message UpdateTeacherRequest {
+  User.GetUserByIdResponse user = 1;
   Person.Person person = 2;
 }
 
-message UpdateResponse {}
+message UpdateTeacherResponse {}
 
-message DeleteRequest {
+message DeleteTeacherRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteTeacherResponse {}

@@ -5,45 +5,45 @@ import "Protos/sale.proto";
 
 package Order;
 
-service OrderService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service OrderGrpc {
+  rpc GetAll(GetAllOrdersRequest) returns (GetAllOrdersResponse);
+  rpc GetById(GetOrderByIdRequest) returns (GetOrderByIdResponse);
+  rpc Post(CreateOrderRequest) returns (CreateOrderResponse);
+  rpc Put(UpdateOrderRequest) returns (UpdateOrderResponse);
+  rpc Delete(DeleteOrderRequest) returns (DeleteOrderResponse);
 }
 
-message GetAllRequest {}
+message GetAllOrdersRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse orders = 1;
+message GetAllOrdersResponse {
+  repeated GetOrderByIdResponse orders = 1;
 }
 
-message GetByIdRequest {
+message GetOrderByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetOrderByIdResponse {
   int32 id = 1;
-  Sale.GetByIdResponse sale = 2;
+  Sale.GetSaleByIdResponse sale = 2;
   // TODO
 }
 
-message CreateRequest {
+message CreateOrderRequest {
   string name = 1;
   // TODO
 }
 
-message CreateResponse {}
+message CreateOrderResponse {}
 
-message UpdateRequest {
+message UpdateOrderRequest {
   // TODO
 }
 
-message UpdateResponse {}
+message UpdateOrderResponse {}
 
-message DeleteRequest {
+message DeleteOrderRequest {
     int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteOrderResponse {}

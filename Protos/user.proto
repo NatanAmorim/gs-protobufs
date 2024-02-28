@@ -3,46 +3,46 @@ option csharp_namespace = "gs_server";
 
 package User;
 
-service UserService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service UserGrpc {
+  rpc GetAll(GetAllUsersRequest) returns (GetAllUsersResponse);
+  rpc GetById(GetUserByIdRequest) returns (GetUserByIdResponse);
+  rpc Post(CreateUserRequest) returns (CreateUserResponse);
+  rpc Put(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc Delete(DeleteUserRequest) returns (DeleteUserResponse);
 }
 
-message GetAllRequest {}
+message GetAllUsersRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse users = 1;
+message GetAllUsersResponse {
+  repeated GetUserByIdResponse users = 1;
 }
 
-message GetByIdRequest {
+message GetUserByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetUserByIdResponse {
   int32 id = 1;
   string email = 2;
   string role = 3;
 }
 
-message CreateRequest {
+message CreateUserRequest {
   string email = 1;
   string role = 2;
   string password = 3;
 }
 
-message CreateResponse {}
+message CreateUserResponse {}
 
-message UpdateRequest {
+message UpdateUserRequest {
   string email = 1;
 }
 
-message UpdateResponse {}
+message UpdateUserResponse {}
 
-message DeleteRequest {
+message DeleteUserRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteUserResponse {}

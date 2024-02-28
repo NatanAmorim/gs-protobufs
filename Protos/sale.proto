@@ -6,27 +6,27 @@ import "Protos/product.proto";
 
 package Sale;
 
-service SaleService {
-  rpc GetAll(GetAllRequest) returns (GetAllResponse);
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  rpc Post(CreateRequest) returns (CreateResponse);
-  rpc Put(UpdateRequest) returns (UpdateResponse);
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+service SaleGrpc {
+  rpc GetAll(GetAllSalesRequest) returns (GetAllSalesResponse);
+  rpc GetById(GetSaleByIdRequest) returns (GetSaleByIdResponse);
+  rpc Post(CreateSaleRequest) returns (CreateSaleResponse);
+  rpc Put(UpdateSaleRequest) returns (UpdateSaleResponse);
+  rpc Delete(DeleteSaleRequest) returns (DeleteSaleResponse);
 }
 
-message GetAllRequest {}
+message GetAllSalesRequest {}
 
-message GetAllResponse {
-  repeated GetByIdResponse vendas = 1;
+message GetAllSalesResponse {
+  repeated GetSaleByIdResponse vendas = 1;
 }
 
-message GetByIdRequest {
+message GetSaleByIdRequest {
   int32 id = 1;
 }
 
-message GetByIdResponse {
+message GetSaleByIdResponse {
   int32 id = 1;
-  optional Customer.GetByIdResponse customer = 2;
+  optional Customer.GetCustomerByIdResponse customer = 2;
   string observations = 3;
   float total_price = 4;
   float amount_paid = 5;
@@ -35,8 +35,8 @@ message GetByIdResponse {
   repeated SalePayment Payments = 8;
 }
 
-message CreateRequest {
-  optional Customer.GetByIdResponse customer = 1;
+message CreateSaleRequest {
+  optional Customer.GetCustomerByIdResponse customer = 1;
   string observations = 2;
   float total_price = 3;
   float amount_paid = 4;
@@ -45,10 +45,10 @@ message CreateRequest {
   repeated SalePayment Payments = 7;
 }
 
-message CreateResponse {}
+message CreateSaleResponse {}
 
-message UpdateRequest {
-  optional Customer.GetByIdResponse customer = 1;
+message UpdateSaleRequest {
+  optional Customer.GetCustomerByIdResponse customer = 1;
   string observations = 2;
   float total_price = 3;
   float amount_paid = 4;
@@ -57,13 +57,13 @@ message UpdateRequest {
   repeated SalePayment Payments = 7;
 }
 
-message UpdateResponse {}
+message UpdateSaleResponse {}
 
-message DeleteRequest {
+message DeleteSaleRequest {
   int32 id = 1;
 }
 
-message DeleteResponse {}
+message DeleteSaleResponse {}
 
 message SaleItem {
   int32 id = 1;

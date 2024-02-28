@@ -3,7 +3,7 @@ option csharp_namespace = "gs_server";
 
 package Auth;
 
-service AuthService {
+service AuthGrpc {
     rpc Login(LoginRequest) returns (LoginResponse);
     rpc Logout(LogoutRequest) returns (LogoutResponse);
     rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
