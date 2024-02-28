@@ -1,0 +1,62 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+import "Protos/date.proto";
+
+package Tuition;
+
+service TuitionService {
+  // Get list
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  // Get single
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // Post
+  rpc Post(CreateRequest) returns (CreateResponse);
+  // Put
+  rpc Put(UpdateRequest) returns (UpdateResponse);
+  // Delete
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated GetByIdResponse tuitions = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  int32 id = 1;
+  Date.CalendarDate payment_date = 2;
+  float total_price = 3;
+  float amount_paid = 4;
+  float total_discount = 5;
+  string payment_method = 6;
+}
+
+message CreateRequest {
+  Date.CalendarDate payment_date = 1;
+  float total_price = 2;
+  float amount_paid = 3;
+  float total_discount = 4;
+}
+
+message CreateResponse {}
+
+message UpdateRequest {
+  Date.CalendarDate payment_date = 1;
+  float total_price = 2;
+  float amount_paid = 3;
+  float total_discount = 4;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {}

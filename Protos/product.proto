@@ -1,0 +1,65 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+package Product;
+
+service ProductService {
+  // Get list
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  // Get single
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // Post
+  rpc Post(CreateRequest) returns (CreateResponse);
+  // Put
+  rpc Put(UpdateRequest) returns (UpdateResponse);
+  // Delete
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated GetByIdResponse products = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  int32 id = 1;
+  string name = 2;
+  optional bytes picture = 3;
+  repeated ProductVariant variants = 4;
+}
+
+message CreateRequest {
+  string name = 1;
+  optional bytes picture = 2;
+  repeated ProductVariant variants = 3;
+}
+
+message CreateResponse {}
+
+message UpdateRequest {
+  string name = 1;
+  optional bytes picture = 2;
+  repeated ProductVariant variants = 3;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {}
+
+message ProductVariant {
+  int32 id = 1;
+  string description = 2;
+  string bar_code = 3;
+  float unit_price = 4;
+  int32 stock_amount = 5;
+  int32 stock_minimum_amount = 6;
+}

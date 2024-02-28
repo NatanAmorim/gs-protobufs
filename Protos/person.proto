@@ -1,0 +1,13 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+package Person;
+
+message Person {
+  optional int32 id = 1;
+  string name = 2;
+  string mobile_phone_number = 3;
+  string birth_date = 4;
+  string cpf = 5; // Cadastro de Pessoas Físicas (CPF)
+  string cin = 6; // Carteira de Identidade Nacional (CIN)
+}

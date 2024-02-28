@@ -1,0 +1,14 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+package Address;
+
+message Address {
+  int32 id = 1;
+  string street_address = 2; // Logadouro.
+  string country = 3;
+  string postal_code = 4;
+  string state = 5;
+  string city = 6;
+  string additional_details = 7;
+}

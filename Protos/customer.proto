@@ -1,0 +1,84 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+import "Protos/address.proto";
+import "Protos/user.proto";
+import "Protos/person.proto";
+
+package Customer;
+
+service CustomerService {
+  // Get list
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  // Get single
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // Get list options (Lean data for dropdowns and alike)
+  rpc GetAllOptions(GetAllOptionsRequest) returns (GetAllOptionsResponse);
+  // Post
+  rpc Post(CreateRequest) returns (CreateResponse);
+  // Put
+  rpc Put(UpdateRequest) returns (UpdateResponse);
+  // Delete
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated GetByIdResponse customers = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  int32 id = 1;
+  optional User.GetByIdResponse user = 2;
+  Person.Person person = 3;
+  Address.Address address = 4;
+  optional bytes picture = 5;
+  string pix = 6;
+  repeated Person.Person dependents = 7;
+}
+
+message CustomerOption {
+  int32 id = 1;
+  Person.Person person = 2;
+  optional bytes picture = 3;
+  repeated Person.Person dependents = 4;
+}
+
+message GetAllOptionsRequest {}
+
+message GetAllOptionsResponse {
+  repeated CustomerOption customer_options = 1;
+}
+
+message CreateRequest {
+  optional User.GetByIdResponse user = 1;
+  Person.Person person = 2;
+  Address.Address address = 3;
+  optional bytes picture = 4;
+  string pix = 5;
+  repeated Person.Person dependents = 6;
+}
+
+message CreateResponse {}
+
+message UpdateRequest {
+  optional User.GetByIdResponse user = 1;
+  Person.Person person = 2;
+  Address.Address address = 3;
+  optional bytes picture = 4;
+  string pix = 5;
+  repeated Person.Person dependents = 6;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {}

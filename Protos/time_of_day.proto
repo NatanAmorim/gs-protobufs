@@ -1,0 +1,15 @@
+// source https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+package Time;
+
+// Represents a time of day. The date and time zone are not significant.
+message TimeOfDay {
+  // Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+  // to allow the value "24:00:00" for scenarios like business closing time.
+  int32 hours = 1;
+
+  // Minutes of hour of day. Must be from 0 to 59.
+  int32 minutes = 2;
+}

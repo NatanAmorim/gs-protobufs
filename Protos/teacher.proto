@@ -1,0 +1,69 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+import "Protos/user.proto";
+import "Protos/person.proto";
+
+package Teacher;
+
+service TeacherService {
+  // Get list
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  // Get single
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // Get list options (Lean data for dropdowns and alike)
+  rpc GetAllOptions(GetAllOptionsRequest) returns (GetAllOptionsResponse);
+  // Post
+  rpc Post(CreateRequest) returns (CreateResponse);
+  // Put
+  rpc Put(UpdateRequest) returns (UpdateResponse);
+  // Delete
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated GetByIdResponse teachers = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  int32 id = 1;
+  User.GetByIdResponse user = 2;
+  Person.Person person = 3;
+}
+
+message TeacherOption {
+  int32 id = 1;
+  Person.Person person = 2;
+}
+
+message GetAllOptionsRequest {}
+
+message GetAllOptionsResponse {
+  repeated TeacherOption teacher_options = 1;
+}
+
+message CreateRequest {
+  User.GetByIdResponse user = 1;
+  Person.Person person = 2;
+}
+
+message CreateResponse {}
+
+message UpdateRequest {
+  User.GetByIdResponse user = 1;
+  Person.Person person = 2;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {}

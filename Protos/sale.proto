@@ -1,0 +1,83 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+import "Protos/customer.proto";
+import "Protos/product.proto";
+
+package Sale;
+
+service SaleService {
+  // Get list
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  // Get single
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // Post
+  rpc Post(CreateRequest) returns (CreateResponse);
+  // Put
+  rpc Put(UpdateRequest) returns (UpdateResponse);
+  // Delete
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated GetByIdResponse vendas = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  int32 id = 1;
+  optional Customer.GetByIdResponse customer = 2;
+  string observations = 3;
+  float total_price = 4;
+  float amount_paid = 5;
+  float total_discount = 6;
+  repeated SaleItem Itens = 7;
+  repeated SalePayment Payments = 8;
+}
+
+message CreateRequest {
+  optional Customer.GetByIdResponse customer = 1;
+  string observations = 2;
+  float total_price = 3;
+  float amount_paid = 4;
+  float total_discount = 5;
+  repeated SaleItem Itens = 6;
+  repeated SalePayment Payments = 7;
+}
+
+message CreateResponse {}
+
+message UpdateRequest {
+  optional Customer.GetByIdResponse customer = 1;
+  string observations = 2;
+  float total_price = 3;
+  float amount_paid = 4;
+  float total_discount = 5;
+  repeated SaleItem Itens = 6;
+  repeated SalePayment Payments = 7;
+}
+
+message UpdateResponse {}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message DeleteResponse {}
+
+message SaleItem {
+  int32 id = 1;
+  Product.ProductVariant product = 2;
+  int32 amount_items_sold = 3;
+}
+
+message SalePayment {
+  int32 id = 1;
+  float amount_paid = 2;
+  string payment_method = 3;
+}
