@@ -6,6 +6,7 @@ package Auth;
 service AuthGrpc {
     rpc Login(LoginRequest) returns (LoginResponse);
     rpc Logout(LogoutRequest) returns (LogoutResponse);
+    rpc Register(RegisterRequest) returns (RegisterResponse);
     rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
 }
 
@@ -23,6 +24,14 @@ message LogoutRequest {
 }
 
 message LogoutResponse {}
+
+message RegisterRequest {
+  string email = 1;
+  string role = 2;
+  string password = 3;
+}
+
+message RegisterResponse {}
 
 message NewPasswordRequest {
     string old_password = 1;

@@ -6,7 +6,6 @@ package User;
 service UserGrpc {
   rpc GetAll(GetAllUsersRequest) returns (GetAllUsersResponse);
   rpc GetById(GetUserByIdRequest) returns (GetUserByIdResponse);
-  rpc Post(CreateUserRequest) returns (CreateUserResponse);
   rpc Put(UpdateUserRequest) returns (UpdateUserResponse);
   rpc Delete(DeleteUserRequest) returns (DeleteUserResponse);
 }
@@ -26,14 +25,6 @@ message GetUserByIdResponse {
   string email = 2;
   string role = 3;
 }
-
-message CreateUserRequest {
-  string email = 1;
-  string role = 2;
-  string password = 3;
-}
-
-message CreateUserResponse {}
 
 message UpdateUserRequest {
   string email = 1;
