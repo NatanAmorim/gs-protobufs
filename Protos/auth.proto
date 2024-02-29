@@ -9,6 +9,7 @@ service AuthService {
     rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
     rpc Register(RegisterRequest) returns (RegisterResponse);
     rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
+    rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
 }
 
 message LoginRequest {
@@ -43,8 +44,14 @@ message RegisterRequest {
 message RegisterResponse {}
 
 message NewPasswordRequest {
+    string email = 1;
+}
+
+message NewPasswordResponse {}
+
+message ChangePasswordRequest {
     string old_password = 1;
     string new_password = 2;
 }
 
-message NewPasswordResponse {}
+message ChangePasswordResponse {}
