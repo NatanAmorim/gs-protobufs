@@ -3,9 +3,9 @@ option csharp_namespace = "gs_server";
 
 import "Protos/sale.proto";
 
-package Order;
+package gs_protobufs.order;
 
-service OrderGrpc {
+service OrderService {
   rpc GetAll(GetAllOrdersRequest) returns (GetAllOrdersResponse);
   rpc GetById(GetOrderByIdRequest) returns (GetOrderByIdResponse);
   rpc Post(CreateOrderRequest) returns (CreateOrderResponse);
@@ -25,7 +25,7 @@ message GetOrderByIdRequest {
 
 message GetOrderByIdResponse {
   int32 id = 1;
-  Sale.GetSaleByIdResponse sale = 2;
+  gs_protobufs.sale.GetSaleByIdResponse sale = 2;
   // TODO
 }
 

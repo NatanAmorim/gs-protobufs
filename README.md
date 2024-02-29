@@ -20,7 +20,7 @@ This project is a submodule of the front-end and back-end.
 - To add to your project use the following command (only add it if it's not already in the file `.gitmodules`).
 
 ```sh
-git submodule add https://github.com/NatanAmorim/gs-protobufs
+git submodule add https://github.com/NatanAmorim/gs_protobufs
 ```
 
 If this is your first time after adding it to the repository, you need to use `init` first:

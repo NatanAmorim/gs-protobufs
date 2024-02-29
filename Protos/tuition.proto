@@ -1,11 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-import "Protos/date.proto";
+import "Protos/calendar_date.proto";
 
-package Tuition;
+package gs_protobufs.tuition;
 
-service TuitionGrpc {
+service TuitionService {
   rpc GetAll(GetAllTuitionsRequest) returns (GetAllTuitionsResponse);
   rpc GetById(GetTuitionByIdRequest) returns (GetTuitionByIdRequest);
   rpc Post(CreateTuitionRequest) returns (CreateTuitionResponse);
@@ -25,7 +25,7 @@ message GetTuitionByIdRequest {
 
 message GetTuitionByIdResponse {
   int32 id = 1;
-  Date.CalendarDate payment_date = 2;
+  gs_protobufs.calendar_date.CalendarDate payment_date = 2;
   float total_price = 3;
   float amount_paid = 4;
   float total_discount = 5;
@@ -33,7 +33,7 @@ message GetTuitionByIdResponse {
 }
 
 message CreateTuitionRequest {
-  Date.CalendarDate payment_date = 1;
+  gs_protobufs.calendar_date.CalendarDate payment_date = 1;
   float total_price = 2;
   float amount_paid = 3;
   float total_discount = 4;
@@ -42,7 +42,7 @@ message CreateTuitionRequest {
 message CreateTuitionResponse {}
 
 message UpdateTuitionRequest {
-  Date.CalendarDate payment_date = 1;
+  gs_protobufs.calendar_date.CalendarDate payment_date = 1;
   float total_price = 2;
   float amount_paid = 3;
   float total_discount = 4;

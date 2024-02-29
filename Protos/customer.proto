@@ -5,9 +5,9 @@ import "Protos/address.proto";
 import "Protos/user.proto";
 import "Protos/person.proto";
 
-package Customer;
+package gs_protobufs.customer;
 
-service CustomerGrpc {
+service CustomerService {
   rpc GetAll(GetAllCustomersRequest) returns (GetAllCustomersResponse);
   rpc GetById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
   // Options  are lean data for dropdowns and alike
@@ -29,19 +29,19 @@ message GetCustomerByIdRequest {
 
 message GetCustomerByIdResponse {
   int32 id = 1;
-  optional User.GetUserByIdResponse user = 2;
-  Person.Person person = 3;
-  Address.Address address = 4;
+  optional gs_protobufs.user.GetUserByIdResponse user = 2;
+  gs_protobufs.person.Person person = 3;
+  gs_protobufs.address.Address address = 4;
   optional bytes picture = 5;
   string pix = 6;
-  repeated Person.Person dependents = 7;
+  repeated gs_protobufs.person.Person dependents = 7;
 }
 
 message CustomerOption {
   int32 id = 1;
-  Person.Person person = 2;
+  gs_protobufs.person.Person person = 2;
   optional bytes picture = 3;
-  repeated Person.Person dependents = 4;
+  repeated gs_protobufs.person.Person dependents = 4;
 }
 
 message GetAllCustomersOptionsRequest {}
@@ -51,23 +51,23 @@ message GetAllCustomersOptionsResponse {
 }
 
 message CreateCustomerRequest {
-  optional User.GetUserByIdResponse user = 1;
-  Person.Person person = 2;
-  Address.Address address = 3;
+  optional gs_protobufs.user.GetUserByIdResponse user = 1;
+  gs_protobufs.person.Person person = 2;
+  gs_protobufs.address.Address address = 3;
   optional bytes picture = 4;
   string pix = 5;
-  repeated Person.Person dependents = 6;
+  repeated gs_protobufs.person.Person dependents = 6;
 }
 
 message CreateCustomerResponse {}
 
 message UpdateCustomerRequest {
-  optional User.GetUserByIdResponse user = 1;
-  Person.Person person = 2;
-  Address.Address address = 3;
+  optional gs_protobufs.user.GetUserByIdResponse user = 1;
+  gs_protobufs.person.Person person = 2;
+  gs_protobufs.address.Address address = 3;
   optional bytes picture = 4;
   string pix = 5;
-  repeated Person.Person dependents = 6;
+  repeated gs_protobufs.person.Person dependents = 6;
 }
 
 message UpdateCustomerResponse {}

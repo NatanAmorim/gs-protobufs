@@ -4,9 +4,9 @@ option csharp_namespace = "gs_server";
 import "Protos/customer.proto";
 import "Protos/product.proto";
 
-package Sale;
+package gs_protobufs.sale;
 
-service SaleGrpc {
+service SaleService {
   rpc GetAll(GetAllSalesRequest) returns (GetAllSalesResponse);
   rpc GetById(GetSaleByIdRequest) returns (GetSaleByIdResponse);
   rpc Post(CreateSaleRequest) returns (CreateSaleResponse);
@@ -26,7 +26,7 @@ message GetSaleByIdRequest {
 
 message GetSaleByIdResponse {
   int32 id = 1;
-  optional Customer.GetCustomerByIdResponse customer = 2;
+  optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string observations = 3;
   float total_price = 4;
   float amount_paid = 5;
@@ -36,7 +36,7 @@ message GetSaleByIdResponse {
 }
 
 message CreateSaleRequest {
-  optional Customer.GetCustomerByIdResponse customer = 1;
+  optional gs_protobufs.customer.GetCustomerByIdResponse customer = 1;
   string observations = 2;
   float total_price = 3;
   float amount_paid = 4;
@@ -48,7 +48,7 @@ message CreateSaleRequest {
 message CreateSaleResponse {}
 
 message UpdateSaleRequest {
-  optional Customer.GetCustomerByIdResponse customer = 1;
+  optional gs_protobufs.customer.GetCustomerByIdResponse customer = 1;
   string observations = 2;
   float total_price = 3;
   float amount_paid = 4;
@@ -67,7 +67,7 @@ message DeleteSaleResponse {}
 
 message SaleItem {
   int32 id = 1;
-  Product.ProductVariant product = 2;
+  gs_protobufs.product.ProductVariant product = 2;
   int32 amount_items_sold = 3;
 }
 

@@ -5,9 +5,9 @@ import "Protos/customer.proto";
 import "Protos/teacher.proto";
 import "Protos/time_of_day.proto";
 
-package Discipline;
+package gs_protobufs.discipline;
 
-service DisciplineGrpc {
+service DisciplineService {
   rpc GetAll(GetAllDisciplinesRequest) returns (GetAllDisciplinesResponse);
   rpc GetById(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
   rpc Post(CreateDisciplineRequest) returns (CreateDisciplineResponse);
@@ -29,22 +29,22 @@ message GetDisciplineByIdResponse {
   int32 id = 1;
   string name = 2;
   float tuition_price = 3;
-  Teacher.GetTeacherByIdResponse teacher = 4;
-  Time.TimeOfDay start_time = 5;
-  Time.TimeOfDay end_time = 6;
+  gs_protobufs.teacher.GetTeacherByIdResponse teacher = 4;
+  gs_protobufs.time_of_day.TimeOfDay start_time = 5;
+  gs_protobufs.time_of_day.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
-  repeated Customer.GetCustomerByIdResponse students = 8;
+  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 8;
   bool is_active = 9;
 }
 
 message CreateDisciplineRequest {
   string name = 1;
   float tuition_price = 2;
-  Teacher.GetTeacherByIdResponse teacher = 3;
-  Time.TimeOfDay start_time = 4;
-  Time.TimeOfDay end_time = 5;
+  gs_protobufs.teacher.GetTeacherByIdResponse teacher = 3;
+  gs_protobufs.time_of_day.TimeOfDay start_time = 4;
+  gs_protobufs.time_of_day.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  repeated Customer.GetCustomerByIdResponse students = 7;
+  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 7;
   optional bool is_active = 8;
 }
 
@@ -53,11 +53,11 @@ message CreateDisciplineResponse {}
 message UpdateDisciplineRequest {
   string name = 1;
   float tuition_price = 2;
-  Teacher.GetTeacherByIdResponse teacher = 3;
-  Time.TimeOfDay start_time = 4;
-  Time.TimeOfDay end_time = 5;
+  gs_protobufs.teacher.GetTeacherByIdResponse teacher = 3;
+  gs_protobufs.time_of_day.TimeOfDay start_time = 4;
+  gs_protobufs.time_of_day.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  repeated Customer.GetCustomerByIdResponse students = 7;
+  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 7;
   bool is_active = 8;
 }
 

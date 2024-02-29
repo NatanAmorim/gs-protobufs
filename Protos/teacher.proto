@@ -4,9 +4,9 @@ option csharp_namespace = "gs_server";
 import "Protos/user.proto";
 import "Protos/person.proto";
 
-package Teacher;
+package gs_protobufs.teacher;
 
-service TeacherGrpc {
+service TeacherService {
   rpc GetAll(GetAllTeachersRequest) returns (GetAllTeachersResponse);
   rpc GetById(GetTeacherByIdRequest) returns (GetTeacherByIdResponse);
   // Options  are lean data for dropdowns and alike
@@ -28,13 +28,13 @@ message GetTeacherByIdRequest {
 
 message GetTeacherByIdResponse {
   int32 id = 1;
-  User.GetUserByIdResponse user = 2;
-  Person.Person person = 3;
+  gs_protobufs.user.GetUserByIdResponse user = 2;
+  gs_protobufs.person.Person person = 3;
 }
 
 message TeacherOption {
   int32 id = 1;
-  Person.Person person = 2;
+  gs_protobufs.person.Person person = 2;
 }
 
 message GetAllTeachersOptionsRequest {}
@@ -44,15 +44,15 @@ message GetAllTeachersOptionsResponse {
 }
 
 message CreateTeacherRequest {
-  User.GetUserByIdResponse user = 1;
-  Person.Person person = 2;
+  gs_protobufs.user.GetUserByIdResponse user = 1;
+  gs_protobufs.person.Person person = 2;
 }
 
 message CreateTeacherResponse {}
 
 message UpdateTeacherRequest {
-  User.GetUserByIdResponse user = 1;
-  Person.Person person = 2;
+  gs_protobufs.user.GetUserByIdResponse user = 1;
+  gs_protobufs.person.Person person = 2;
 }
 
 message UpdateTeacherResponse {}

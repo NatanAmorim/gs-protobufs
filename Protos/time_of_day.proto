@@ -2,7 +2,7 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-package Time;
+package gs_protobufs.time_of_day;
 
 // Represents a time of day. The date and time zone are not significant.
 message TimeOfDay {

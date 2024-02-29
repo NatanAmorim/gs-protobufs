@@ -1,9 +1,9 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-package Auth;
+package gs_protobufs.auth;
 
-service AuthGrpc {
+service AuthService {
     rpc Login(LoginRequest) returns (LoginResponse);
     rpc Logout(LogoutRequest) returns (LogoutResponse);
     rpc Register(RegisterRequest) returns (RegisterResponse);

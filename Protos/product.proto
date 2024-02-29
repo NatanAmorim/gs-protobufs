@@ -1,9 +1,9 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-package Product;
+package gs_protobufs.product;
 
-service ProductGrpc {
+service ProductService {
   rpc GetAll(GetAllProductsRequest) returns (GetAllProductsResponse);
   rpc GetById(GetProductByIdRequest) returns (GetProductByIdResponse);
   rpc Post(CreateProductRequest) returns (CreateProductResponse);

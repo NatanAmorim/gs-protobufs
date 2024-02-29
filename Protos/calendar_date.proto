@@ -3,7 +3,7 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-package Date;
+package gs_protobufs.calendar_date;
 
 // Represents a whole or partial calendar date, such as a birthday. The time of
 // day and time zone are either specified elsewhere or are insignificant. The
