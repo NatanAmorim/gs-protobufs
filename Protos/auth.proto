@@ -6,6 +6,7 @@ package gs_protobufs.auth;
 service AuthService {
     rpc Login(LoginRequest) returns (LoginResponse);
     rpc Logout(LogoutRequest) returns (LogoutResponse);
+    rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
     rpc Register(RegisterRequest) returns (RegisterResponse);
     rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
 }
@@ -24,6 +25,14 @@ message LogoutRequest {
 }
 
 message LogoutResponse {}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
+}
+
+message RefreshTokenResponse {
+  string access_token = 1;
+}
 
 message RegisterRequest {
   string email = 1;

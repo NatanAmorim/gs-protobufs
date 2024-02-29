@@ -41,6 +41,7 @@ git submodule update --recursive --remote
 
 ## Proto3 Language Guide
 
+- [Style Guide](https://protobuf.dev/programming-guides/style/) documentation for File Structure and naming conventions.
 - [gRPC Guides](https://grpc.io/docs/guides/)
 - [Language Guide (proto 3)](https://protobuf.dev/programming-guides/proto3) covers how to use the version 3 of Protocol Buffers in your project.
 - gRPC uses a set of well defined [status response codes](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) as part of the RPC API.

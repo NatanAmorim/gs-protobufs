@@ -1,0 +1,46 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server";
+
+package gs_protobufs.attendance;
+
+service AttendanceService {
+  rpc GetAll(GetAllAttendancesRequest) returns (GetAllAttendancesResponse);
+  rpc GetById(GetAttendanceByIdRequest) returns (GetAttendanceByIdResponse);
+  rpc Post(CreateAttendanceRequest) returns (CreateAttendanceResponse);
+  rpc Put(UpdateAttendanceRequest) returns (UpdateAttendanceResponse);
+  rpc Delete(DeleteAttendanceRequest) returns (DeleteAttendanceResponse);
+}
+
+message GetAllAttendancesRequest {}
+
+message GetAllAttendancesResponse {
+  repeated GetAttendanceByIdResponse attendances = 1;
+}
+
+message GetAttendanceByIdRequest {
+  int32 id = 1;
+}
+
+message GetAttendanceByIdResponse {
+  int32 id = 1;
+  // TODO
+}
+
+message CreateAttendanceRequest {
+  string name = 1;
+  // TODO
+}
+
+message CreateAttendanceResponse {}
+
+message UpdateAttendanceRequest {
+  // TODO
+}
+
+message UpdateAttendanceResponse {}
+
+message DeleteAttendanceRequest {
+    int32 id = 1;
+}
+
+message DeleteAttendanceResponse {}
