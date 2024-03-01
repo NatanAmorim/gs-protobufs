@@ -1,7 +1,7 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobuf";
 
-import "protos/calendar_date.proto";
+import "gs_protobufs/protos/calendar_date.proto";
 
 package gs_protobufs.tuition;
 
