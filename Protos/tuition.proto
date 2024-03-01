@@ -1,13 +1,13 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server";
+option csharp_namespace = "gs_server.Protobuf";
 
-import "Protos/calendar_date.proto";
+import "protos/calendar_date.proto";
 
 package gs_protobufs.tuition;
 
 service TuitionService {
   rpc GetAll(GetAllTuitionsRequest) returns (GetAllTuitionsResponse);
-  rpc GetById(GetTuitionByIdRequest) returns (GetTuitionByIdRequest);
+  rpc GetById(GetTuitionByIdRequest) returns (GetTuitionByIdResponse);
   rpc Post(CreateTuitionRequest) returns (CreateTuitionResponse);
   rpc Put(UpdateTuitionRequest) returns (UpdateTuitionResponse);
   rpc Delete(DeleteTuitionRequest) returns (DeleteTuitionResponse);

@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server";
+option csharp_namespace = "gs_server.Protobuf";
 
-import "Protos/customer.proto";
-import "Protos/teacher.proto";
-import "Protos/time_of_day.proto";
+import "protos/customer.proto";
+import "protos/teacher.proto";
+import "protos/time_of_day.proto";
 
 package gs_protobufs.discipline;
 

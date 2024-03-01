@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server";
+option csharp_namespace = "gs_server.Protobuf";
 
 package gs_protobufs.person;
 

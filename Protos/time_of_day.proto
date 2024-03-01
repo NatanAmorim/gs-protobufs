@@ -1,6 +1,6 @@
 // source https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto
 syntax = "proto3";
-option csharp_namespace = "gs_server";
+option csharp_namespace = "gs_server.Protobuf";
 
 package gs_protobufs.time_of_day;
 
