@@ -1,8 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobuf";
 
-import "gs_protobufs/protos/customer.proto";
-import "gs_protobufs/protos/product.proto";
+import "protos/customer.proto";
+import "protos/product.proto";
 
 package gs_protobufs.sale;
 
