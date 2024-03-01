@@ -24,13 +24,13 @@ message GetProductByIdRequest {
 message GetProductByIdResponse {
   int32 id = 1;
   string name = 2;
-  optional bytes picture = 3;
+  optional string picture_path = 3;
   repeated ProductVariant variants = 4;
 }
 
 message CreateProductRequest {
   string name = 1;
-  optional bytes picture = 2;
+  optional bytes picture_binary = 2;
   repeated ProductVariant variants = 3;
 }
 
@@ -38,7 +38,7 @@ message CreateProductResponse {}
 
 message UpdateProductRequest {
   string name = 1;
-  optional bytes picture = 2;
+  optional bytes picture_binary = 2;
   repeated ProductVariant variants = 3;
 }
 

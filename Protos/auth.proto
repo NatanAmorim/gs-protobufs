@@ -4,25 +4,25 @@ option csharp_namespace = "gs_server";
 package gs_protobufs.auth;
 
 service AuthService {
-    rpc Login(LoginRequest) returns (LoginResponse);
-    rpc Logout(LogoutRequest) returns (LogoutResponse);
-    rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
-    rpc Register(RegisterRequest) returns (RegisterResponse);
-    rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
-    rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc Logout(LogoutRequest) returns (LogoutResponse);
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
 }
 
 message LoginRequest {
-    string email = 1;
-    string password = 2;
+  string email = 1;
+  string password = 2;
 }
 message LoginResponse {
-    string access_token = 1;
-    string refresh_token = 2;
+  string access_token = 1;
+  string refresh_token = 2;
 }
 
 message LogoutRequest {
-    string refresh_token = 1;
+  string refresh_token = 1;
 }
 
 message LogoutResponse {}
@@ -44,14 +44,14 @@ message RegisterRequest {
 message RegisterResponse {}
 
 message NewPasswordRequest {
-    string email = 1;
+  string email = 1;
 }
 
 message NewPasswordResponse {}
 
 message ChangePasswordRequest {
-    string old_password = 1;
-    string new_password = 2;
+  string old_password = 1;
+  string new_password = 2;
 }
 
 message ChangePasswordResponse {}

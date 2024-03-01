@@ -1,7 +1,6 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server";
 
-import "Protos/address.proto";
 import "Protos/user.proto";
 import "Protos/person.proto";
 
@@ -31,8 +30,8 @@ message GetCustomerByIdResponse {
   int32 id = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
   gs_protobufs.person.Person person = 3;
-  gs_protobufs.address.Address address = 4;
-  optional bytes picture = 5;
+  string address = 4;
+  optional string picture_path = 5;
   string pix = 6;
   repeated gs_protobufs.person.Person dependents = 7;
 }
@@ -40,7 +39,7 @@ message GetCustomerByIdResponse {
 message CustomerOption {
   int32 id = 1;
   gs_protobufs.person.Person person = 2;
-  optional bytes picture = 3;
+  optional string picture_path = 3;
   repeated gs_protobufs.person.Person dependents = 4;
 }
 
@@ -53,8 +52,8 @@ message GetAllCustomersOptionsResponse {
 message CreateCustomerRequest {
   optional gs_protobufs.user.GetUserByIdResponse user = 1;
   gs_protobufs.person.Person person = 2;
-  gs_protobufs.address.Address address = 3;
-  optional bytes picture = 4;
+  string address = 3;
+  optional bytes picture_binary = 4;
   string pix = 5;
   repeated gs_protobufs.person.Person dependents = 6;
 }
@@ -64,8 +63,8 @@ message CreateCustomerResponse {}
 message UpdateCustomerRequest {
   optional gs_protobufs.user.GetUserByIdResponse user = 1;
   gs_protobufs.person.Person person = 2;
-  gs_protobufs.address.Address address = 3;
-  optional bytes picture = 4;
+  string address = 3;
+  optional bytes picture_binary = 4;
   string pix = 5;
   repeated gs_protobufs.person.Person dependents = 6;
 }
