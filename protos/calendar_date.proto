@@ -1,7 +1,7 @@
 // source https://github.com/googleapis/googleapis/blob/master/google/type/date.proto
 
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobuf";
+option csharp_namespace = "gs_server.Protobufs";
 
 package gs_protobufs.calendar_date;
 

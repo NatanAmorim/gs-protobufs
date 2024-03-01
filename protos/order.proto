@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobuf";
+option csharp_namespace = "gs_server.Protobufs";
 
 import "protos/sale.proto";
 
