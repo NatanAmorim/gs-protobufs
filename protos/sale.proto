@@ -1,8 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
-import "protos/customer.proto";
-import "protos/product.proto";
+import "gs_protobufs/protos/customer.proto";
+import "gs_protobufs/protos/product.proto";
 
 package gs_protobufs.sale;
 
@@ -21,7 +21,7 @@ message GetAllSalesResponse {
 }
 
 message GetSaleByIdRequest {
-  int32 id = 1;
+  int32 sale_id = 1;
 }
 
 message GetSaleByIdResponse {
@@ -60,7 +60,7 @@ message UpdateSaleRequest {
 message UpdateSaleResponse {}
 
 message DeleteSaleRequest {
-  int32 id = 1;
+  int32 sale_id = 1;
 }
 
 message DeleteSaleResponse {}

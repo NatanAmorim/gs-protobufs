@@ -18,11 +18,10 @@ message GetAllAttendancesResponse {
 }
 
 message GetAttendanceByIdRequest {
-  int32 id = 1;
+  int32 attendance_id = 1;
 }
 
 message GetAttendanceByIdResponse {
-  int32 id = 1;
   // TODO
 }
 
@@ -40,7 +39,7 @@ message UpdateAttendanceRequest {
 message UpdateAttendanceResponse {}
 
 message DeleteAttendanceRequest {
-    int32 id = 1;
+  int32 attendance_id = 1;
 }
 
 message DeleteAttendanceResponse {}

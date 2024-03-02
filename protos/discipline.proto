@@ -1,9 +1,9 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
-import "protos/customer.proto";
-import "protos/teacher.proto";
-import "protos/time_of_day.proto";
+import "gs_protobufs/protos/customer.proto";
+import "gs_protobufs/protos/teacher.proto";
+import "gs_protobufs/protos/time_of_day.proto";
 
 package gs_protobufs.discipline;
 
@@ -22,7 +22,7 @@ message GetAllDisciplinesResponse {
 }
 
 message GetDisciplineByIdRequest {
-  int32 id = 1;
+  int32 discipline_id = 1;
 }
 
 message GetDisciplineByIdResponse {
@@ -64,7 +64,7 @@ message UpdateDisciplineRequest {
 message UpdateDisciplineResponse {}
 
 message DeleteDisciplineRequest {
-  int32 id = 1;
+  int32 discipline_id = 1;
 }
 
 message DeleteDisciplineResponse {}

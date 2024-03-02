@@ -1,8 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
-import "protos/user.proto";
-import "protos/person.proto";
+import "gs_protobufs/protos/user.proto";
+import "gs_protobufs/protos/person.proto";
 
 package gs_protobufs.teacher;
 
@@ -23,7 +23,7 @@ message GetAllTeachersResponse {
 }
 
 message GetTeacherByIdRequest {
-  int32 id = 1;
+  int32 teacher_id = 1;
 }
 
 message GetTeacherByIdResponse {
@@ -58,7 +58,7 @@ message UpdateTeacherRequest {
 message UpdateTeacherResponse {}
 
 message DeleteTeacherRequest {
-  int32 id = 1;
+  int32 teacher_id = 1;
 }
 
 message DeleteTeacherResponse {}
