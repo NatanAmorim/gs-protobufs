@@ -7,16 +7,18 @@ import "gs_protobufs/protos/product.proto";
 package gs_protobufs.sale;
 
 service SaleService {
-  rpc GetAll(GetAllSalesRequest) returns (GetAllSalesResponse);
+  rpc GetPaginated(GetPaginatedSalesRequest) returns (GetPaginatedSalesResponse);
   rpc GetById(GetSaleByIdRequest) returns (GetSaleByIdResponse);
   rpc Post(CreateSaleRequest) returns (CreateSaleResponse);
   rpc Put(UpdateSaleRequest) returns (UpdateSaleResponse);
   rpc Delete(DeleteSaleRequest) returns (DeleteSaleResponse);
 }
 
-message GetAllSalesRequest {}
+message GetPaginatedSalesRequest {
+  int32 cursor = 1;
+}
 
-message GetAllSalesResponse {
+message GetPaginatedSalesResponse {
   repeated GetSaleByIdResponse vendas = 1;
 }
 

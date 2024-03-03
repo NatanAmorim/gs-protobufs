@@ -8,16 +8,18 @@ import "gs_protobufs/protos/time_of_day.proto";
 package gs_protobufs.discipline;
 
 service DisciplineService {
-  rpc GetAll(GetAllDisciplinesRequest) returns (GetAllDisciplinesResponse);
+  rpc GetPaginated(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
   rpc GetById(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
   rpc Post(CreateDisciplineRequest) returns (CreateDisciplineResponse);
   rpc Put(UpdateDisciplineRequest) returns (UpdateDisciplineResponse);
   rpc Delete(DeleteDisciplineRequest) returns (DeleteDisciplineResponse);
 }
 
-message GetAllDisciplinesRequest {}
+message GetPaginatedDisciplinesRequest {
+  int32 cursor = 1;
+}
 
-message GetAllDisciplinesResponse {
+message GetPaginatedDisciplinesResponse {
   repeated GetDisciplineByIdResponse disciplines = 1;
 }
 

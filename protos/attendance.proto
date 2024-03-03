@@ -4,16 +4,18 @@ option csharp_namespace = "gs_server.Protobufs";
 package gs_protobufs.attendance;
 
 service AttendanceService {
-  rpc GetAll(GetAllAttendancesRequest) returns (GetAllAttendancesResponse);
+  rpc GetPaginated(GetPaginatedAttendancesRequest) returns (GetPaginatedAttendancesResponse);
   rpc GetById(GetAttendanceByIdRequest) returns (GetAttendanceByIdResponse);
   rpc Post(CreateAttendanceRequest) returns (CreateAttendanceResponse);
   rpc Put(UpdateAttendanceRequest) returns (UpdateAttendanceResponse);
   rpc Delete(DeleteAttendanceRequest) returns (DeleteAttendanceResponse);
 }
 
-message GetAllAttendancesRequest {}
+message GetPaginatedAttendancesRequest {
+  int32 cursor = 1;
+}
 
-message GetAllAttendancesResponse {
+message GetPaginatedAttendancesResponse {
   repeated GetAttendanceByIdResponse attendances = 1;
 }
 

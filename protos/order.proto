@@ -6,16 +6,18 @@ import "gs_protobufs/protos/sale.proto";
 package gs_protobufs.order;
 
 service OrderService {
-  rpc GetAll(GetAllOrdersRequest) returns (GetAllOrdersResponse);
+  rpc GetPaginated(GetPaginatedOrdersRequest) returns (GetPaginatedOrdersResponse);
   rpc GetById(GetOrderByIdRequest) returns (GetOrderByIdResponse);
   rpc Post(CreateOrderRequest) returns (CreateOrderResponse);
   rpc Put(UpdateOrderRequest) returns (UpdateOrderResponse);
   rpc Delete(DeleteOrderRequest) returns (DeleteOrderResponse);
 }
 
-message GetAllOrdersRequest {}
+message GetPaginatedOrdersRequest {
+  int32 cursor = 1;
+}
 
-message GetAllOrdersResponse {
+message GetPaginatedOrdersResponse {
   repeated GetOrderByIdResponse orders = 1;
 }
 

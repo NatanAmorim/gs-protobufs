@@ -6,16 +6,18 @@ import "gs_protobufs/protos/calendar_date.proto";
 package gs_protobufs.tuition;
 
 service TuitionService {
-  rpc GetAll(GetAllTuitionsRequest) returns (GetAllTuitionsResponse);
+  rpc GetPaginated(GetPaginatedTuitionsRequest) returns (GetPaginatedTuitionsResponse);
   rpc GetById(GetTuitionByIdRequest) returns (GetTuitionByIdResponse);
   rpc Post(CreateTuitionRequest) returns (CreateTuitionResponse);
   rpc Put(UpdateTuitionRequest) returns (UpdateTuitionResponse);
   rpc Delete(DeleteTuitionRequest) returns (DeleteTuitionResponse);
 }
 
-message GetAllTuitionsRequest {}
+message GetPaginatedTuitionsRequest {
+  int32 cursor = 1;
+}
 
-message GetAllTuitionsResponse {
+message GetPaginatedTuitionsResponse {
   repeated GetTuitionByIdRequest tuitions = 1;
 }
 

@@ -7,7 +7,7 @@ import "gs_protobufs/protos/person.proto";
 package gs_protobufs.customer;
 
 service CustomerService {
-  rpc GetAll(GetAllCustomersRequest) returns (GetAllCustomersResponse);
+  rpc GetPaginated(GetPaginatedCustomersRequest) returns (GetPaginatedCustomersResponse);
   rpc GetById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
   // Options  are lean data for dropdowns and alike
   rpc GetAllOptions(GetAllCustomersOptionsRequest) returns (GetAllCustomersOptionsResponse);
@@ -16,9 +16,11 @@ service CustomerService {
   rpc Delete(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
-message GetAllCustomersRequest {}
+message GetPaginatedCustomersRequest {
+  int32 cursor = 1;
+}
 
-message GetAllCustomersResponse {
+message GetPaginatedCustomersResponse {
   repeated GetCustomerByIdResponse customers = 1;
 }
 

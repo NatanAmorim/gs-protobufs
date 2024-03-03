@@ -4,15 +4,17 @@ option csharp_namespace = "gs_server.Protobufs";
 package gs_protobufs.user;
 
 service UserService {
-  rpc GetAll(GetAllUsersRequest) returns (GetAllUsersResponse);
+  rpc GetPaginated(GetPaginatedUsersRequest) returns (GetPaginatedUsersResponse);
   rpc GetById(GetUserByIdRequest) returns (GetUserByIdResponse);
   rpc Put(UpdateUserRequest) returns (UpdateUserResponse);
   rpc Delete(DeleteUserRequest) returns (DeleteUserResponse);
 }
 
-message GetAllUsersRequest {}
+message GetPaginatedUsersRequest {
+  int32 cursor = 1;
+}
 
-message GetAllUsersResponse {
+message GetPaginatedUsersResponse {
   repeated GetUserByIdResponse users = 1;
 }
 
