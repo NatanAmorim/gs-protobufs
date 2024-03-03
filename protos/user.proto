@@ -16,6 +16,7 @@ message GetPaginatedUsersRequest {
 
 message GetPaginatedUsersResponse {
   repeated GetUserByIdResponse users = 1;
+  int32 next_cursor = 2;
 }
 
 message GetUserByIdRequest {

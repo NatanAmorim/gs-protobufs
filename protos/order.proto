@@ -19,6 +19,7 @@ message GetPaginatedOrdersRequest {
 
 message GetPaginatedOrdersResponse {
   repeated GetOrderByIdResponse orders = 1;
+  int32 next_cursor = 2;
 }
 
 message GetOrderByIdRequest {

@@ -20,6 +20,7 @@ message GetPaginatedSalesRequest {
 
 message GetPaginatedSalesResponse {
   repeated GetSaleByIdResponse vendas = 1;
+  int32 next_cursor = 2;
 }
 
 message GetSaleByIdRequest {

@@ -21,6 +21,7 @@ message GetPaginatedDisciplinesRequest {
 
 message GetPaginatedDisciplinesResponse {
   repeated GetDisciplineByIdResponse disciplines = 1;
+  int32 next_cursor = 2;
 }
 
 message GetDisciplineByIdRequest {

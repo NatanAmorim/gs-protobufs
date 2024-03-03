@@ -19,6 +19,7 @@ message GetPaginatedTuitionsRequest {
 
 message GetPaginatedTuitionsResponse {
   repeated GetTuitionByIdRequest tuitions = 1;
+  int32 next_cursor = 2;
 }
 
 message GetTuitionByIdRequest {

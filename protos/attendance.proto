@@ -17,6 +17,7 @@ message GetPaginatedAttendancesRequest {
 
 message GetPaginatedAttendancesResponse {
   repeated GetAttendanceByIdResponse attendances = 1;
+  int32 next_cursor = 2;
 }
 
 message GetAttendanceByIdRequest {
