@@ -37,8 +37,7 @@ message RefreshTokenResponse {
 
 message RegisterRequest {
   string email = 1;
-  string role = 2;
-  string password = 3;
+  string password = 2;
 }
 
 message RegisterResponse {}
