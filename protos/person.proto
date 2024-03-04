@@ -4,7 +4,7 @@ option csharp_namespace = "gs_server.Protobufs";
 package gs_protobufs.person;
 
 message Person {
-  optional int32 id = 1;
+  optional int32 person_id = 1;
   string name = 2;
   string mobile_phone_number = 3;
   string birth_date = 4;

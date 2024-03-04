@@ -28,7 +28,7 @@ message GetSaleByIdRequest {
 }
 
 message GetSaleByIdResponse {
-  int32 id = 1;
+  int32 sale_id = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string observations = 3;
   float total_price = 4;
@@ -51,13 +51,14 @@ message CreateSaleRequest {
 message CreateSaleResponse {}
 
 message UpdateSaleRequest {
-  optional gs_protobufs.customer.GetCustomerByIdResponse customer = 1;
-  string observations = 2;
-  float total_price = 3;
-  float amount_paid = 4;
-  float total_discount = 5;
-  repeated SaleItem Itens = 6;
-  repeated SalePayment Payments = 7;
+  int32 sale_id = 1;
+  optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
+  string observations = 3;
+  float total_price = 4;
+  float amount_paid = 5;
+  float total_discount = 6;
+  repeated SaleItem Itens = 7;
+  repeated SalePayment Payments = 8;
 }
 
 message UpdateSaleResponse {}
@@ -69,13 +70,13 @@ message DeleteSaleRequest {
 message DeleteSaleResponse {}
 
 message SaleItem {
-  int32 id = 1;
+  int32 sale_id = 1;
   gs_protobufs.product.ProductVariant product = 2;
   int32 amount_items_sold = 3;
 }
 
 message SalePayment {
-  int32 id = 1;
+  int32 sale_id = 1;
   float amount_paid = 2;
   string payment_method = 3;
 }

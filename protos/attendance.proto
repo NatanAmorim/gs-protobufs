@@ -36,6 +36,7 @@ message CreateAttendanceRequest {
 message CreateAttendanceResponse {}
 
 message UpdateAttendanceRequest {
+  int32 attendance_id = 1;
   // TODO
 }
 

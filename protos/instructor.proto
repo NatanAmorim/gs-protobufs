@@ -1,0 +1,68 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server.Protobufs";
+
+import "gs_protobufs/protos/user.proto";
+import "gs_protobufs/protos/person.proto";
+
+package gs_protobufs.instructor;
+
+service InstructorService {
+  rpc GetPaginated(GetPaginatedInstructorsRequest) returns (GetPaginatedInstructorsResponse);
+  rpc GetById(GetInstructorByIdRequest) returns (GetInstructorByIdResponse);
+  // Options  are lean data for dropdowns and alike
+  rpc GetAllOptions(GetAllInstructorsOptionsRequest) returns (GetAllInstructorsOptionsResponse);
+  rpc Post(CreateInstructorRequest) returns (CreateInstructorResponse);
+  rpc Put(UpdateInstructorRequest) returns (UpdateInstructorResponse);
+  rpc Delete(DeleteInstructorRequest) returns (DeleteInstructorResponse);
+}
+
+message GetPaginatedInstructorsRequest {
+  int32 cursor = 1;
+}
+
+message GetPaginatedInstructorsResponse {
+  repeated GetInstructorByIdResponse instructors = 1;
+  int32 next_cursor = 2;
+}
+
+message GetInstructorByIdRequest {
+  int32 instructor_id = 1;
+}
+
+message GetInstructorByIdResponse {
+  int32 instructor_id = 1;
+  gs_protobufs.user.GetUserByIdResponse user = 2;
+  gs_protobufs.person.Person person = 3;
+}
+
+message InstructorOption {
+  int32 instructor_id = 1;
+  gs_protobufs.person.Person person = 2;
+}
+
+message GetAllInstructorsOptionsRequest {}
+
+message GetAllInstructorsOptionsResponse {
+  repeated InstructorOption instructor_options = 1;
+}
+
+message CreateInstructorRequest {
+  gs_protobufs.user.GetUserByIdResponse user = 1;
+  gs_protobufs.person.Person person = 2;
+}
+
+message CreateInstructorResponse {}
+
+message UpdateInstructorRequest {
+  int32 instructor_id = 1;
+  gs_protobufs.user.GetUserByIdResponse user = 2;
+  gs_protobufs.person.Person person = 3;
+}
+
+message UpdateInstructorResponse {}
+
+message DeleteInstructorRequest {
+  int32 instructor_id = 1;
+}
+
+message DeleteInstructorResponse {}

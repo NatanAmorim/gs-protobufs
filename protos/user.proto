@@ -24,13 +24,14 @@ message GetUserByIdRequest {
 }
 
 message GetUserByIdResponse {
-  int32 id = 1;
+  int32 user_id = 1;
   string email = 2;
   string role = 3;
 }
 
 message UpdateUserRequest {
-  string email = 1;
+  int32 user_id = 1;
+  string email = 2;
 }
 
 message UpdateUserResponse {}

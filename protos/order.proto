@@ -27,7 +27,7 @@ message GetOrderByIdRequest {
 }
 
 message GetOrderByIdResponse {
-  int32 id = 1;
+  int32 order_id = 1;
   gs_protobufs.sale.GetSaleByIdResponse sale = 2;
   // TODO
 }
@@ -40,6 +40,7 @@ message CreateOrderRequest {
 message CreateOrderResponse {}
 
 message UpdateOrderRequest {
+  int32 order_id = 1;
   // TODO
 }
 
