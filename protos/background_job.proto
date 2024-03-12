@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server.Protobufs";
+
+package gs_protobufs.background_job;
+service BackgroundJobService {
+  rpc GetPaginated(GetPaginatedBackgroundJobsRequest) returns (GetPaginatedBackgroundJobsResponse);
+}
+
+message GetPaginatedBackgroundJobsRequest {
+  int32 cursor = 1;
+}
+
+message GetPaginatedBackgroundJobsResponse {
+  repeated GetBackgroundJobByIdResponse background_jobs = 1;
+  int32 next_cursor = 2;
+}
+
+message GetBackgroundJobByIdRequest {
+  int32 backgroundJob_id = 1;
+}
+
+message GetBackgroundJobByIdResponse {
+  int32 backgroundJob_id = 1;
+  string name = 2;
+  bool has_finished = 3;
+}

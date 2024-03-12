@@ -1,0 +1,61 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server.Protobufs";
+
+import "gs_protobufs/protos/decimal.proto";
+import "gs_protobufs/protos/payment.proto";
+
+package gs_protobufs.subscription_billing;
+
+service SubscriptionBillingService {
+  rpc GetPaginated(GetPaginatedSubscriptionsBillingRequest) returns (GetPaginatedSubscriptionsBillingResponse);
+  rpc GetById(GetSubscriptionBillingByIdRequest) returns (GetSubscriptionBillingByIdResponse);
+  rpc Post(CreateSubscriptionBillingRequest) returns (CreateSubscriptionBillingResponse);
+  rpc Put(UpdateSubscriptionBillingRequest) returns (UpdateSubscriptionBillingResponse);
+  rpc Delete(DeleteSubscriptionBillingRequest) returns (DeleteSubscriptionBillingResponse);
+}
+
+message GetPaginatedSubscriptionsBillingRequest {
+  int32 cursor = 1;
+}
+
+message GetPaginatedSubscriptionsBillingResponse {
+  repeated GetSubscriptionBillingByIdResponse subscriptionBillings = 1;
+  int32 next_cursor = 2;
+}
+
+message GetSubscriptionBillingByIdRequest {
+  int32 subscription_billing_id = 1;
+}
+
+message GetSubscriptionBillingByIdResponse {
+  int32 subscription_billing_id = 1;
+  int32 subscription_id = 2;
+  string observations = 3;
+  gs_protobufs.decimal_value.DecimalValue total_discount = 4;
+  gs_protobufs.payment.GetPaymentByIdResponse payment = 5;
+}
+
+message CreateSubscriptionBillingRequest {
+  int32 subscription_id = 1;
+  string observations = 2;
+  gs_protobufs.decimal_value.DecimalValue total_discount = 3;
+  gs_protobufs.payment.GetPaymentByIdResponse payment = 4;
+}
+
+message CreateSubscriptionBillingResponse {}
+
+message UpdateSubscriptionBillingRequest {
+  int32 subscription_billing_id = 1;
+  int32 subscription_id = 2;
+  string observations = 3;
+  gs_protobufs.decimal_value.DecimalValue total_discount = 4;
+  gs_protobufs.payment.GetPaymentByIdResponse payment = 5;
+}
+
+message UpdateSubscriptionBillingResponse {}
+
+message DeleteSubscriptionBillingRequest {
+  int32 subscription_billing_id = 1;
+}
+
+message DeleteSubscriptionBillingResponse {}

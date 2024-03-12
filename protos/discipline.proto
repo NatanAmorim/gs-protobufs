@@ -36,8 +36,7 @@ message GetDisciplineByIdResponse {
   gs_protobufs.time_of_day.TimeOfDay start_time = 5;
   gs_protobufs.time_of_day.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
-  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 8;
-  bool is_active = 9;
+  bool is_active = 8;
 }
 
 message CreateDisciplineRequest {
@@ -47,8 +46,7 @@ message CreateDisciplineRequest {
   gs_protobufs.time_of_day.TimeOfDay start_time = 4;
   gs_protobufs.time_of_day.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 7;
-  optional bool is_active = 8;
+  optional bool is_active = 7;
 }
 
 message CreateDisciplineResponse {}
@@ -61,8 +59,7 @@ message UpdateDisciplineRequest {
   gs_protobufs.time_of_day.TimeOfDay start_time = 5;
   gs_protobufs.time_of_day.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
-  repeated gs_protobufs.customer.GetCustomerByIdResponse students = 8;
-  bool is_active = 9;
+  bool is_active = 8;
 }
 
 message UpdateDisciplineResponse {}

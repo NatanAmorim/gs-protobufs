@@ -1,8 +1,6 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
-import "gs_protobufs/protos/sale.proto";
-
 package gs_protobufs.order;
 
 service OrderService {
@@ -28,12 +26,10 @@ message GetOrderByIdRequest {
 
 message GetOrderByIdResponse {
   int32 order_id = 1;
-  gs_protobufs.sale.GetSaleByIdResponse sale = 2;
   // TODO
 }
 
 message CreateOrderRequest {
-  string name = 1;
   // TODO
 }
 

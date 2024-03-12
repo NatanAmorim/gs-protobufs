@@ -33,10 +33,10 @@ message GetCustomerByIdResponse {
   int32 customer_id = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
   gs_protobufs.person.Person person = 3;
-  string physical_address = 4;
-  optional string picture_path = 5;
-  string pix = 6;
-  repeated gs_protobufs.person.Person dependents = 7;
+  repeated gs_protobufs.person.Person dependents = 4;
+  string billing_address = 5;
+  optional string picture_path = 6;
+  string pix = 7;
 }
 
 message CustomerOption {
@@ -55,10 +55,10 @@ message GetAllCustomersOptionsResponse {
 message CreateCustomerRequest {
   optional gs_protobufs.user.GetUserByIdResponse user = 1;
   gs_protobufs.person.Person person = 2;
-  string physical_address = 3;
-  optional bytes picture_binary = 4;
-  string pix = 5;
-  repeated gs_protobufs.person.Person dependents = 6;
+  repeated gs_protobufs.person.Person dependents = 3;
+  string billing_address = 4;
+  optional string picture_path = 5;
+  string pix = 6;
 }
 
 message CreateCustomerResponse {}
@@ -67,10 +67,10 @@ message UpdateCustomerRequest {
   int32 customer_id = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
   gs_protobufs.person.Person person = 3;
-  string physical_address = 4;
-  optional bytes picture_binary = 5;
-  string pix = 6;
-  repeated gs_protobufs.person.Person dependents = 7;
+  repeated gs_protobufs.person.Person dependents = 4;
+  string billing_address = 5;
+  optional string picture_path = 6;
+  string pix = 7;
 }
 
 message UpdateCustomerResponse {}

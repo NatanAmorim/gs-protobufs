@@ -3,6 +3,7 @@ option csharp_namespace = "gs_server.Protobufs";
 
 import "gs_protobufs/protos/customer.proto";
 import "gs_protobufs/protos/product.proto";
+import "gs_protobufs/protos/return.proto";
 
 package gs_protobufs.sale;
 
@@ -31,21 +32,15 @@ message GetSaleByIdResponse {
   int32 sale_id = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string observations = 3;
-  float total_price = 4;
-  float amount_paid = 5;
-  float total_discount = 6;
-  repeated SaleItem Itens = 7;
-  repeated SalePayment Payments = 8;
+  repeated SaleItem ItemsSold = 4;
+  repeated gs_protobufs.return.GetReturnByIdResponse Returns = 5;
 }
 
 message CreateSaleRequest {
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 1;
   string observations = 2;
-  float total_price = 3;
-  float amount_paid = 4;
-  float total_discount = 5;
-  repeated SaleItem Itens = 6;
-  repeated SalePayment Payments = 7;
+  repeated SaleItem ItemsSold = 3;
+  repeated gs_protobufs.return.GetReturnByIdResponse Returns = 4;
 }
 
 message CreateSaleResponse {}
@@ -54,11 +49,8 @@ message UpdateSaleRequest {
   int32 sale_id = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string observations = 3;
-  float total_price = 4;
-  float amount_paid = 5;
-  float total_discount = 6;
-  repeated SaleItem Itens = 7;
-  repeated SalePayment Payments = 8;
+  repeated SaleItem ItemsSold = 4;
+  repeated gs_protobufs.return.GetReturnByIdResponse Returns = 5;
 }
 
 message UpdateSaleResponse {}

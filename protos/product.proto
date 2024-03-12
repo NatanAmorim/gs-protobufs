@@ -24,14 +24,20 @@ message GetProductByIdRequest {
 message GetProductByIdResponse {
   int32 product_id = 1;
   string name = 2;
-  optional string picture_path = 3;
-  repeated ProductVariant variants = 4;
+  string description = 3;
+  optional string picture_path = 4;
+  optional ProductBrand brand = 5;
+  optional ProductCategory category = 6;
+  repeated ProductVariant variants = 7;
 }
 
 message CreateProductRequest {
-  string name = 1;
-  optional bytes picture_binary = 2;
-  repeated ProductVariant variants = 3;
+  string name = 2;
+  string description = 3;
+  optional bytes picture_binary = 4;
+  optional ProductBrand brand = 5;
+  optional ProductCategory category = 6;
+  repeated ProductVariant variants = 7;
 }
 
 message CreateProductResponse {}
@@ -39,8 +45,11 @@ message CreateProductResponse {}
 message UpdateProductRequest {
   int32 product_id = 1;
   string name = 2;
-  optional bytes picture_binary = 3;
-  repeated ProductVariant variants = 4;
+  string description = 3;
+  optional bytes picture_binary = 4;
+  optional ProductBrand brand = 5;
+  optional ProductCategory category = 6;
+  repeated ProductVariant variants = 7;
 }
 
 message UpdateProductResponse {}
@@ -51,11 +60,29 @@ message DeleteProductRequest {
 
 message DeleteProductResponse {}
 
+message ProductBrand {
+  int32 product_brand_id = 1;
+  string name = 2;
+}
+
+message ProductCategory {
+  int32 product_category_id = 1;
+  string name = 2;
+}
+
 message ProductVariant {
-  int32 variant_id = 1;
-  string description = 2;
-  string bar_code = 3;
-  float unit_price = 4;
-  int32 stock_amount = 5;
-  int32 stock_minimum_amount = 6;
+  int32 product_variant_id = 1;
+  string color = 2;
+  string size = 3;
+  string bar_code = 4;
+  string sku = 5;
+  float unit_price = 6;
+  ProductVariantInventory inventory = 7;
+}
+
+message ProductVariantInventory {
+  int32 product_variant_inventory_id = 1;
+  int32 product_variant_id = 2;
+  int32 quantity_available = 3;
+  int32 minimum_stock_amount = 4;
 }

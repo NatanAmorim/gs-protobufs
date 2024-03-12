@@ -1,0 +1,55 @@
+syntax = "proto3";
+option csharp_namespace = "gs_server.Protobufs";
+
+package gs_protobufs.notification;
+service NotificationService {
+  rpc GetPaginated(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
+  rpc GetById(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
+  rpc Post(CreateNotificationRequest) returns (CreateNotificationResponse);
+  rpc Put(UpdateNotificationRequest) returns (UpdateNotificationResponse);
+  rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
+}
+
+message GetPaginatedNotificationsRequest {
+  int32 cursor = 1;
+}
+
+message GetPaginatedNotificationsResponse {
+  repeated GetNotificationByIdResponse notifications = 1;
+  int32 next_cursor = 2;
+}
+
+message GetNotificationByIdRequest {
+  int32 notification_id = 1;
+}
+
+message GetNotificationByIdResponse {
+  int32 notification_id = 1;
+  int32 user_id = 2;
+  string title = 3;
+  string message = 4;
+  bool is_unread = 5;
+}
+
+message CreateNotificationRequest {
+  int32 user_id = 1;
+  string title = 2;
+  string message = 3;
+}
+
+message CreateNotificationResponse {}
+
+message UpdateNotificationRequest {
+  int32 notification_id = 1;
+  string title = 2;
+  string message = 3;
+  bool is_unread = 4;
+}
+
+message UpdateNotificationResponse {}
+
+message DeleteNotificationRequest {
+  int32 notification_id = 1;
+}
+
+message DeleteNotificationResponse {}
