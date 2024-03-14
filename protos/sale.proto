@@ -31,14 +31,14 @@ message GetSaleByIdRequest {
 message GetSaleByIdResponse {
   int32 sale_id = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
-  string observations = 3;
+  string comments = 3;
   repeated SaleItem ItemsSold = 4;
   repeated gs_protobufs.return.GetReturnByIdResponse Returns = 5;
 }
 
 message CreateSaleRequest {
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 1;
-  string observations = 2;
+  string comments = 2;
   repeated SaleItem ItemsSold = 3;
   repeated gs_protobufs.return.GetReturnByIdResponse Returns = 4;
 }
@@ -48,7 +48,7 @@ message CreateSaleResponse {}
 message UpdateSaleRequest {
   int32 sale_id = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
-  string observations = 3;
+  string comments = 3;
   repeated SaleItem ItemsSold = 4;
   repeated gs_protobufs.return.GetReturnByIdResponse Returns = 5;
 }
