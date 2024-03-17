@@ -36,7 +36,7 @@ message GetCustomerByIdResponse {
   repeated gs_protobufs.person.Person dependents = 4;
   string billing_address = 5;
   optional string picture_path = 6;
-  string pix = 7;
+  string additional_information  = 7;
 }
 
 message CustomerOption {
@@ -58,7 +58,7 @@ message CreateCustomerRequest {
   repeated gs_protobufs.person.Person dependents = 3;
   string billing_address = 4;
   optional string picture_path = 5;
-  string pix = 6;
+  string additional_information = 6;
 }
 
 message CreateCustomerResponse {}
@@ -70,7 +70,7 @@ message UpdateCustomerRequest {
   repeated gs_protobufs.person.Person dependents = 4;
   string billing_address = 5;
   optional string picture_path = 6;
-  string pix = 7;
+  string additional_information = 7;
 }
 
 message UpdateCustomerResponse {}
