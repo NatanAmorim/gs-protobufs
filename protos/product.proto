@@ -15,7 +15,7 @@ service ProductService {
 
   rpc GetAllBrands(GetAllProductBrandsRequest) returns (GetAllProductBrandsResponse);
   rpc PostBrand(CreateProductBrandRequest) returns (CreateProductBrandResponse);
-  rpc GetAllCategorys(GetAllProductCategorysRequest) returns (GetAllProductCategorysResponse);
+  rpc GetAllCategories(GetAllProductCategoriesRequest) returns (GetAllProductCategoriesResponse);
   rpc PostCategory(CreateProductCategoryRequest) returns (CreateProductCategoryResponse);
 }
 
@@ -86,9 +86,9 @@ message ProductBrand {
   string name = 2;
 }
 
-message GetAllProductCategorysRequest {}
+message GetAllProductCategoriesRequest {}
 
-message GetAllProductCategorysResponse {
+message GetAllProductCategoriesResponse {
   repeated ProductCategory brands = 1;
 }
 
