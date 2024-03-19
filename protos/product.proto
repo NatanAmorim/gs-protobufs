@@ -11,6 +11,11 @@ service ProductService {
   rpc Post(CreateProductRequest) returns (CreateProductResponse);
   rpc Put(UpdateProductRequest) returns (UpdateProductResponse);
   rpc Delete(DeleteProductRequest) returns (DeleteProductResponse);
+
+  rpc GetAllBrands(GetAllProductBrandsRequest) returns (GetAllProductBrandsResponse);
+  rpc PostBrand(CreateProductBrandRequest) returns (CreateProductBrandResponse);
+  rpc GetAllCategorys(GetAllProductCategorysRequest) returns (GetAllProductCategorysResponse);
+  rpc PostCategory(CreateProductCategoryRequest) returns (CreateProductCategoryResponse);
 }
 
 message GetAllProductsRequest {}
@@ -28,8 +33,8 @@ message GetProductByIdResponse {
   string name = 2;
   string description = 3;
   optional string picture_path = 4;
-  optional ProductBrand brand = 5;
-  optional ProductCategory category = 6;
+  optional int32 product_brand_id = 5;
+  optional int32 product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -37,8 +42,8 @@ message CreateProductRequest {
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  optional ProductBrand brand = 5;
-  optional ProductCategory category = 6;
+  optional int32 product_brand_id = 5;
+  optional int32 product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -49,8 +54,8 @@ message UpdateProductRequest {
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  optional ProductBrand brand = 5;
-  optional ProductCategory category = 6;
+  optional int32 product_brand_id = 5;
+  optional int32 product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -62,8 +67,34 @@ message DeleteProductRequest {
 
 message DeleteProductResponse {}
 
+message GetAllProductBrandsRequest {}
+
+message GetAllProductBrandsResponse {
+  repeated ProductBrand brands = 1;
+}
+
+message CreateProductBrandRequest {
+  int32 product_brand_id = 1;
+  string name = 2;
+}
+
+message CreateProductBrandResponse {}
+
 message ProductBrand {
   int32 product_brand_id = 1;
+  string name = 2;
+}
+
+message GetAllProductCategorysRequest {}
+
+message GetAllProductCategorysResponse {
+  repeated ProductCategory brands = 1;
+}
+
+message CreateProductCategoryRequest {}
+
+message CreateProductCategoryResponse {
+  int32 product_category_id = 1;
   string name = 2;
 }
 
