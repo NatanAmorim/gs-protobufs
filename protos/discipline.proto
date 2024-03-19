@@ -4,6 +4,7 @@ option csharp_namespace = "gs_server.Protobufs";
 import "gs_protobufs/protos/decimal.proto";
 import "gs_protobufs/protos/instructor.proto";
 import "gs_protobufs/protos/time_of_day.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.discipline;
 
@@ -46,7 +47,7 @@ message CreateDisciplineRequest {
   gs_protobufs.time_of_day.TimeOfDay start_time = 4;
   gs_protobufs.time_of_day.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
-  optional bool is_active = 7;
+  google.protobuf.BoolValue is_active = 7;
 }
 
 message CreateDisciplineResponse {}

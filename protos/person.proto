@@ -1,10 +1,12 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
+import "google/protobuf/wrappers.proto";
+
 package gs_protobufs.person;
 
 message Person {
-  optional int32 person_id = 1;
+  google.protobuf.Int32Value person_id = 1;
   string name = 2;
   string mobile_phone_number = 3;
   string birth_date = 4;

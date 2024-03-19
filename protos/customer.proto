@@ -3,6 +3,7 @@ option csharp_namespace = "gs_server.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
 import "gs_protobufs/protos/person.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.customer;
 
@@ -35,14 +36,14 @@ message GetCustomerByIdResponse {
   gs_protobufs.person.Person person = 3;
   repeated gs_protobufs.person.Person dependents = 4;
   string billing_address = 5;
-  optional string picture_path = 6;
+  google.protobuf.StringValue picture_path = 6;
   string additional_information  = 7;
 }
 
 message CustomerOption {
   int32 customer_id = 1;
   gs_protobufs.person.Person person = 2;
-  optional string picture_path = 3;
+  google.protobuf.StringValue picture_path = 3;
   repeated gs_protobufs.person.Person dependents = 4;
 }
 
@@ -57,7 +58,7 @@ message CreateCustomerRequest {
   gs_protobufs.person.Person person = 2;
   repeated gs_protobufs.person.Person dependents = 3;
   string billing_address = 4;
-  optional string picture_path = 5;
+  google.protobuf.StringValue picture_path = 5;
   string additional_information = 6;
 }
 
@@ -69,7 +70,7 @@ message UpdateCustomerRequest {
   gs_protobufs.person.Person person = 3;
   repeated gs_protobufs.person.Person dependents = 4;
   string billing_address = 5;
-  optional string picture_path = 6;
+  google.protobuf.StringValue picture_path = 6;
   string additional_information = 7;
 }
 

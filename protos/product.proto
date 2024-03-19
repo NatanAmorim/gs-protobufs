@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
 import "gs_protobufs/protos/decimal.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.product;
 
@@ -32,9 +33,9 @@ message GetProductByIdResponse {
   int32 product_id = 1;
   string name = 2;
   string description = 3;
-  optional string picture_path = 4;
-  optional int32 product_brand_id = 5;
-  optional int32 product_category_id = 6;
+  google.protobuf.StringValue picture_path = 4;
+  google.protobuf.Int32Value product_brand_id = 5;
+  google.protobuf.Int32Value product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -42,8 +43,8 @@ message CreateProductRequest {
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  optional int32 product_brand_id = 5;
-  optional int32 product_category_id = 6;
+  google.protobuf.Int32Value product_brand_id = 5;
+  google.protobuf.Int32Value product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -54,8 +55,8 @@ message UpdateProductRequest {
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  optional int32 product_brand_id = 5;
-  optional int32 product_category_id = 6;
+  google.protobuf.Int32Value product_brand_id = 5;
+  google.protobuf.Int32Value product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
