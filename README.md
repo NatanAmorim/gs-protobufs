@@ -48,6 +48,18 @@ git submodule update --recursive --remote
 - [Google Common Types](https://github.com/googleapis/googleapis/tree/master/google/type) This package contains definitions of common types for Google APIs.
 - Protobuf 3 support for Visual Studio Code with the extension [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3).
 
+> [!IMPORTANT]\
+> "optional" does not mean "nullable" in Protobuf.\
+> `"optional int32" != "int?"`
+
+An optional field is in one of two possible states:
+
+- the field is set, and contains a value that was explicitly set or parsed from the wire. It will be serialized to the wire.
+- the field is unset, and will return the default value. It will not be serialized to the wire.
+You can check to see if the value was explicitly set.
+
+For nullable on C# use [Wrapper Type Fields](https://protobuf.dev/reference/csharp/csharp-generated/#wrapper_types) from [wrappers.proto](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/wrappers.proto).
+
 ## Contributing Guidelines
 
 We prefer all communications to be in English or Portuguese.
