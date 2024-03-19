@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
 import "gs_protobufs/protos/customer.proto";
+import "gs_protobufs/protos/decimal.proto";
 import "gs_protobufs/protos/product.proto";
 import "gs_protobufs/protos/return.proto";
 
@@ -69,6 +70,6 @@ message SaleItem {
 
 message SalePayment {
   int32 sale_id = 1;
-  float amount_paid = 2;
+  gs_protobufs.decimal_value.DecimalValue amount_paid = 2;
   string payment_method = 3;
 }

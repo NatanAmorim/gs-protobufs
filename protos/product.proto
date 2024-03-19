@@ -1,6 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "gs_server.Protobufs";
 
+import "gs_protobufs/protos/decimal.proto";
+
 package gs_protobufs.product;
 
 service ProductService {
@@ -76,7 +78,7 @@ message ProductVariant {
   string size = 3;
   string bar_code = 4;
   string sku = 5;
-  float unit_price = 6;
+  gs_protobufs.decimal_value.DecimalValue unit_price = 6;
   ProductVariantInventory inventory = 7;
 }
 
