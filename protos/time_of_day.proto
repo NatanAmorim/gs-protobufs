@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 // Source: https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto
 
-package gs_protobufs.time_of_day;
+package gs_protobufs.custom_types;
 
 // Represents a time of day. The date and time zone are not significant.
 message TimeOfDay {

@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.person;
+package gs_protobufs.custom_types;
 
 message Person {
   google.protobuf.Int32Value person_id = 1;

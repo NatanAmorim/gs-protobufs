@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
 import "gs_protobufs/protos/person.proto";
@@ -32,12 +32,12 @@ message GetInstructorByIdRequest {
 message GetInstructorByIdResponse {
   int32 instructor_id = 1;
   gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.person.Person person = 3;
+  gs_protobufs.custom_types.Person person = 3;
 }
 
 message InstructorOption {
   int32 instructor_id = 1;
-  gs_protobufs.person.Person person = 2;
+  gs_protobufs.custom_types.Person person = 2;
 }
 
 message GetAllInstructorsOptionsRequest {}
@@ -48,7 +48,7 @@ message GetAllInstructorsOptionsResponse {
 
 message CreateInstructorRequest {
   gs_protobufs.user.GetUserByIdResponse user = 1;
-  gs_protobufs.person.Person person = 2;
+  gs_protobufs.custom_types.Person person = 2;
 }
 
 message CreateInstructorResponse {}
@@ -56,7 +56,7 @@ message CreateInstructorResponse {}
 message UpdateInstructorRequest {
   int32 instructor_id = 1;
   gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.person.Person person = 3;
+  gs_protobufs.custom_types.Person person = 3;
 }
 
 message UpdateInstructorResponse {}

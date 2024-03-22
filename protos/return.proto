@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/decimal.proto";
 
@@ -27,12 +27,12 @@ message GetReturnByIdRequest {
 
 message GetReturnByIdResponse {
   int32 return_id = 1;
-  gs_protobufs.decimal_value.DecimalValue total_amount_refunded = 2;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
   repeated ReturnItem ItemsReturned = 3;
 }
 
 message CreateReturnRequest {
-  gs_protobufs.decimal_value.DecimalValue total_amount_refunded = 1;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 1;
   repeated ReturnItem ItemsReturned = 2;
 }
 
@@ -40,7 +40,7 @@ message CreateReturnResponse {}
 
 message UpdateReturnRequest {
   int32 return_id = 1;
-  gs_protobufs.decimal_value.DecimalValue total_amount_refunded = 2;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
   repeated ReturnItem ItemsReturned = 3;
 }
 

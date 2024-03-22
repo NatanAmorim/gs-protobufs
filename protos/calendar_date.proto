@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 // Source: https://github.com/googleapis/googleapis/blob/master/google/type/date.proto
 
-package gs_protobufs.calendar_date;
+package gs_protobufs.custom_types;
 
 // Represents a whole or partial calendar date, such as a birthday. The time of
 // day and time zone are either specified elsewhere or are insignificant. The

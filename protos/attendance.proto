@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/calendar_date.proto";
 
@@ -28,7 +28,7 @@ message GetAttendanceByIdRequest {
 message GetAttendanceByIdResponse {
   int32 attendance_id = 1;
   int32 discipline_id = 2;
-  gs_protobufs.calendar_date.CalendarDate date = 3;
+  gs_protobufs.custom_types.CalendarDate date = 3;
   int32 present_student_ids = 4;
   int32 absent_student_ids = 5;
   string observations = 6;
@@ -36,7 +36,7 @@ message GetAttendanceByIdResponse {
 
 message CreateAttendanceRequest {
   int32 discipline_id = 2;
-  gs_protobufs.calendar_date.CalendarDate date = 3;
+  gs_protobufs.custom_types.CalendarDate date = 3;
   int32 present_student_ids = 4;
   int32 absent_student_ids = 5;
   string observations = 6;
@@ -47,7 +47,7 @@ message CreateAttendanceResponse {}
 message UpdateAttendanceRequest {
   int32 attendance_id = 1;
   int32 discipline_id = 2;
-  gs_protobufs.calendar_date.CalendarDate date = 3;
+  gs_protobufs.custom_types.CalendarDate date = 3;
   int32 present_student_ids = 4;
   int32 absent_student_ids = 5;
   string observations = 6;

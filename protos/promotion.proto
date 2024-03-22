@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/calendar_date.proto";
 
@@ -31,8 +31,8 @@ message GetPromotionByIdResponse {
   string name = 3;
   string description = 4;
   string discount_type = 5;
-  gs_protobufs.calendar_date.CalendarDate start_date = 6;
-  gs_protobufs.calendar_date.CalendarDate end_date = 7;
+  gs_protobufs.custom_types.CalendarDate start_date = 6;
+  gs_protobufs.custom_types.CalendarDate end_date = 7;
   bool is_active = 8;
 }
 
@@ -41,8 +41,8 @@ message CreatePromotionRequest {
   string name = 4;
   string description = 5;
   string discount_type = 6;
-  gs_protobufs.calendar_date.CalendarDate start_date = 7;
-  gs_protobufs.calendar_date.CalendarDate end_date = 8;
+  gs_protobufs.custom_types.CalendarDate start_date = 7;
+  gs_protobufs.custom_types.CalendarDate end_date = 8;
   bool is_active = 9;
 }
 
@@ -54,8 +54,8 @@ message UpdatePromotionRequest {
   string name = 3;
   string description = 4;
   string discount_type = 5;
-  gs_protobufs.calendar_date.CalendarDate start_date = 6;
-  gs_protobufs.calendar_date.CalendarDate end_date = 7;
+  gs_protobufs.custom_types.CalendarDate start_date = 6;
+  gs_protobufs.custom_types.CalendarDate end_date = 7;
   bool is_active = 8;
 }
 

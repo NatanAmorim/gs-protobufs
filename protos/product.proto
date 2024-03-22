@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/decimal.proto";
 import "google/protobuf/wrappers.proto";
@@ -110,7 +110,7 @@ message ProductVariant {
   string size = 3;
   string bar_code = 4;
   string sku = 5;
-  gs_protobufs.decimal_value.DecimalValue unit_price = 6;
+  gs_protobufs.custom_types.DecimalValue unit_price = 6;
   ProductVariantInventory inventory = 7;
 }
 

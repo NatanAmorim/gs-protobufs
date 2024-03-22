@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 // Source: https://github.com/dotnet-architecture/eBooks/blob/1ed30275281b9060964fcb2a4c363fe7797fe3f3/current/grpc-for-wcf-developers/gRPC-for-WCF-Developers.pdf#decimals
 // I recomend downloading the whole PDF ("Download raw file").
@@ -10,7 +10,7 @@ option csharp_namespace = "gs_server.Protobufs";
 // The decimal type in C# and F# (or Decimal in VB.NET) does not implement the
 // IEEE-754 standard, and is guaranteed to be precise. It exists to handle
 // money values.
-package gs_protobufs.decimal_value;
+package gs_protobufs.custom_types;
 // Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
 // Name "DecimalValue" prevents conflict with C# Decimal type
 message DecimalValue {

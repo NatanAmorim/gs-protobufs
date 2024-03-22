@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
 import "gs_protobufs/protos/person.proto";
@@ -33,8 +33,8 @@ message GetCustomerByIdRequest {
 message GetCustomerByIdResponse {
   int32 customer_id = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.person.Person person = 3;
-  repeated gs_protobufs.person.Person dependents = 4;
+  gs_protobufs.custom_types.Person person = 3;
+  repeated gs_protobufs.custom_types.Person dependents = 4;
   string billing_address = 5;
   google.protobuf.StringValue picture_path = 6;
   string additional_information  = 7;
@@ -42,9 +42,9 @@ message GetCustomerByIdResponse {
 
 message CustomerOption {
   int32 customer_id = 1;
-  gs_protobufs.person.Person person = 2;
+  gs_protobufs.custom_types.Person person = 2;
   google.protobuf.StringValue picture_path = 3;
-  repeated gs_protobufs.person.Person dependents = 4;
+  repeated gs_protobufs.custom_types.Person dependents = 4;
 }
 
 message GetAllCustomersOptionsRequest {}
@@ -55,8 +55,8 @@ message GetAllCustomersOptionsResponse {
 
 message CreateCustomerRequest {
   optional gs_protobufs.user.GetUserByIdResponse user = 1;
-  gs_protobufs.person.Person person = 2;
-  repeated gs_protobufs.person.Person dependents = 3;
+  gs_protobufs.custom_types.Person person = 2;
+  repeated gs_protobufs.custom_types.Person dependents = 3;
   string billing_address = 4;
   google.protobuf.StringValue picture_path = 5;
   string additional_information = 6;
@@ -67,8 +67,8 @@ message CreateCustomerResponse {}
 message UpdateCustomerRequest {
   int32 customer_id = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.person.Person person = 3;
-  repeated gs_protobufs.person.Person dependents = 4;
+  gs_protobufs.custom_types.Person person = 3;
+  repeated gs_protobufs.custom_types.Person dependents = 4;
   string billing_address = 5;
   google.protobuf.StringValue picture_path = 6;
   string additional_information = 7;

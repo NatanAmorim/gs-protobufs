@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "gs_server.Protobufs";
+option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/decimal.proto";
 import "gs_protobufs/protos/instructor.proto";
@@ -32,7 +32,7 @@ message GetDisciplineByIdRequest {
 message GetDisciplineByIdResponse {
   int32 discipline_id = 1;
   string name = 2;
-  gs_protobufs.decimal_value.DecimalValue tuition_price = 3;
+  gs_protobufs.custom_types.DecimalValue tuition_price = 3;
   gs_protobufs.instructor.GetInstructorByIdResponse instructor = 4;
   gs_protobufs.time_of_day.TimeOfDay start_time = 5;
   gs_protobufs.time_of_day.TimeOfDay end_time = 6;
@@ -42,7 +42,7 @@ message GetDisciplineByIdResponse {
 
 message CreateDisciplineRequest {
   string name = 1;
-  gs_protobufs.decimal_value.DecimalValue tuition_price = 2;
+  gs_protobufs.custom_types.DecimalValue tuition_price = 2;
   gs_protobufs.instructor.GetInstructorByIdResponse instructor = 3;
   gs_protobufs.time_of_day.TimeOfDay start_time = 4;
   gs_protobufs.time_of_day.TimeOfDay end_time = 5;
@@ -55,7 +55,7 @@ message CreateDisciplineResponse {}
 message UpdateDisciplineRequest {
   int32 discipline_id = 1;
   string name = 2;
-  gs_protobufs.decimal_value.DecimalValue tuition_price = 3;
+  gs_protobufs.custom_types.DecimalValue tuition_price = 3;
   gs_protobufs.instructor.GetInstructorByIdResponse instructor = 4;
   gs_protobufs.time_of_day.TimeOfDay start_time = 5;
   gs_protobufs.time_of_day.TimeOfDay end_time = 6;
