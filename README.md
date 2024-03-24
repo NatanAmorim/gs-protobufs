@@ -11,7 +11,7 @@ Licensed under the Apache License, Version 2.0; you may not use this app except 
 
 ## About
 
-Protobufs used by the server and apps in the company "Gislaine Studio de Dança" in Andradina/Brazil.
+Protobufs used by the server and apps in the company "Gislaine Studio" in Andradina-SP, Brazil.
 
 ## Git Submodules
 
