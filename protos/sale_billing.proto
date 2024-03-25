@@ -7,18 +7,18 @@ import "gs_protobufs/protos/payment.proto";
 package gs_protobufs.sale_billing;
 
 service SaleBillingService {
-  rpc GetPaginated(GetPaginatedSalesBillingRequest) returns (GetPaginatedSalesBillingResponse);
+  rpc GetPaginated(GetPaginatedSaleBillingsRequest) returns (GetPaginatedSaleBillingsResponse);
   rpc GetById(GetSaleBillingByIdRequest) returns (GetSaleBillingByIdResponse);
   rpc Post(CreateSaleBillingRequest) returns (CreateSaleBillingResponse);
   rpc Put(UpdateSaleBillingRequest) returns (UpdateSaleBillingResponse);
   rpc Delete(DeleteSaleBillingRequest) returns (DeleteSaleBillingResponse);
 }
 
-message GetPaginatedSalesBillingRequest {
+message GetPaginatedSaleBillingsRequest {
   int32 cursor = 1;
 }
 
-message GetPaginatedSalesBillingResponse {
+message GetPaginatedSaleBillingsResponse {
   repeated GetSaleBillingByIdResponse saleBillings = 1;
   int32 next_cursor = 2;
 }
