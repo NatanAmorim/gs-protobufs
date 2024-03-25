@@ -7,18 +7,18 @@ import "gs_protobufs/protos/payment.proto";
 package gs_protobufs.subscription_billing;
 
 service SubscriptionBillingService {
-  rpc GetPaginated(GetPaginatedSubscriptionsBillingRequest) returns (GetPaginatedSubscriptionsBillingResponse);
+  rpc GetPaginated(GetPaginatedSubscriptionBillingsRequest) returns (GetPaginatedSubscriptionBillingsResponse);
   rpc GetById(GetSubscriptionBillingByIdRequest) returns (GetSubscriptionBillingByIdResponse);
   rpc Post(CreateSubscriptionBillingRequest) returns (CreateSubscriptionBillingResponse);
   rpc Put(UpdateSubscriptionBillingRequest) returns (UpdateSubscriptionBillingResponse);
   rpc Delete(DeleteSubscriptionBillingRequest) returns (DeleteSubscriptionBillingResponse);
 }
 
-message GetPaginatedSubscriptionsBillingRequest {
+message GetPaginatedSubscriptionBillingsRequest {
   int32 cursor = 1;
 }
 
-message GetPaginatedSubscriptionsBillingResponse {
+message GetPaginatedSubscriptionBillingsResponse {
   repeated GetSubscriptionBillingByIdResponse subscriptionBillings = 1;
   int32 next_cursor = 2;
 }
