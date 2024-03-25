@@ -1,6 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "google/protobuf/wrappers.proto";
+
 package gs_protobufs.background_job;
 service BackgroundJobService {
   rpc GetPaginated(GetPaginatedBackgroundJobsRequest) returns (GetPaginatedBackgroundJobsResponse);
@@ -12,7 +14,7 @@ message GetPaginatedBackgroundJobsRequest {
 
 message GetPaginatedBackgroundJobsResponse {
   repeated GetBackgroundJobByIdResponse background_jobs = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetBackgroundJobByIdRequest {

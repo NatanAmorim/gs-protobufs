@@ -1,6 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "google/protobuf/wrappers.proto";
+
 package gs_protobufs.order;
 
 service OrderService {
@@ -17,7 +19,7 @@ message GetPaginatedOrdersRequest {
 
 message GetPaginatedOrdersResponse {
   repeated GetOrderByIdResponse orders = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetOrderByIdRequest {

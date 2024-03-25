@@ -1,6 +1,8 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "google/protobuf/wrappers.proto";
+
 package gs_protobufs.notification;
 service NotificationService {
   rpc GetPaginated(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
@@ -16,7 +18,7 @@ message GetPaginatedNotificationsRequest {
 
 message GetPaginatedNotificationsResponse {
   repeated GetNotificationByIdResponse notifications = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetNotificationByIdRequest {

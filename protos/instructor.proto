@@ -3,6 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
 import "gs_protobufs/protos/person.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.instructor;
 
@@ -22,7 +23,7 @@ message GetPaginatedInstructorsRequest {
 
 message GetPaginatedInstructorsResponse {
   repeated GetInstructorByIdResponse instructors = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetInstructorByIdRequest {

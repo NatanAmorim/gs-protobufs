@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/calendar_date.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.attendance;
 service AttendanceService {
@@ -18,7 +19,7 @@ message GetPaginatedAttendancesRequest {
 
 message GetPaginatedAttendancesResponse {
   repeated GetAttendanceByIdResponse attendances = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetAttendanceByIdRequest {

@@ -3,6 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/calendar_date.proto";
 import "gs_protobufs/protos/decimal.proto";
+import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.payment;
 service PaymentService {
@@ -19,7 +20,7 @@ message GetPaginatedPaymentsRequest {
 
 message GetPaginatedPaymentsResponse {
   repeated GetPaymentByIdResponse payments = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetPaymentByIdRequest {

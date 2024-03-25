@@ -23,7 +23,7 @@ message GetPaginatedCustomersRequest {
 
 message GetPaginatedCustomersResponse {
   repeated GetCustomerByIdResponse customers = 1;
-  int32 next_cursor = 2;
+  google.protobuf.Int32Value next_cursor = 2;
 }
 
 message GetCustomerByIdRequest {
