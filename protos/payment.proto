@@ -24,11 +24,11 @@ message GetPaginatedPaymentsResponse {
 }
 
 message GetPaymentByIdRequest {
-  int32 payment_id = 1;
+  int32 payment_pk = 1;
 }
 
 message GetPaymentByIdResponse {
-  int32 payment_id = 1;
+  int32 payment_pk = 1;
   int32 comments = 2;
   repeated PaymentInstallment installments = 3;
 }
@@ -41,7 +41,7 @@ message CreatePaymentRequest {
 message CreatePaymentResponse {}
 
 message UpdatePaymentRequest {
-  int32 payment_id = 1;
+  int32 payment_pk = 1;
   int32 comments = 2;
   repeated PaymentInstallment installments = 3;
 }
@@ -49,14 +49,14 @@ message UpdatePaymentRequest {
 message UpdatePaymentResponse {}
 
 message DeletePaymentRequest {
-  int32 payment_id = 1;
+  int32 payment_pk = 1;
 }
 
 message DeletePaymentResponse {}
 
 message PaymentInstallment {
-  int32 payment_installment_id = 1;
-  int32 payment_id = 2;
+  int32 payment_installment_pk = 1;
+  int32 payment_fk = 2;
   int32 installment_number = 3;
   gs_protobufs.custom_types.DecimalValue installment_amount = 4;
   string payment_method = 5;

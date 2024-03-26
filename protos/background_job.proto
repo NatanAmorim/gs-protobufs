@@ -18,11 +18,11 @@ message GetPaginatedBackgroundJobsResponse {
 }
 
 message GetBackgroundJobByIdRequest {
-  int32 backgroundJob_id = 1;
+  int32 backgroundJob_pk = 1;
 }
 
 message GetBackgroundJobByIdResponse {
-  int32 backgroundJob_id = 1;
+  int32 backgroundJob_pk = 1;
   string name = 2;
   bool has_finished = 3;
 }

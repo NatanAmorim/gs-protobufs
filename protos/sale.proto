@@ -27,11 +27,11 @@ message GetPaginatedSalesResponse {
 }
 
 message GetSaleByIdRequest {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
 }
 
 message GetSaleByIdResponse {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string comments = 3;
   repeated SaleItem ItemsSold = 4;
@@ -48,7 +48,7 @@ message CreateSaleRequest {
 message CreateSaleResponse {}
 
 message UpdateSaleRequest {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
   optional gs_protobufs.customer.GetCustomerByIdResponse customer = 2;
   string comments = 3;
   repeated SaleItem ItemsSold = 4;
@@ -58,19 +58,19 @@ message UpdateSaleRequest {
 message UpdateSaleResponse {}
 
 message DeleteSaleRequest {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
 }
 
 message DeleteSaleResponse {}
 
 message SaleItem {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
   gs_protobufs.product.ProductVariant product = 2;
   int32 amount_items_sold = 3;
 }
 
 message SalePayment {
-  int32 sale_id = 1;
+  int32 sale_pk = 1;
   gs_protobufs.custom_types.DecimalValue amount_paid = 2;
   string payment_method = 3;
 }
