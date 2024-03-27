@@ -31,20 +31,18 @@ message GetCustomerByIdRequest {
 }
 
 message GetCustomerByIdResponse {
-  int32 customer_fk = 1;
+  int32 customer_pk = 1;
   optional gs_protobufs.user.GetUserByIdResponse user = 2;
   gs_protobufs.custom_types.Person person = 3;
   repeated gs_protobufs.custom_types.Person dependents = 4;
   string billing_address = 5;
-  google.protobuf.StringValue picture_path = 6;
-  string additional_information  = 7;
+  string additional_information  = 6;
 }
 
 message CustomerOption {
   int32 customer_pk = 1;
   gs_protobufs.custom_types.Person person = 2;
-  google.protobuf.StringValue picture_path = 3;
-  repeated gs_protobufs.custom_types.Person dependents = 4;
+  repeated gs_protobufs.custom_types.Person dependents = 3;
 }
 
 message GetAllCustomersOptionsRequest {}
@@ -57,8 +55,7 @@ message CreateCustomerRequest {
   gs_protobufs.custom_types.Person person = 1;
   repeated gs_protobufs.custom_types.Person dependents = 2;
   string billing_address = 3;
-  google.protobuf.StringValue picture_path = 4;
-  string additional_information = 5;
+  string additional_information = 4;
 }
 
 message CreateCustomerResponse {}
@@ -69,8 +66,7 @@ message UpdateCustomerRequest {
   gs_protobufs.custom_types.Person person = 3;
   repeated gs_protobufs.custom_types.Person dependents = 4;
   string billing_address = 5;
-  google.protobuf.StringValue picture_path = 6;
-  string additional_information = 7;
+  string additional_information = 6;
 }
 
 message UpdateCustomerResponse {}
