@@ -54,12 +54,11 @@ message GetAllCustomersOptionsResponse {
 }
 
 message CreateCustomerRequest {
-  optional gs_protobufs.user.GetUserByIdResponse user = 1;
-  gs_protobufs.custom_types.Person person = 2;
-  repeated gs_protobufs.custom_types.Person dependents = 3;
-  string billing_address = 4;
-  google.protobuf.StringValue picture_path = 5;
-  string additional_information = 6;
+  gs_protobufs.custom_types.Person person = 1;
+  repeated gs_protobufs.custom_types.Person dependents = 2;
+  string billing_address = 3;
+  google.protobuf.StringValue picture_path = 4;
+  string additional_information = 5;
 }
 
 message CreateCustomerResponse {}

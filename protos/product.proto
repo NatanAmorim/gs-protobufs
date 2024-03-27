@@ -75,8 +75,7 @@ message GetAllProductBrandsResponse {
 }
 
 message CreateProductBrandRequest {
-  int32 product_brand_pk = 1;
-  string name = 2;
+  string name = 1;
 }
 
 message CreateProductBrandResponse {}
@@ -92,12 +91,11 @@ message GetAllProductCategoriesResponse {
   repeated ProductCategory brands = 1;
 }
 
-message CreateProductCategoryRequest {}
-
-message CreateProductCategoryResponse {
-  int32 product_category_pk = 1;
-  string name = 2;
+message CreateProductCategoryRequest {
+  string name = 1;
 }
+
+message CreateProductCategoryResponse {}
 
 message ProductCategory {
   int32 product_category_pk = 1;

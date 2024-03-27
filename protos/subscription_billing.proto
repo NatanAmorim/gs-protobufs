@@ -37,7 +37,7 @@ message GetSubscriptionBillingByIdResponse {
 }
 
 message CreateSubscriptionBillingRequest {
-  int32 subscription_pk = 1;
+  int32 subscription_fk = 1;
   string comments = 2;
   gs_protobufs.custom_types.DecimalValue total_discount = 3;
   gs_protobufs.payment.GetPaymentByIdResponse payment = 4;

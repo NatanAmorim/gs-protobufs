@@ -48,8 +48,7 @@ message GetAllInstructorsOptionsResponse {
 }
 
 message CreateInstructorRequest {
-  gs_protobufs.user.GetUserByIdResponse user = 1;
-  gs_protobufs.custom_types.Person person = 2;
+  gs_protobufs.custom_types.Person person = 1;
 }
 
 message CreateInstructorResponse {}

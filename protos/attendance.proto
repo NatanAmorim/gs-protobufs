@@ -36,11 +36,11 @@ message GetAttendanceByIdResponse {
 }
 
 message CreateAttendanceRequest {
-  int32 discipline_pk = 2;
-  gs_protobufs.custom_types.CalendarDate date = 3;
-  repeated int32 students_present_fks = 4;
-  repeated int32 students_absent_fks = 5;
-  string observations = 6;
+  int32 discipline_fk = 1;
+  gs_protobufs.custom_types.CalendarDate date = 2;
+  repeated int32 students_present_fks = 3;
+  repeated int32 students_absent_fks = 4;
+  string observations = 5;
 }
 
 message CreateAttendanceResponse {}

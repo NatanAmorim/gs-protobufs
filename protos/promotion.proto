@@ -38,7 +38,7 @@ message GetPromotionByIdResponse {
 }
 
 message CreatePromotionRequest {
-  int32 user_pk = 3;
+  int32 user_fk = 3;
   string name = 4;
   string description = 5;
   string discount_type = 6;

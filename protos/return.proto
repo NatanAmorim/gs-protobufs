@@ -28,21 +28,24 @@ message GetReturnByIdRequest {
 
 message GetReturnByIdResponse {
   int32 return_pk = 1;
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
-  repeated ReturnItem ItemsReturned = 3;
+  google.protobuf.Int32Value sale_fk = 2;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 3;
+  repeated ReturnItem ItemsReturned = 4;
 }
 
 message CreateReturnRequest {
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 1;
-  repeated ReturnItem ItemsReturned = 2;
+  google.protobuf.Int32Value sale_fk = 1;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
+  repeated ReturnItem ItemsReturned = 3;
 }
 
 message CreateReturnResponse {}
 
 message UpdateReturnRequest {
   int32 return_pk = 1;
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
-  repeated ReturnItem ItemsReturned = 3;
+  google.protobuf.Int32Value sale_fk = 2;
+  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 3;
+  repeated ReturnItem ItemsReturned = 4;
 }
 
 message UpdateReturnResponse {}
