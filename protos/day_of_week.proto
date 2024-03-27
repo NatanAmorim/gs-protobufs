@@ -1,0 +1,36 @@
+syntax = "proto3";
+option csharp_namespace = "GsServer.Protobufs";
+
+package gs_protobufs.custom_types;
+
+enum DayOfWeek
+{
+  //
+  // Summary:
+  //     Indicates Sunday.
+  SUNDAY = 0;
+  //
+  // Summary:
+  //     Indicates Monday.
+  MONDAY = 1;
+  //
+  // Summary:
+  //     Indicates Tuesday.
+  TUESDAY = 2;
+  //
+  // Summary:
+  //     Indicates Wednesday.
+  WEDNESDAY = 3;
+  //
+  // Summary:
+  //     Indicates Thursday.
+  THURSDAY = 4;
+  //
+  // Summary:
+  //     Indicates Friday.
+  FRIDAY = 5;
+  //
+  // Summary:
+  //     Indicates Saturday.
+  SATURDAY = 6;
+}

@@ -4,6 +4,7 @@ option csharp_namespace = "GsServer.Protobufs";
 import "gs_protobufs/protos/decimal.proto";
 import "gs_protobufs/protos/instructor.proto";
 import "gs_protobufs/protos/time_of_day.proto";
+import "gs_protobufs/protos/day_of_week.proto";
 import "google/protobuf/wrappers.proto";
 
 package gs_protobufs.discipline;
@@ -36,7 +37,7 @@ message GetDisciplineByIdResponse {
   int32 instructor_fk = 4;
   gs_protobufs.custom_types.TimeOfDay start_time = 5;
   gs_protobufs.custom_types.TimeOfDay end_time = 6;
-  repeated DayOfWeek class_days = 7; // Dias de aula.
+  repeated gs_protobufs.custom_types.DayOfWeek class_days = 7; // Dias de aula.
   bool is_active = 8;
 }
 
@@ -46,7 +47,7 @@ message CreateDisciplineRequest {
   int32 instructor_fk = 3;
   gs_protobufs.custom_types.TimeOfDay start_time = 4;
   gs_protobufs.custom_types.TimeOfDay end_time = 5;
-  repeated DayOfWeek class_days = 6; // Dias de aula.
+  repeated gs_protobufs.custom_types.DayOfWeek class_days = 6; // Dias de aula.
   google.protobuf.BoolValue is_active = 7;
 }
 
@@ -59,7 +60,7 @@ message UpdateDisciplineRequest {
   int32 instructor_fk = 4;
   gs_protobufs.custom_types.TimeOfDay start_time = 5;
   gs_protobufs.custom_types.TimeOfDay end_time = 6;
-  repeated DayOfWeek class_days = 7; // Dias de aula.
+  repeated gs_protobufs.custom_types.DayOfWeek class_days = 7; // Dias de aula.
   bool is_active = 8;
 }
 
@@ -70,14 +71,3 @@ message DeleteDisciplineRequest {
 }
 
 message DeleteDisciplineResponse {}
-
-enum DayOfWeek
-{
-  Sunday = 0;
-  Monday = 1;
-  Tuesday = 2;
-  Wednesday = 3;
-  Thursday = 4;
-  Friday = 5;
-  Saturday = 6;
-}
