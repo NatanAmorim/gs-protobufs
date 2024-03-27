@@ -29,12 +29,12 @@ message GetPaymentByIdRequest {
 
 message GetPaymentByIdResponse {
   int32 payment_pk = 1;
-  int32 comments = 2;
+  string comments = 2;
   repeated PaymentInstallment installments = 3;
 }
 
 message CreatePaymentRequest {
-  int32 comments = 1;
+  string comments = 1;
   repeated PaymentInstallment installments = 2;
 }
 
@@ -42,7 +42,7 @@ message CreatePaymentResponse {}
 
 message UpdatePaymentRequest {
   int32 payment_pk = 1;
-  int32 comments = 2;
+  string comments = 2;
   repeated PaymentInstallment installments = 3;
 }
 
@@ -60,5 +60,5 @@ message PaymentInstallment {
   int32 installment_number = 3;
   gs_protobufs.custom_types.DecimalValue installment_amount = 4;
   string payment_method = 5;
-  optional gs_protobufs.custom_types.CalendarDate DueDate = 6;
+  optional gs_protobufs.custom_types.CalendarDate due_date = 6;
 }

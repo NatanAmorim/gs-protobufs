@@ -33,7 +33,7 @@ message GetDisciplineByIdResponse {
   int32 discipline_pk = 1;
   string name = 2;
   gs_protobufs.custom_types.DecimalValue tuition_price = 3;
-  gs_protobufs.instructor.GetInstructorByIdResponse instructor = 4;
+  int32 instructor_fk = 4;
   gs_protobufs.custom_types.TimeOfDay start_time = 5;
   gs_protobufs.custom_types.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
@@ -43,7 +43,7 @@ message GetDisciplineByIdResponse {
 message CreateDisciplineRequest {
   string name = 1;
   gs_protobufs.custom_types.DecimalValue tuition_price = 2;
-  gs_protobufs.instructor.GetInstructorByIdResponse instructor = 3;
+  int32 instructor_fk = 3;
   gs_protobufs.custom_types.TimeOfDay start_time = 4;
   gs_protobufs.custom_types.TimeOfDay end_time = 5;
   repeated DayOfWeek class_days = 6; // Dias de aula.
@@ -56,7 +56,7 @@ message UpdateDisciplineRequest {
   int32 discipline_pk = 1;
   string name = 2;
   gs_protobufs.custom_types.DecimalValue tuition_price = 3;
-  gs_protobufs.instructor.GetInstructorByIdResponse instructor = 4;
+  int32 instructor_fk = 4;
   gs_protobufs.custom_types.TimeOfDay start_time = 5;
   gs_protobufs.custom_types.TimeOfDay end_time = 6;
   repeated DayOfWeek class_days = 7; // Dias de aula.
