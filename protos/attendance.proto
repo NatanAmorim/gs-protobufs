@@ -1,9 +1,9 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "protos/custom_types/calendar_date.proto";
-import "protos/custom_types/person.proto";
-import "protos/discipline.proto";
+import "gs_protobufs/protos/custom_types/calendar_date.proto";
+import "gs_protobufs/protos/custom_types/person.proto";
+import "gs_protobufs/protos/discipline.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.attendance;

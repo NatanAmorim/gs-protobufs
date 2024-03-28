@@ -1,10 +1,10 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "protos/custom_types/decimal_value.proto";
-import "protos/custom_types/time_of_day.proto";
-import "protos/custom_types/day_of_week.proto";
-import "protos/instructor.proto";
+import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/time_of_day.proto";
+import "gs_protobufs/protos/custom_types/day_of_week.proto";
+import "gs_protobufs/protos/instructor.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.discipline;

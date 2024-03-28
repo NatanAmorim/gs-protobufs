@@ -1,10 +1,10 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "protos/custom_types/calendar_date.proto";
-import "protos/custom_types/decimal_value.proto";
-import "protos/discipline.proto";
-import "protos/customer.proto";
+import "gs_protobufs/protos/custom_types/calendar_date.proto";
+import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/discipline.proto";
+import "gs_protobufs/protos/customer.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.subscription;

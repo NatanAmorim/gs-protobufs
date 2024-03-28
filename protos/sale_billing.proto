@@ -1,9 +1,9 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "protos/custom_types/decimal_value.proto";
-import "protos/payment.proto";
-import "protos/sale.proto";
+import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/payment.proto";
+import "gs_protobufs/protos/sale.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.sale_billing;
