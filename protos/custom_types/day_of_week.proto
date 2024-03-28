@@ -1,8 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-package gs_protobufs.custom_types;
+package custom_types.day_of_week;
 
+//
+// Summary:
+//     Specifies the day of the week.
 enum DayOfWeek
 {
   //

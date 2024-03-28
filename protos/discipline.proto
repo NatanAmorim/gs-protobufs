@@ -1,13 +1,13 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/decimal.proto";
-import "gs_protobufs/protos/instructor.proto";
-import "gs_protobufs/protos/time_of_day.proto";
-import "gs_protobufs/protos/day_of_week.proto";
+import "protos/custom_types/decimal_value.proto";
+import "protos/custom_types/time_of_day.proto";
+import "protos/custom_types/day_of_week.proto";
+import "protos/instructor.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.discipline;
+package protos.discipline;
 
 service DisciplineService {
   rpc GetPaginated(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
@@ -33,21 +33,21 @@ message GetDisciplineByIdRequest {
 message GetDisciplineByIdResponse {
   int32 discipline_pk = 1;
   string name = 2;
-  gs_protobufs.custom_types.DecimalValue tuition_price = 3;
-  int32 instructor_fk = 4;
-  gs_protobufs.custom_types.TimeOfDay start_time = 5;
-  gs_protobufs.custom_types.TimeOfDay end_time = 6;
-  repeated gs_protobufs.custom_types.DayOfWeek class_days = 7; // Dias de aula.
+  custom_types.decimal_value.DecimalValue tuition_price = 3;
+  instructor.GetInstructorByIdResponse discipline = 4;
+  custom_types.time_of_day.TimeOfDay start_time = 5;
+  custom_types.time_of_day.TimeOfDay end_time = 6;
+  repeated custom_types.day_of_week.DayOfWeek class_days = 7; // Dias de aula.
   bool is_active = 8;
 }
 
 message CreateDisciplineRequest {
   string name = 1;
-  gs_protobufs.custom_types.DecimalValue tuition_price = 2;
+  custom_types.decimal_value.DecimalValue tuition_price = 2;
   int32 instructor_fk = 3;
-  gs_protobufs.custom_types.TimeOfDay start_time = 4;
-  gs_protobufs.custom_types.TimeOfDay end_time = 5;
-  repeated gs_protobufs.custom_types.DayOfWeek class_days = 6; // Dias de aula.
+  custom_types.time_of_day.TimeOfDay start_time = 4;
+  custom_types.time_of_day.TimeOfDay end_time = 5;
+  repeated custom_types.day_of_week.DayOfWeek class_days = 6; // Dias de aula.
   google.protobuf.BoolValue is_active = 7;
 }
 
@@ -56,11 +56,11 @@ message CreateDisciplineResponse {}
 message UpdateDisciplineRequest {
   int32 discipline_pk = 1;
   string name = 2;
-  gs_protobufs.custom_types.DecimalValue tuition_price = 3;
+  custom_types.decimal_value.DecimalValue tuition_price = 3;
   int32 instructor_fk = 4;
-  gs_protobufs.custom_types.TimeOfDay start_time = 5;
-  gs_protobufs.custom_types.TimeOfDay end_time = 6;
-  repeated gs_protobufs.custom_types.DayOfWeek class_days = 7; // Dias de aula.
+  custom_types.time_of_day.TimeOfDay start_time = 5;
+  custom_types.time_of_day.TimeOfDay end_time = 6;
+  repeated custom_types.day_of_week.DayOfWeek class_days = 7; // Dias de aula.
   bool is_active = 8;
 }
 

@@ -1,11 +1,12 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/decimal.proto";
-import "gs_protobufs/protos/payment.proto";
+import "protos/custom_types/decimal_value.proto";
+import "protos/payment.proto";
+import "protos/subscription.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.subscription_billing;
+package protos.subscription_billing;
 
 service SubscriptionBillingService {
   rpc GetPaginated(GetPaginatedSubscriptionBillingsRequest) returns (GetPaginatedSubscriptionBillingsResponse);
@@ -30,17 +31,17 @@ message GetSubscriptionBillingByIdRequest {
 
 message GetSubscriptionBillingByIdResponse {
   int32 subscription_billing_pk = 1;
-  int32 subscription_fk = 2;
+  subscription.GetSubscriptionByIdResponse subscription = 2;
   string comments = 3;
-  gs_protobufs.custom_types.DecimalValue total_discount = 4;
-  gs_protobufs.payment.GetPaymentByIdResponse payment = 5;
+  custom_types.decimal_value.DecimalValue total_discount = 4;
+  protos.payment.GetPaymentByIdResponse payment = 5;
 }
 
 message CreateSubscriptionBillingRequest {
   int32 subscription_fk = 1;
   string comments = 2;
-  gs_protobufs.custom_types.DecimalValue total_discount = 3;
-  gs_protobufs.payment.GetPaymentByIdResponse payment = 4;
+  custom_types.decimal_value.DecimalValue total_discount = 3;
+  protos.payment.GetPaymentByIdResponse payment = 4;
 }
 
 message CreateSubscriptionBillingResponse {}
@@ -49,8 +50,8 @@ message UpdateSubscriptionBillingRequest {
   int32 subscription_billing_pk = 1;
   int32 subscription_fk = 2;
   string comments = 3;
-  gs_protobufs.custom_types.DecimalValue total_discount = 4;
-  gs_protobufs.payment.GetPaymentByIdResponse payment = 5;
+  custom_types.decimal_value.DecimalValue total_discount = 4;
+  protos.payment.GetPaymentByIdResponse payment = 5;
 }
 
 message UpdateSubscriptionBillingResponse {}

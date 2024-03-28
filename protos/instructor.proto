@@ -1,10 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/person.proto";
+import "protos/custom_types/person.proto";
+import "protos/user.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.instructor;
+package protos.instructor;
 
 service InstructorService {
   rpc GetPaginated(GetPaginatedInstructorsRequest) returns (GetPaginatedInstructorsResponse);
@@ -31,13 +32,13 @@ message GetInstructorByIdRequest {
 
 message GetInstructorByIdResponse {
   int32 instructor_pk = 1;
-  google.protobuf.Int32Value user_fk = 2;
-  gs_protobufs.custom_types.Person person = 3;
+  optional user.GetUserByIdResponse user = 2;
+  custom_types.person.Person person = 3;
 }
 
 message InstructorOption {
   int32 instructor_pk = 1;
-  gs_protobufs.custom_types.Person person = 2;
+  custom_types.person.Person person = 2;
 }
 
 message GetAllInstructorsOptionsRequest {}
@@ -47,7 +48,7 @@ message GetAllInstructorsOptionsResponse {
 }
 
 message CreateInstructorRequest {
-  gs_protobufs.custom_types.Person person = 1;
+  custom_types.person.Person person = 1;
 }
 
 message CreateInstructorResponse {}
@@ -55,7 +56,7 @@ message CreateInstructorResponse {}
 message UpdateInstructorRequest {
   int32 instructor_pk = 1;
   google.protobuf.Int32Value user_fk = 2;
-  gs_protobufs.custom_types.Person person = 3;
+  custom_types.person.Person person = 3;
 }
 
 message UpdateInstructorResponse {}

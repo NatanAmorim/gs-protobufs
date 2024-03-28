@@ -3,7 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.user;
+package protos.user;
 
 service UserService {
   rpc GetPaginated(GetPaginatedUsersRequest) returns (GetPaginatedUsersResponse);

@@ -1,10 +1,10 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/decimal.proto";
+import "protos/custom_types/decimal_value.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.product;
+package protos.product;
 
 service ProductService {
   rpc GetAll(GetAllProductsRequest) returns (GetAllProductsResponse);
@@ -34,8 +34,8 @@ message GetProductByIdResponse {
   string name = 2;
   string description = 3;
   google.protobuf.StringValue picture_path = 4;
-  google.protobuf.Int32Value product_brand_fk = 5;
-  google.protobuf.Int32Value product_category_fk = 6;
+  ProductBrand product_brand= 5;
+  ProductCategory product_category = 6;
   repeated ProductVariant variants = 7;
 }
 
@@ -108,7 +108,7 @@ message ProductVariant {
   string size = 3;
   string bar_code = 4;
   string sku = 5;
-  gs_protobufs.custom_types.DecimalValue unit_price = 6;
+  custom_types.decimal_value.DecimalValue unit_price = 6;
   ProductVariantInventory inventory = 7;
 }
 

@@ -1,9 +1,10 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "protos/user.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.notification;
+package protos.notification;
 service NotificationService {
   rpc GetPaginated(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
   rpc GetById(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
@@ -27,7 +28,7 @@ message GetNotificationByIdRequest {
 
 message GetNotificationByIdResponse {
   int32 notification_pk = 1;
-  int32 user_fk = 2;
+  user.GetUserByIdResponse user = 2;
   string title = 3;
   string message = 4;
   bool is_unread = 5;

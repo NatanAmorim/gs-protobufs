@@ -1,10 +1,10 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/decimal.proto";
+import "protos/custom_types/decimal_value.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.return;
+package protos.return;
 service ReturnService {
   rpc GetPaginated(GetPaginatedReturnsRequest) returns (GetPaginatedReturnsResponse);
   rpc GetById(GetReturnByIdRequest) returns (GetReturnByIdResponse);
@@ -28,14 +28,14 @@ message GetReturnByIdRequest {
 
 message GetReturnByIdResponse {
   int32 return_pk = 1;
-  google.protobuf.Int32Value sale_fk = 2;
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 3;
+  int32 sale_fk = 2;
+  custom_types.decimal_value.DecimalValue total_amount_refunded = 3;
   repeated ReturnItem ItemsReturned = 4;
 }
 
 message CreateReturnRequest {
   google.protobuf.Int32Value sale_fk = 1;
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 2;
+  custom_types.decimal_value.DecimalValue total_amount_refunded = 2;
   repeated ReturnItem ItemsReturned = 3;
 }
 
@@ -44,7 +44,7 @@ message CreateReturnResponse {}
 message UpdateReturnRequest {
   int32 return_pk = 1;
   google.protobuf.Int32Value sale_fk = 2;
-  gs_protobufs.custom_types.DecimalValue total_amount_refunded = 3;
+  custom_types.decimal_value.DecimalValue total_amount_refunded = 3;
   repeated ReturnItem ItemsReturned = 4;
 }
 

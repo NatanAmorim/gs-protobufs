@@ -1,10 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/calendar_date.proto";
+import "protos/custom_types/calendar_date.proto";
+import "protos/customer.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.promotion;
+package protos.promotion;
 service PromotionService {
   rpc GetPaginated(GetPaginatedPromotionsRequest) returns (GetPaginatedPromotionsResponse);
   rpc GetById(GetPromotionByIdRequest) returns (GetPromotionByIdResponse);
@@ -28,22 +29,22 @@ message GetPromotionByIdRequest {
 
 message GetPromotionByIdResponse {
   int32 promotion_pk = 1;
-  int32 user_fk = 2;
+  customer.GetCustomerByIdRequest customer = 2;
   string name = 3;
   string description = 4;
   string discount_type = 5;
-  gs_protobufs.custom_types.CalendarDate start_date = 6;
-  gs_protobufs.custom_types.CalendarDate end_date = 7;
+  custom_types.calendar_date.CalendarDate start_date = 6;
+  custom_types.calendar_date.CalendarDate end_date = 7;
   bool is_active = 8;
 }
 
 message CreatePromotionRequest {
-  int32 user_fk = 3;
+  int32 customer_fk = 3;
   string name = 4;
   string description = 5;
   string discount_type = 6;
-  gs_protobufs.custom_types.CalendarDate start_date = 7;
-  gs_protobufs.custom_types.CalendarDate end_date = 8;
+  custom_types.calendar_date.CalendarDate start_date = 7;
+  custom_types.calendar_date.CalendarDate end_date = 8;
   bool is_active = 9;
 }
 
@@ -51,12 +52,12 @@ message CreatePromotionResponse {}
 
 message UpdatePromotionRequest {
   int32 promotion_pk = 1;
-  int32 user_fk = 2;
+  int32 customer_fk = 2;
   string name = 3;
   string description = 4;
   string discount_type = 5;
-  gs_protobufs.custom_types.CalendarDate start_date = 6;
-  gs_protobufs.custom_types.CalendarDate end_date = 7;
+  custom_types.calendar_date.CalendarDate start_date = 6;
+  custom_types.calendar_date.CalendarDate end_date = 7;
   bool is_active = 8;
 }
 

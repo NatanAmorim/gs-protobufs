@@ -1,10 +1,12 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/calendar_date.proto";
+import "protos/custom_types/calendar_date.proto";
+import "protos/custom_types/person.proto";
+import "protos/discipline.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.attendance;
+package protos.attendance;
 service AttendanceService {
   rpc GetPaginated(GetPaginatedAttendancesRequest) returns (GetPaginatedAttendancesResponse);
   rpc GetById(GetAttendanceByIdRequest) returns (GetAttendanceByIdResponse);
@@ -28,16 +30,16 @@ message GetAttendanceByIdRequest {
 
 message GetAttendanceByIdResponse {
   int32 attendance_pk = 1;
-  int32 discipline_fk = 2;
-  gs_protobufs.custom_types.CalendarDate date = 3;
-  repeated int32 students_present_fks = 4;
-  repeated int32 students_absent_fks = 5;
+  discipline.GetDisciplineByIdResponse discipline = 2;
+  custom_types.calendar_date.CalendarDate date = 3;
+  repeated custom_types.person.Person students_present = 4;
+  repeated custom_types.person.Person students_absent = 5;
   string observations = 6;
 }
 
 message CreateAttendanceRequest {
   int32 discipline_fk = 1;
-  gs_protobufs.custom_types.CalendarDate date = 2;
+  custom_types.calendar_date.CalendarDate date = 2;
   repeated int32 students_present_fks = 3;
   repeated int32 students_absent_fks = 4;
   string observations = 5;
@@ -48,7 +50,7 @@ message CreateAttendanceResponse {}
 message UpdateAttendanceRequest {
   int32 attendance_pk = 1;
   int32 discipline_fk = 2;
-  gs_protobufs.custom_types.CalendarDate date = 3;
+  custom_types.calendar_date.CalendarDate date = 3;
   repeated int32 students_present_fks = 4;
   repeated int32 students_absent_fks = 5;
   string observations = 6;

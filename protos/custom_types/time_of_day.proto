@@ -3,7 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 // Source: https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto
 
-package gs_protobufs.custom_types;
+package custom_types.time_of_day;
 
 // Represents a time of day. The date and time zone are not significant.
 message TimeOfDay {

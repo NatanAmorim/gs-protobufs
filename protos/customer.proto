@@ -1,11 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/user.proto";
-import "gs_protobufs/protos/person.proto";
+import "protos/user.proto";
+import "protos/custom_types/person.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.customer;
+package protos.customer;
 
 service CustomerService {
   rpc GetPaginated(GetPaginatedCustomersRequest) returns (GetPaginatedCustomersResponse);
@@ -32,17 +32,17 @@ message GetCustomerByIdRequest {
 
 message GetCustomerByIdResponse {
   int32 customer_pk = 1;
-  optional gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.custom_types.Person person = 3;
-  repeated gs_protobufs.custom_types.Person dependents = 4;
+  optional user.GetUserByIdResponse user = 2;
+  custom_types.person.Person person = 3;
+  repeated custom_types.person.Person dependents = 4;
   string billing_address = 5;
   string additional_information  = 6;
 }
 
 message CustomerOption {
   int32 customer_pk = 1;
-  gs_protobufs.custom_types.Person person = 2;
-  repeated gs_protobufs.custom_types.Person dependents = 3;
+  custom_types.person.Person person = 2;
+  repeated custom_types.person.Person dependents = 3;
 }
 
 message GetAllCustomersOptionsRequest {}
@@ -52,8 +52,8 @@ message GetAllCustomersOptionsResponse {
 }
 
 message CreateCustomerRequest {
-  gs_protobufs.custom_types.Person person = 1;
-  repeated gs_protobufs.custom_types.Person dependents = 2;
+  custom_types.person.Person person = 1;
+  repeated custom_types.person.Person dependents = 2;
   string billing_address = 3;
   string additional_information = 4;
 }
@@ -62,9 +62,9 @@ message CreateCustomerResponse {}
 
 message UpdateCustomerRequest {
   int32 customer_pk = 1;
-  optional gs_protobufs.user.GetUserByIdResponse user = 2;
-  gs_protobufs.custom_types.Person person = 3;
-  repeated gs_protobufs.custom_types.Person dependents = 4;
+  optional user.GetUserByIdResponse user = 2;
+  custom_types.person.Person person = 3;
+  repeated custom_types.person.Person dependents = 4;
   string billing_address = 5;
   string additional_information = 6;
 }

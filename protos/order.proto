@@ -3,7 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.order;
+package protos.order;
 
 service OrderService {
   rpc GetPaginated(GetPaginatedOrdersRequest) returns (GetPaginatedOrdersResponse);

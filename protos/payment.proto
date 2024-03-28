@@ -1,11 +1,11 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/calendar_date.proto";
-import "gs_protobufs/protos/decimal.proto";
+import "protos/custom_types/calendar_date.proto";
+import "protos/custom_types/decimal_value.proto";
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.payment;
+package protos.payment;
 service PaymentService {
   rpc GetPaginated(GetPaginatedPaymentsRequest) returns (GetPaginatedPaymentsResponse);
   rpc GetById(GetPaymentByIdRequest) returns (GetPaymentByIdResponse);
@@ -58,7 +58,7 @@ message PaymentInstallment {
   int32 payment_installment_pk = 1;
   int32 payment_fk = 2;
   int32 installment_number = 3;
-  gs_protobufs.custom_types.DecimalValue installment_amount = 4;
+  custom_types.decimal_value.DecimalValue installment_amount = 4;
   string payment_method = 5;
-  optional gs_protobufs.custom_types.CalendarDate due_date = 6;
+  optional custom_types.calendar_date.CalendarDate due_date = 6;
 }

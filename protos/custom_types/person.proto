@@ -3,7 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "google/protobuf/wrappers.proto";
 
-package gs_protobufs.custom_types;
+package custom_types.person;
 
 message Person {
   google.protobuf.Int32Value person_pk = 1;

@@ -10,7 +10,7 @@ option csharp_namespace = "GsServer.Protobufs";
 // The decimal type in C# and F# (or Decimal in VB.NET) does not implement the
 // IEEE-754 standard, and is guaranteed to be precise. It exists to handle
 // money values.
-package gs_protobufs.custom_types;
+package custom_types.decimal_value;
 // Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
 // Name "DecimalValue" prevents conflict with C# Decimal type
 message DecimalValue {
