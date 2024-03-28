@@ -41,7 +41,6 @@ message CreateSaleRequest {
   google.protobuf.Int32Value customer_fk = 1;
   string comments = 2;
   repeated SaleItem ItemsSold = 3;
-  repeated protos.return.GetReturnByIdResponse Returns = 4;
 }
 
 message CreateSaleResponse {}

@@ -41,7 +41,7 @@ message CreateSubscriptionBillingRequest {
   int32 subscription_fk = 1;
   string comments = 2;
   custom_types.decimal_value.DecimalValue total_discount = 3;
-  protos.payment.GetPaymentByIdResponse payment = 4;
+  protos.payment.CreatePaymentRequest payment = 4;
 }
 
 message CreateSubscriptionBillingResponse {}

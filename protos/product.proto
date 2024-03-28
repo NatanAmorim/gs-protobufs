@@ -43,8 +43,8 @@ message CreateProductRequest {
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  google.protobuf.Int32Value product_brand_fk = 5;
-  google.protobuf.Int32Value product_category_fk = 6;
+  CreateProductBrandRequest product_brand = 5;
+  CreateProductCategoryRequest product_category = 6;
   repeated ProductVariant variants = 7;
 }
 

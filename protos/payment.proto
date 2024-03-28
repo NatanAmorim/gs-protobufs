@@ -60,5 +60,5 @@ message PaymentInstallment {
   int32 installment_number = 3;
   custom_types.decimal_value.DecimalValue installment_amount = 4;
   string payment_method = 5;
-  optional custom_types.calendar_date.CalendarDate due_date = 6;
+  custom_types.calendar_date.CalendarDate due_date = 6;
 }
