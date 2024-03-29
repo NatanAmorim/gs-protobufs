@@ -11,29 +11,29 @@ enum DayOfWeek
   //
   // Summary:
   //     Indicates Sunday.
-  SUNDAY = 0;
+  DAY_OF_WEEK_SUNDAY = 0;
   //
   // Summary:
   //     Indicates Monday.
-  MONDAY = 1;
+  DAY_OF_WEEK_MONDAY = 1;
   //
   // Summary:
   //     Indicates Tuesday.
-  TUESDAY = 2;
+  DAY_OF_WEEK_TUESDAY = 2;
   //
   // Summary:
   //     Indicates Wednesday.
-  WEDNESDAY = 3;
+  DAY_OF_WEEK_WEDNESDAY = 3;
   //
   // Summary:
   //     Indicates Thursday.
-  THURSDAY = 4;
+  DAY_OF_WEEK_THURSDAY = 4;
   //
   // Summary:
   //     Indicates Friday.
-  FRIDAY = 5;
+  DAY_OF_WEEK_FRIDAY = 5;
   //
   // Summary:
   //     Indicates Saturday.
-  SATURDAY = 6;
+  DAY_OF_WEEK_SATURDAY = 6;
 }

@@ -32,8 +32,7 @@ message GetInstructorByIdRequest {
 
 message GetInstructorByIdResponse {
   int32 instructor_pk = 1;
-  optional user.GetUserByIdResponse user = 2;
-  custom_types.person.Person person = 3;
+  custom_types.person.Person person = 2;
 }
 
 message InstructorOption {

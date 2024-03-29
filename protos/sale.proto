@@ -21,7 +21,7 @@ message GetPaginatedSalesRequest {
 }
 
 message GetPaginatedSalesResponse {
-  repeated GetSaleByIdResponse vendas = 1;
+  repeated GetSaleByIdResponse sales = 1;
   google.protobuf.Int32Value next_cursor = 2;
 }
 
@@ -63,7 +63,7 @@ message DeleteSaleResponse {}
 
 message SaleItem {
   int32 sale_pk = 1;
-  google.protobuf.Int32Value product_variant_fk = 2;
+  int32 product_variant_fk = 2;
   int32 quantity_sold = 3;
 }
 
