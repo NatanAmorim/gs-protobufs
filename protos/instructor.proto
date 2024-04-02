@@ -1,7 +1,7 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/custom_types/person_value.proto";
+import "gs_protobufs/protos/custom_types/person.proto";
 import "gs_protobufs/protos/user.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -32,12 +32,12 @@ message GetInstructorByIdRequest {
 
 message GetInstructorByIdResponse {
   int32 instructor_pk = 1;
-  custom_types.person_value.PersonValue person = 2;
+  custom_types.person.Person person = 2;
 }
 
 message InstructorOption {
   int32 instructor_pk = 1;
-  custom_types.person_value.PersonValue person = 2;
+  custom_types.person.Person person = 2;
 }
 
 message GetAllInstructorsOptionsRequest {}
@@ -47,7 +47,7 @@ message GetAllInstructorsOptionsResponse {
 }
 
 message CreateInstructorRequest {
-  custom_types.person_value.PersonValue person = 1;
+  custom_types.person.Person person = 1;
 }
 
 message CreateInstructorResponse {}
@@ -55,7 +55,7 @@ message CreateInstructorResponse {}
 message UpdateInstructorRequest {
   int32 instructor_pk = 1;
   google.protobuf.Int32Value user_fk = 2;
-  custom_types.person_value.PersonValue person = 3;
+  custom_types.person.Person person = 3;
 }
 
 message UpdateInstructorResponse {}
