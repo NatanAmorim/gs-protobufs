@@ -32,17 +32,15 @@ message GetAttendanceByIdResponse {
   int32 attendance_pk = 1;
   discipline.GetDisciplineByIdResponse discipline = 2;
   custom_types.calendar_date.CalendarDate date = 3;
-  repeated custom_types.person.Person students_present = 4;
-  repeated custom_types.person.Person students_absent = 5;
-  string observations = 6;
+  repeated AttendanceAttendeeStatus attendees_statuses = 4;
+  string observations = 5;
 }
 
 message CreateAttendanceRequest {
   int32 discipline_fk = 1;
   custom_types.calendar_date.CalendarDate date = 2;
-  repeated int32 students_present_fks = 3;
-  repeated int32 students_absent_fks = 4;
-  string observations = 5;
+  repeated AttendanceAttendeeStatus attendees_statuses = 3;
+  string observations = 4;
 }
 
 message CreateAttendanceResponse {}
@@ -51,9 +49,8 @@ message UpdateAttendanceRequest {
   int32 attendance_pk = 1;
   int32 discipline_fk = 2;
   custom_types.calendar_date.CalendarDate date = 3;
-  repeated int32 students_present_fks = 4;
-  repeated int32 students_absent_fks = 5;
-  string observations = 6;
+  repeated AttendanceAttendeeStatus attendees_statuses = 4;
+  string observations = 5;
 }
 
 message UpdateAttendanceResponse {}
@@ -63,3 +60,10 @@ message DeleteAttendanceRequest {
 }
 
 message DeleteAttendanceResponse {}
+
+message AttendanceAttendeeStatus {
+  int32 attendance_attendee_status_pk = 1;
+  int32 person_fk = 2;
+  bool is_present = 3;
+  bool is_absent = 4;
+}
