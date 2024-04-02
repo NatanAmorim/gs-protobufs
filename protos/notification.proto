@@ -5,11 +5,11 @@ import "google/protobuf/wrappers.proto";
 
 package protos.notification;
 service NotificationService {
-  rpc GetPaginated(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
-  rpc GetById(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
-  rpc Post(CreateNotificationRequest) returns (CreateNotificationResponse);
-  rpc Put(UpdateNotificationRequest) returns (UpdateNotificationResponse);
-  rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
+  rpc GetPaginatedAsync(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
+  rpc GetByIdAsync(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
+  rpc PostAsync(CreateNotificationRequest) returns (CreateNotificationResponse);
+  rpc PutAsync(UpdateNotificationRequest) returns (UpdateNotificationResponse);
+  rpc DeleteAsync(DeleteNotificationRequest) returns (DeleteNotificationResponse);
 }
 
 message GetPaginatedNotificationsRequest {

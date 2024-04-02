@@ -6,11 +6,11 @@ import "google/protobuf/wrappers.proto";
 
 package protos.return;
 service ReturnService {
-  rpc GetPaginated(GetPaginatedReturnsRequest) returns (GetPaginatedReturnsResponse);
-  rpc GetById(GetReturnByIdRequest) returns (GetReturnByIdResponse);
-  rpc Post(CreateReturnRequest) returns (CreateReturnResponse);
-  rpc Put(UpdateReturnRequest) returns (UpdateReturnResponse);
-  rpc Delete(DeleteReturnRequest) returns (DeleteReturnResponse);
+  rpc GetPaginatedAsync(GetPaginatedReturnsRequest) returns (GetPaginatedReturnsResponse);
+  rpc GetByIdAsync(GetReturnByIdRequest) returns (GetReturnByIdResponse);
+  rpc PostAsync(CreateReturnRequest) returns (CreateReturnResponse);
+  rpc PutAsync(UpdateReturnRequest) returns (UpdateReturnResponse);
+  rpc DeleteAsync(DeleteReturnRequest) returns (DeleteReturnResponse);
 }
 
 message GetPaginatedReturnsRequest {

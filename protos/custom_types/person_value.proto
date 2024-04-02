@@ -3,9 +3,9 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "google/protobuf/wrappers.proto";
 
-package custom_types.person;
+package custom_types.person_value;
 
-message Person {
+message PersonValue {
   google.protobuf.Int32Value person_pk = 1;
   string name = 2;
   string mobile_phone_number = 3;

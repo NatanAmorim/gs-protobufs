@@ -10,11 +10,11 @@ import "google/protobuf/wrappers.proto";
 package protos.subscription;
 
 service SubscriptionService {
-  rpc GetPaginated(GetPaginatedSubscriptionsRequest) returns (GetPaginatedSubscriptionsResponse);
-  rpc GetById(GetSubscriptionByIdRequest) returns (GetSubscriptionByIdResponse);
-  rpc Post(CreateSubscriptionRequest) returns (CreateSubscriptionResponse);
-  rpc Put(UpdateSubscriptionRequest) returns (UpdateSubscriptionResponse);
-  rpc Delete(DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse);
+  rpc GetPaginatedAsync(GetPaginatedSubscriptionsRequest) returns (GetPaginatedSubscriptionsResponse);
+  rpc GetByIdAsync(GetSubscriptionByIdRequest) returns (GetSubscriptionByIdResponse);
+  rpc PostAsync(CreateSubscriptionRequest) returns (CreateSubscriptionResponse);
+  rpc PutAsync(UpdateSubscriptionRequest) returns (UpdateSubscriptionResponse);
+  rpc DeleteAsync(DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse);
 }
 
 message GetPaginatedSubscriptionsRequest {

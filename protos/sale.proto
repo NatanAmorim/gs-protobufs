@@ -9,11 +9,11 @@ import "google/protobuf/wrappers.proto";
 package protos.sale;
 
 service SaleService {
-  rpc GetPaginated(GetPaginatedSalesRequest) returns (GetPaginatedSalesResponse);
-  rpc GetById(GetSaleByIdRequest) returns (GetSaleByIdResponse);
-  rpc Post(CreateSaleRequest) returns (CreateSaleResponse);
-  rpc Put(UpdateSaleRequest) returns (UpdateSaleResponse);
-  rpc Delete(DeleteSaleRequest) returns (DeleteSaleResponse);
+  rpc GetPaginatedAsync(GetPaginatedSalesRequest) returns (GetPaginatedSalesResponse);
+  rpc GetByIdAsync(GetSaleByIdRequest) returns (GetSaleByIdResponse);
+  rpc PostAsync(CreateSaleRequest) returns (CreateSaleResponse);
+  rpc PutAsync(UpdateSaleRequest) returns (UpdateSaleResponse);
+  rpc DeleteAsync(DeleteSaleRequest) returns (DeleteSaleResponse);
 }
 
 message GetPaginatedSalesRequest {

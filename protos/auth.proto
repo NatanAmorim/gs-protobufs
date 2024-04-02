@@ -4,12 +4,12 @@ option csharp_namespace = "GsServer.Protobufs";
 package protos.auth;
 
 service AuthService {
-  rpc Login(LoginRequest) returns (LoginResponse);
-  rpc Logout(LogoutRequest) returns (LogoutResponse);
-  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
-  rpc Register(RegisterRequest) returns (RegisterResponse);
-  rpc NewPassword(NewPasswordRequest) returns (NewPasswordResponse);
-  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+  rpc LoginAsync(LoginRequest) returns (LoginResponse);
+  rpc LogoutAsync(LogoutRequest) returns (LogoutResponse);
+  rpc RefreshTokenAsync(RefreshTokenRequest) returns (RefreshTokenResponse);
+  rpc RegisterAsync(RegisterRequest) returns (RegisterResponse);
+  rpc NewPasswordAsync(NewPasswordRequest) returns (NewPasswordResponse);
+  rpc ChangePasswordAsync(ChangePasswordRequest) returns (ChangePasswordResponse);
 }
 
 message LoginRequest {

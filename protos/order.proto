@@ -6,11 +6,11 @@ import "google/protobuf/wrappers.proto";
 package protos.order;
 
 service OrderService {
-  rpc GetPaginated(GetPaginatedOrdersRequest) returns (GetPaginatedOrdersResponse);
-  rpc GetById(GetOrderByIdRequest) returns (GetOrderByIdResponse);
-  rpc Post(CreateOrderRequest) returns (CreateOrderResponse);
-  rpc Put(UpdateOrderRequest) returns (UpdateOrderResponse);
-  rpc Delete(DeleteOrderRequest) returns (DeleteOrderResponse);
+  rpc GetPaginatedAsync(GetPaginatedOrdersRequest) returns (GetPaginatedOrdersResponse);
+  rpc GetByIdAsync(GetOrderByIdRequest) returns (GetOrderByIdResponse);
+  rpc PostAsync(CreateOrderRequest) returns (CreateOrderResponse);
+  rpc PutAsync(UpdateOrderRequest) returns (UpdateOrderResponse);
+  rpc DeleteAsync(DeleteOrderRequest) returns (DeleteOrderResponse);
 }
 
 message GetPaginatedOrdersRequest {

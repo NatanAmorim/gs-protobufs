@@ -7,16 +7,16 @@ import "google/protobuf/wrappers.proto";
 package protos.product;
 
 service ProductService {
-  rpc GetAll(GetAllProductsRequest) returns (GetAllProductsResponse);
-  rpc GetById(GetProductByIdRequest) returns (GetProductByIdResponse);
-  rpc Post(CreateProductRequest) returns (CreateProductResponse);
-  rpc Put(UpdateProductRequest) returns (UpdateProductResponse);
-  rpc Delete(DeleteProductRequest) returns (DeleteProductResponse);
+  rpc GetAllAsync(GetAllProductsRequest) returns (GetAllProductsResponse);
+  rpc GetByIdAsync(GetProductByIdRequest) returns (GetProductByIdResponse);
+  rpc PostAsync(CreateProductRequest) returns (CreateProductResponse);
+  rpc PutAsync(UpdateProductRequest) returns (UpdateProductResponse);
+  rpc DeleteAsync(DeleteProductRequest) returns (DeleteProductResponse);
 
-  rpc GetAllBrands(GetAllProductBrandsRequest) returns (GetAllProductBrandsResponse);
-  rpc PostBrand(CreateProductBrandRequest) returns (CreateProductBrandResponse);
-  rpc GetAllCategories(GetAllProductCategoriesRequest) returns (GetAllProductCategoriesResponse);
-  rpc PostCategory(CreateProductCategoryRequest) returns (CreateProductCategoryResponse);
+  rpc GetAllBrandsAsync(GetAllProductBrandsRequest) returns (GetAllProductBrandsResponse);
+  rpc PostBrandAsync(CreateProductBrandRequest) returns (CreateProductBrandResponse);
+  rpc GetAllCategoriesAsync(GetAllProductCategoriesRequest) returns (GetAllProductCategoriesResponse);
+  rpc PostCategoryAsync(CreateProductCategoryRequest) returns (CreateProductCategoryResponse);
 }
 
 message GetAllProductsRequest {}

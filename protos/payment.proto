@@ -7,11 +7,11 @@ import "google/protobuf/wrappers.proto";
 
 package protos.payment;
 service PaymentService {
-  rpc GetPaginated(GetPaginatedPaymentsRequest) returns (GetPaginatedPaymentsResponse);
-  rpc GetById(GetPaymentByIdRequest) returns (GetPaymentByIdResponse);
-  rpc Post(CreatePaymentRequest) returns (CreatePaymentResponse);
-  rpc Put(UpdatePaymentRequest) returns (UpdatePaymentResponse);
-  rpc Delete(DeletePaymentRequest) returns (DeletePaymentResponse);
+  rpc GetPaginatedAsync(GetPaginatedPaymentsRequest) returns (GetPaginatedPaymentsResponse);
+  rpc GetByIdAsync(GetPaymentByIdRequest) returns (GetPaymentByIdResponse);
+  rpc PostAsync(CreatePaymentRequest) returns (CreatePaymentResponse);
+  rpc PutAsync(UpdatePaymentRequest) returns (UpdatePaymentResponse);
+  rpc DeleteAsync(DeletePaymentRequest) returns (DeletePaymentResponse);
 }
 
 message GetPaginatedPaymentsRequest {

@@ -10,11 +10,11 @@ import "google/protobuf/wrappers.proto";
 package protos.discipline;
 
 service DisciplineService {
-  rpc GetPaginated(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
-  rpc GetById(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
-  rpc Post(CreateDisciplineRequest) returns (CreateDisciplineResponse);
-  rpc Put(UpdateDisciplineRequest) returns (UpdateDisciplineResponse);
-  rpc Delete(DeleteDisciplineRequest) returns (DeleteDisciplineResponse);
+  rpc GetPaginatedAsync(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
+  rpc GetByIdAsync(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
+  rpc PostAsync(CreateDisciplineRequest) returns (CreateDisciplineResponse);
+  rpc PutAsync(UpdateDisciplineRequest) returns (UpdateDisciplineResponse);
+  rpc DeleteAsync(DeleteDisciplineRequest) returns (DeleteDisciplineResponse);
 }
 
 message GetPaginatedDisciplinesRequest {

@@ -7,11 +7,11 @@ import "google/protobuf/wrappers.proto";
 
 package protos.promotion;
 service PromotionService {
-  rpc GetPaginated(GetPaginatedPromotionsRequest) returns (GetPaginatedPromotionsResponse);
-  rpc GetById(GetPromotionByIdRequest) returns (GetPromotionByIdResponse);
-  rpc Post(CreatePromotionRequest) returns (CreatePromotionResponse);
-  rpc Put(UpdatePromotionRequest) returns (UpdatePromotionResponse);
-  rpc Delete(DeletePromotionRequest) returns (DeletePromotionResponse);
+  rpc GetPaginatedAsync(GetPaginatedPromotionsRequest) returns (GetPaginatedPromotionsResponse);
+  rpc GetByIdAsync(GetPromotionByIdRequest) returns (GetPromotionByIdResponse);
+  rpc PostAsync(CreatePromotionRequest) returns (CreatePromotionResponse);
+  rpc PutAsync(UpdatePromotionRequest) returns (UpdatePromotionResponse);
+  rpc DeleteAsync(DeletePromotionRequest) returns (DeletePromotionResponse);
 }
 
 message GetPaginatedPromotionsRequest {

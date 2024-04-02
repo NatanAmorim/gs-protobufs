@@ -6,10 +6,10 @@ import "google/protobuf/wrappers.proto";
 package protos.user;
 
 service UserService {
-  rpc GetPaginated(GetPaginatedUsersRequest) returns (GetPaginatedUsersResponse);
-  rpc GetById(GetUserByIdRequest) returns (GetUserByIdResponse);
-  rpc Put(UpdateUserRequest) returns (UpdateUserResponse);
-  rpc Delete(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc GetPaginatedAsync(GetPaginatedUsersRequest) returns (GetPaginatedUsersResponse);
+  rpc GetByIdAsync(GetUserByIdRequest) returns (GetUserByIdResponse);
+  rpc PutAsync(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc DeleteAsync(DeleteUserRequest) returns (DeleteUserResponse);
 }
 
 message GetPaginatedUsersRequest {

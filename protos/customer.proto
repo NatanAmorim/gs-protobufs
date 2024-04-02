@@ -2,19 +2,19 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
-import "gs_protobufs/protos/custom_types/person.proto";
+import "gs_protobufs/protos/custom_types/person_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.customer;
 
 service CustomerService {
-  rpc GetPaginated(GetPaginatedCustomersRequest) returns (GetPaginatedCustomersResponse);
-  rpc GetById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
-  // Options  are lean data for dropdowns and alike
-  rpc GetAllOptions(GetAllCustomersOptionsRequest) returns (GetAllCustomersOptionsResponse);
-  rpc Post(CreateCustomerRequest) returns (CreateCustomerResponse);
-  rpc Put(UpdateCustomerRequest) returns (UpdateCustomerResponse);
-  rpc Delete(DeleteCustomerRequest) returns (DeleteCustomerResponse);
+  rpc GetPaginatedAsync(GetPaginatedCustomersRequest) returns (GetPaginatedCustomersResponse);
+  rpc GetByIdAsync(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
+  // Options are a lean data structure for dropdowns and alike
+  rpc GetAllOptionsAsync(GetAllCustomersOptionsRequest) returns (GetAllCustomersOptionsResponse);
+  rpc PostAsync(CreateCustomerRequest) returns (CreateCustomerResponse);
+  rpc PutAsync(UpdateCustomerRequest) returns (UpdateCustomerResponse);
+  rpc DeleteAsync(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
 message GetPaginatedCustomersRequest {
@@ -33,16 +33,16 @@ message GetCustomerByIdRequest {
 message GetCustomerByIdResponse {
   int32 customer_pk = 1;
   optional user.GetUserByIdResponse user = 2;
-  custom_types.person.Person person = 3;
-  repeated custom_types.person.Person dependents = 4;
+  custom_types.person_value.PersonValue person = 3;
+  repeated custom_types.person_value.PersonValue dependents = 4;
   string billing_address = 5;
   string additional_information  = 6;
 }
 
 message CustomerOption {
   int32 customer_pk = 1;
-  custom_types.person.Person person = 2;
-  repeated custom_types.person.Person dependents = 3;
+  custom_types.person_value.PersonValue person = 2;
+  repeated custom_types.person_value.PersonValue dependents = 3;
 }
 
 message GetAllCustomersOptionsRequest {}
@@ -52,8 +52,8 @@ message GetAllCustomersOptionsResponse {
 }
 
 message CreateCustomerRequest {
-  custom_types.person.Person person = 1;
-  repeated custom_types.person.Person dependents = 2;
+  custom_types.person_value.PersonValue person = 1;
+  repeated custom_types.person_value.PersonValue dependents = 2;
   string billing_address = 3;
   string additional_information = 4;
 }
@@ -63,8 +63,8 @@ message CreateCustomerResponse {}
 message UpdateCustomerRequest {
   int32 customer_pk = 1;
   optional user.GetUserByIdResponse user = 2;
-  custom_types.person.Person person = 3;
-  repeated custom_types.person.Person dependents = 4;
+  custom_types.person_value.PersonValue person = 3;
+  repeated custom_types.person_value.PersonValue dependents = 4;
   string billing_address = 5;
   string additional_information = 6;
 }

@@ -9,11 +9,11 @@ import "google/protobuf/wrappers.proto";
 package protos.subscription_billing;
 
 service SubscriptionBillingService {
-  rpc GetPaginated(GetPaginatedSubscriptionBillingsRequest) returns (GetPaginatedSubscriptionBillingsResponse);
-  rpc GetById(GetSubscriptionBillingByIdRequest) returns (GetSubscriptionBillingByIdResponse);
-  rpc Post(CreateSubscriptionBillingRequest) returns (CreateSubscriptionBillingResponse);
-  rpc Put(UpdateSubscriptionBillingRequest) returns (UpdateSubscriptionBillingResponse);
-  rpc Delete(DeleteSubscriptionBillingRequest) returns (DeleteSubscriptionBillingResponse);
+  rpc GetPaginatedAsync(GetPaginatedSubscriptionBillingsRequest) returns (GetPaginatedSubscriptionBillingsResponse);
+  rpc GetByIdAsync(GetSubscriptionBillingByIdRequest) returns (GetSubscriptionBillingByIdResponse);
+  rpc PostAsync(CreateSubscriptionBillingRequest) returns (CreateSubscriptionBillingResponse);
+  rpc PutAsync(UpdateSubscriptionBillingRequest) returns (UpdateSubscriptionBillingResponse);
+  rpc DeleteAsync(DeleteSubscriptionBillingRequest) returns (DeleteSubscriptionBillingResponse);
 }
 
 message GetPaginatedSubscriptionBillingsRequest {

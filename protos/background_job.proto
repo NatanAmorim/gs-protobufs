@@ -5,7 +5,7 @@ import "google/protobuf/wrappers.proto";
 
 package protos.background_job;
 service BackgroundJobService {
-  rpc GetPaginated(GetPaginatedBackgroundJobsRequest) returns (GetPaginatedBackgroundJobsResponse);
+  rpc GetPaginatedAsync(GetPaginatedBackgroundJobsRequest) returns (GetPaginatedBackgroundJobsResponse);
 }
 
 message GetPaginatedBackgroundJobsRequest {

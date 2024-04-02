@@ -2,7 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 // Source: https://github.com/dotnet-architecture/eBooks/blob/1ed30275281b9060964fcb2a4c363fe7797fe3f3/current/grpc-for-wcf-developers/gRPC-for-WCF-Developers.pdf#decimals
-// I recomend downloading the whole PDF ("Download raw file").
+// I recommend downloading the whole PDF ("Download raw file").
 // More info in here https://visualrecode.com/blog/csharp-decimals-in-grpc/
 
 // According to the IEEE Standard for Floating Point Arithmetic (IEEE-754),
