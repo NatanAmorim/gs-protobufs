@@ -26,11 +26,11 @@ message GetPaginatedSalesResponse {
 }
 
 message GetSaleByIdRequest {
-  int32 sale_pk = 1;
+  int32 sale_id = 1;
 }
 
 message GetSaleByIdResponse {
-  int32 sale_pk = 1;
+  int32 sale_id = 1;
   optional protos.customer.GetCustomerByIdResponse customer = 2;
   string comments = 3;
   repeated SaleItem ItemsSold = 4;
@@ -38,7 +38,7 @@ message GetSaleByIdResponse {
 }
 
 message CreateSaleRequest {
-  google.protobuf.Int32Value customer_fk = 1;
+  google.protobuf.Int32Value customer_id = 1;
   string comments = 2;
   repeated SaleItem ItemsSold = 3;
 }
@@ -46,8 +46,8 @@ message CreateSaleRequest {
 message CreateSaleResponse {}
 
 message UpdateSaleRequest {
-  int32 sale_pk = 1;
-  google.protobuf.Int32Value customer_fk = 2;
+  int32 sale_id = 1;
+  google.protobuf.Int32Value customer_id = 2;
   string comments = 3;
   repeated SaleItem ItemsSold = 4;
   repeated protos.return.GetReturnByIdResponse Returns = 5;
@@ -56,19 +56,19 @@ message UpdateSaleRequest {
 message UpdateSaleResponse {}
 
 message DeleteSaleRequest {
-  int32 sale_pk = 1;
+  int32 sale_id = 1;
 }
 
 message DeleteSaleResponse {}
 
 message SaleItem {
-  int32 sale_pk = 1;
-  int32 product_variant_fk = 2;
+  int32 sale_id = 1;
+  int32 product_variant_id = 2;
   int32 quantity_sold = 3;
 }
 
 message SalePayment {
-  int32 sale_pk = 1;
+  int32 sale_id = 1;
   custom_types.decimal_value.DecimalValue amount_paid = 2;
   string payment_method = 3;
 }

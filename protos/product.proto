@@ -26,11 +26,11 @@ message GetAllProductsResponse {
 }
 
 message GetProductByIdRequest {
-  int32 product_pk = 1;
+  int32 product_id = 1;
 }
 
 message GetProductByIdResponse {
-  int32 product_pk = 1;
+  int32 product_id = 1;
   string name = 2;
   string description = 3;
   google.protobuf.StringValue picture_path = 4;
@@ -51,19 +51,19 @@ message CreateProductRequest {
 message CreateProductResponse {}
 
 message UpdateProductRequest {
-  int32 product_pk = 1;
+  int32 product_id = 1;
   string name = 2;
   string description = 3;
   optional bytes picture_binary = 4;
-  google.protobuf.Int32Value product_brand_fk = 5;
-  google.protobuf.Int32Value product_category_fk = 6;
+  google.protobuf.Int32Value product_brand_id = 5;
+  google.protobuf.Int32Value product_category_id = 6;
   repeated ProductVariant variants = 7;
 }
 
 message UpdateProductResponse {}
 
 message DeleteProductRequest {
-  int32 product_pk = 1;
+  int32 product_id = 1;
 }
 
 message DeleteProductResponse {}
@@ -81,7 +81,7 @@ message CreateProductBrandRequest {
 message CreateProductBrandResponse {}
 
 message ProductBrand {
-  int32 product_brand_pk = 1;
+  int32 product_brand_id = 1;
   string name = 2;
 }
 
@@ -98,12 +98,12 @@ message CreateProductCategoryRequest {
 message CreateProductCategoryResponse {}
 
 message ProductCategory {
-  int32 product_category_pk = 1;
+  int32 product_category_id = 1;
   string name = 2;
 }
 
 message ProductVariant {
-  int32 product_variant_pk = 1;
+  int32 product_variant_id = 1;
   string color = 2;
   string size = 3;
   string bar_code = 4;
@@ -113,8 +113,8 @@ message ProductVariant {
 }
 
 message ProductVariantInventory {
-  int32 product_variant_inventory_pk = 1;
-  int32 product_variant_fk = 2;
+  int32 product_variant_inventory_id = 1;
+  int32 product_variant_id = 2;
   int32 quantity_available = 3;
   int32 minimum_stock_amount = 4;
 }

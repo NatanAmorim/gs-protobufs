@@ -27,11 +27,11 @@ message GetPaginatedDisciplinesResponse {
 }
 
 message GetDisciplineByIdRequest {
-  int32 discipline_pk = 1;
+  int32 discipline_id = 1;
 }
 
 message GetDisciplineByIdResponse {
-  int32 discipline_pk = 1;
+  int32 discipline_id = 1;
   string name = 2;
   custom_types.decimal_value.DecimalValue tuition_price = 3;
   instructor.GetInstructorByIdResponse discipline = 4;
@@ -44,7 +44,7 @@ message GetDisciplineByIdResponse {
 message CreateDisciplineRequest {
   string name = 1;
   custom_types.decimal_value.DecimalValue tuition_price = 2;
-  int32 instructor_fk = 3;
+  int32 instructor_id = 3;
   custom_types.time_of_day.TimeOfDay start_time = 4;
   custom_types.time_of_day.TimeOfDay end_time = 5;
   repeated custom_types.day_of_week.DayOfWeek class_days = 6; // Dias de aula.
@@ -54,10 +54,10 @@ message CreateDisciplineRequest {
 message CreateDisciplineResponse {}
 
 message UpdateDisciplineRequest {
-  int32 discipline_pk = 1;
+  int32 discipline_id = 1;
   string name = 2;
   custom_types.decimal_value.DecimalValue tuition_price = 3;
-  int32 instructor_fk = 4;
+  int32 instructor_id = 4;
   custom_types.time_of_day.TimeOfDay start_time = 5;
   custom_types.time_of_day.TimeOfDay end_time = 6;
   repeated custom_types.day_of_week.DayOfWeek class_days = 7; // Dias de aula.
@@ -67,7 +67,7 @@ message UpdateDisciplineRequest {
 message UpdateDisciplineResponse {}
 
 message DeleteDisciplineRequest {
-  int32 discipline_pk = 1;
+  int32 discipline_id = 1;
 }
 
 message DeleteDisciplineResponse {}

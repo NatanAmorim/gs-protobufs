@@ -23,18 +23,18 @@ message GetPaginatedReturnsResponse {
 }
 
 message GetReturnByIdRequest {
-  int32 return_pk = 1;
+  int32 return_id = 1;
 }
 
 message GetReturnByIdResponse {
-  int32 return_pk = 1;
-  int32 sale_fk = 2;
+  int32 return_id = 1;
+  int32 sale_id = 2;
   custom_types.decimal_value.DecimalValue total_amount_refunded = 3;
   repeated ReturnItem ItemsReturned = 4;
 }
 
 message CreateReturnRequest {
-  google.protobuf.Int32Value sale_fk = 1;
+  google.protobuf.Int32Value sale_id = 1;
   custom_types.decimal_value.DecimalValue total_amount_refunded = 2;
   repeated ReturnItem ItemsReturned = 3;
 }
@@ -42,8 +42,8 @@ message CreateReturnRequest {
 message CreateReturnResponse {}
 
 message UpdateReturnRequest {
-  int32 return_pk = 1;
-  google.protobuf.Int32Value sale_fk = 2;
+  int32 return_id = 1;
+  google.protobuf.Int32Value sale_id = 2;
   custom_types.decimal_value.DecimalValue total_amount_refunded = 3;
   repeated ReturnItem ItemsReturned = 4;
 }
@@ -51,13 +51,13 @@ message UpdateReturnRequest {
 message UpdateReturnResponse {}
 
 message DeleteReturnRequest {
-  int32 return_pk = 1;
+  int32 return_id = 1;
 }
 
 message DeleteReturnResponse {}
 
 message ReturnItem {
-  int32 return_item_pk = 1;
-  int32 product_variant_fk = 2;
+  int32 return_item_id = 1;
+  int32 product_variant_id = 2;
   int32 quantity_returned = 3;
 }

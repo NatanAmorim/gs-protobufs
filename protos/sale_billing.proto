@@ -26,11 +26,11 @@ message GetPaginatedSaleBillingsResponse {
 }
 
 message GetSaleBillingByIdRequest {
-  int32 sale_billing_pk = 1;
+  int32 sale_billing_id = 1;
 }
 
 message GetSaleBillingByIdResponse {
-  int32 sale_billing_pk = 1;
+  int32 sale_billing_id = 1;
   sale.GetSaleByIdResponse sale = 2;
   string comments = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
@@ -38,7 +38,7 @@ message GetSaleBillingByIdResponse {
 }
 
 message CreateSaleBillingRequest {
-  int32 sale_fk = 1;
+  int32 sale_id = 1;
   string comments = 2;
   custom_types.decimal_value.DecimalValue total_discount = 3;
   protos.payment.CreatePaymentRequest payment = 4;
@@ -47,8 +47,8 @@ message CreateSaleBillingRequest {
 message CreateSaleBillingResponse {}
 
 message UpdateSaleBillingRequest {
-  int32 sale_billing_pk = 1;
-  int32 sale_fk = 2;
+  int32 sale_billing_id = 1;
+  int32 sale_id = 2;
   string comments = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
   protos.payment.GetPaymentByIdResponse payment = 5;
@@ -57,7 +57,7 @@ message UpdateSaleBillingRequest {
 message UpdateSaleBillingResponse {}
 
 message DeleteSaleBillingRequest {
-  int32 sale_billing_pk = 1;
+  int32 sale_billing_id = 1;
 }
 
 message DeleteSaleBillingResponse {}

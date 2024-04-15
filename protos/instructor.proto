@@ -27,16 +27,16 @@ message GetPaginatedInstructorsResponse {
 }
 
 message GetInstructorByIdRequest {
-  int32 instructor_pk = 1;
+  int32 instructor_id = 1;
 }
 
 message GetInstructorByIdResponse {
-  int32 instructor_pk = 1;
+  int32 instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
 message InstructorOption {
-  int32 instructor_pk = 1;
+  int32 instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
@@ -53,15 +53,15 @@ message CreateInstructorRequest {
 message CreateInstructorResponse {}
 
 message UpdateInstructorRequest {
-  int32 instructor_pk = 1;
-  google.protobuf.Int32Value user_fk = 2;
+  int32 instructor_id = 1;
+  google.protobuf.Int32Value user_id = 2;
   custom_types.person.Person person = 3;
 }
 
 message UpdateInstructorResponse {}
 
 message DeleteInstructorRequest {
-  int32 instructor_pk = 1;
+  int32 instructor_id = 1;
 }
 
 message DeleteInstructorResponse {}

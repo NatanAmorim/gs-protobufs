@@ -6,7 +6,7 @@ import "google/protobuf/wrappers.proto";
 package custom_types.person;
 
 message Person {
-  google.protobuf.Int32Value person_pk = 1;
+  google.protobuf.Int32Value person_id = 1;
   string name = 2;
   string mobile_phone_number = 3;
   string birth_date = 4;

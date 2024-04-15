@@ -22,24 +22,24 @@ message GetPaginatedUsersResponse {
 }
 
 message GetUserByIdRequest {
-  int32 user_pk = 1;
+  int32 user_id = 1;
 }
 
 message GetUserByIdResponse {
-  int32 user_pk = 1;
+  int32 user_id = 1;
   string email = 2;
   string role = 3;
 }
 
 message UpdateUserRequest {
-  int32 user_pk = 1;
+  int32 user_id = 1;
   string email = 2;
 }
 
 message UpdateUserResponse {}
 
 message DeleteUserRequest {
-  int32 user_pk = 1;
+  int32 user_id = 1;
 }
 
 message DeleteUserResponse {}

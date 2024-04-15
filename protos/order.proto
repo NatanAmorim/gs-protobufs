@@ -23,11 +23,11 @@ message GetPaginatedOrdersResponse {
 }
 
 message GetOrderByIdRequest {
-  int32 order_pk = 1;
+  int32 order_id = 1;
 }
 
 message GetOrderByIdResponse {
-  int32 order_pk = 1;
+  int32 order_id = 1;
   // TODO
 }
 
@@ -38,14 +38,14 @@ message CreateOrderRequest {
 message CreateOrderResponse {}
 
 message UpdateOrderRequest {
-  int32 order_pk = 1;
+  int32 order_id = 1;
   // TODO
 }
 
 message UpdateOrderResponse {}
 
 message DeleteOrderRequest {
-  int32 order_pk = 1;
+  int32 order_id = 1;
 }
 
 message DeleteOrderResponse {}

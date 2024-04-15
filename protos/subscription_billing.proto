@@ -26,11 +26,11 @@ message GetPaginatedSubscriptionBillingsResponse {
 }
 
 message GetSubscriptionBillingByIdRequest {
-  int32 subscription_billing_pk = 1;
+  int32 subscription_billing_id = 1;
 }
 
 message GetSubscriptionBillingByIdResponse {
-  int32 subscription_billing_pk = 1;
+  int32 subscription_billing_id = 1;
   subscription.GetSubscriptionByIdResponse subscription = 2;
   string comments = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
@@ -38,7 +38,7 @@ message GetSubscriptionBillingByIdResponse {
 }
 
 message CreateSubscriptionBillingRequest {
-  int32 subscription_fk = 1;
+  int32 subscription_id = 1;
   string comments = 2;
   custom_types.decimal_value.DecimalValue total_discount = 3;
   protos.payment.CreatePaymentRequest payment = 4;
@@ -47,8 +47,8 @@ message CreateSubscriptionBillingRequest {
 message CreateSubscriptionBillingResponse {}
 
 message UpdateSubscriptionBillingRequest {
-  int32 subscription_billing_pk = 1;
-  int32 subscription_fk = 2;
+  int32 subscription_billing_id = 1;
+  int32 subscription_id = 2;
   string comments = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
   protos.payment.GetPaymentByIdResponse payment = 5;
@@ -57,7 +57,7 @@ message UpdateSubscriptionBillingRequest {
 message UpdateSubscriptionBillingResponse {}
 
 message DeleteSubscriptionBillingRequest {
-  int32 subscription_billing_pk = 1;
+  int32 subscription_billing_id = 1;
 }
 
 message DeleteSubscriptionBillingResponse {}
