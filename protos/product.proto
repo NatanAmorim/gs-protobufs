@@ -32,20 +32,18 @@ message GetProductByIdRequest {
 message GetProductByIdResponse {
   int32 product_id = 1;
   string name = 2;
-  string description = 3;
-  google.protobuf.StringValue picture_path = 4;
-  ProductBrand product_brand= 5;
-  ProductCategory product_category = 6;
-  repeated ProductVariant variants = 7;
+  google.protobuf.StringValue picture_path = 3;
+  ProductBrand product_brand= 4;
+  ProductCategory product_category = 5;
+  repeated ProductVariant variants = 6;
 }
 
 message CreateProductRequest {
   string name = 2;
-  string description = 3;
-  optional bytes picture_binary = 4;
-  CreateProductBrandRequest product_brand = 5;
-  CreateProductCategoryRequest product_category = 6;
-  repeated ProductVariant variants = 7;
+  optional bytes picture_binary = 3;
+  CreateProductBrandRequest product_brand = 4;
+  CreateProductCategoryRequest product_category = 5;
+  repeated ProductVariant variants = 6;
 }
 
 message CreateProductResponse {}
@@ -53,11 +51,10 @@ message CreateProductResponse {}
 message UpdateProductRequest {
   int32 product_id = 1;
   string name = 2;
-  string description = 3;
-  optional bytes picture_binary = 4;
-  google.protobuf.Int32Value product_brand_id = 5;
-  google.protobuf.Int32Value product_category_id = 6;
-  repeated ProductVariant variants = 7;
+  optional bytes picture_binary = 3;
+  google.protobuf.Int32Value product_brand_id = 4;
+  google.protobuf.Int32Value product_category_id = 5;
+  repeated ProductVariant variants = 6;
 }
 
 message UpdateProductResponse {}
