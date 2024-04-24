@@ -24,11 +24,11 @@ message GetPaginatedPromotionsResponse {
 }
 
 message GetPromotionByIdRequest {
-  int32 promotion_id = 1;
+  string promotion_id = 1;
 }
 
 message GetPromotionByIdResponse {
-  int32 promotion_id = 1;
+  string promotion_id = 1;
   customer.GetCustomerByIdRequest customer = 2;
   string name = 3;
   string description = 4;
@@ -39,7 +39,7 @@ message GetPromotionByIdResponse {
 }
 
 message CreatePromotionRequest {
-  int32 customer_id = 3;
+  string customer_id = 3;
   string name = 4;
   string description = 5;
   string discount_type = 6;
@@ -51,8 +51,8 @@ message CreatePromotionRequest {
 message CreatePromotionResponse {}
 
 message UpdatePromotionRequest {
-  int32 promotion_id = 1;
-  int32 customer_id = 2;
+  string promotion_id = 1;
+  string customer_id = 2;
   string name = 3;
   string description = 4;
   string discount_type = 5;
@@ -64,7 +64,7 @@ message UpdatePromotionRequest {
 message UpdatePromotionResponse {}
 
 message DeletePromotionRequest {
-  int32 promotion_id = 1;
+  string promotion_id = 1;
 }
 
 message DeletePromotionResponse {}

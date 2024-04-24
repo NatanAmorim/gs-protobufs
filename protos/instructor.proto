@@ -26,16 +26,16 @@ message GetPaginatedInstructorsResponse {
 }
 
 message GetInstructorByIdRequest {
-  int32 instructor_id = 1;
+  string instructor_id = 1;
 }
 
 message GetInstructorByIdResponse {
-  int32 instructor_id = 1;
+  string instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
 message InstructorOption {
-  int32 instructor_id = 1;
+  string instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
@@ -52,14 +52,14 @@ message CreateInstructorRequest {
 message CreateInstructorResponse {}
 
 message UpdateInstructorRequest {
-  int32 instructor_id = 1;
+  string instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
 message UpdateInstructorResponse {}
 
 message DeleteInstructorRequest {
-  int32 instructor_id = 1;
+  string instructor_id = 1;
 }
 
 message DeleteInstructorResponse {}

@@ -27,11 +27,11 @@ message GetPaginatedCustomersResponse {
 }
 
 message GetCustomerByIdRequest {
-  int32 customer_id = 1;
+  string customer_id = 1;
 }
 
 message GetCustomerByIdResponse {
-  int32 customer_id = 1;
+  string customer_id = 1;
   optional user.GetUserByIdResponse user = 2;
   custom_types.person.Person person = 3;
   repeated custom_types.person.Person dependents = 4;
@@ -40,7 +40,7 @@ message GetCustomerByIdResponse {
 }
 
 message CustomerOption {
-  int32 customer_id = 1;
+  string customer_id = 1;
   custom_types.person.Person person = 2;
   repeated custom_types.person.Person dependents = 3;
 }
@@ -61,7 +61,7 @@ message CreateCustomerRequest {
 message CreateCustomerResponse {}
 
 message UpdateCustomerRequest {
-  int32 customer_id = 1;
+  string customer_id = 1;
   optional user.GetUserByIdResponse user = 2;
   custom_types.person.Person person = 3;
   repeated custom_types.person.Person dependents = 4;
@@ -72,7 +72,7 @@ message UpdateCustomerRequest {
 message UpdateCustomerResponse {}
 
 message DeleteCustomerRequest {
-  int32 customer_id = 1;
+  string customer_id = 1;
 }
 
 message DeleteCustomerResponse {}
