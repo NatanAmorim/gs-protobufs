@@ -15,12 +15,12 @@ service AttendanceService {
 }
 
 message GetPaginatedAttendancesRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedAttendancesResponse {
   repeated GetAttendanceByIdResponse attendances = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetAttendanceByIdRequest {

@@ -17,12 +17,12 @@ service SaleService {
 }
 
 message GetPaginatedSalesRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedSalesResponse {
   repeated GetSaleByIdResponse sales = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetSaleByIdRequest {
@@ -32,14 +32,14 @@ message GetSaleByIdRequest {
 message GetSaleByIdResponse {
   int32 sale_id = 1;
   optional protos.customer.GetCustomerByIdResponse customer = 2;
-  string comments = 3;
+  string observations = 3;
   repeated SaleItem ItemsSold = 4;
   repeated protos.return.GetReturnByIdResponse Returns = 5;
 }
 
 message CreateSaleRequest {
   google.protobuf.Int32Value customer_id = 1;
-  string comments = 2;
+  string observations = 2;
   repeated SaleItem ItemsSold = 3;
 }
 
@@ -48,7 +48,7 @@ message CreateSaleResponse {}
 message UpdateSaleRequest {
   int32 sale_id = 1;
   google.protobuf.Int32Value customer_id = 2;
-  string comments = 3;
+  string observations = 3;
   repeated SaleItem ItemsSold = 4;
   repeated protos.return.GetReturnByIdResponse Returns = 5;
 }

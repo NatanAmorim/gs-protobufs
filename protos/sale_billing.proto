@@ -17,12 +17,12 @@ service SaleBillingService {
 }
 
 message GetPaginatedSaleBillingsRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedSaleBillingsResponse {
   repeated GetSaleBillingByIdResponse saleBillings = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetSaleBillingByIdRequest {
@@ -32,14 +32,14 @@ message GetSaleBillingByIdRequest {
 message GetSaleBillingByIdResponse {
   int32 sale_billing_id = 1;
   sale.GetSaleByIdResponse sale = 2;
-  string comments = 3;
+  string observations = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
   protos.payment.GetPaymentByIdResponse payment = 5;
 }
 
 message CreateSaleBillingRequest {
   int32 sale_id = 1;
-  string comments = 2;
+  string observations = 2;
   custom_types.decimal_value.DecimalValue total_discount = 3;
   protos.payment.CreatePaymentRequest payment = 4;
 }
@@ -49,7 +49,7 @@ message CreateSaleBillingResponse {}
 message UpdateSaleBillingRequest {
   int32 sale_billing_id = 1;
   int32 sale_id = 2;
-  string comments = 3;
+  string observations = 3;
   custom_types.decimal_value.DecimalValue total_discount = 4;
   protos.payment.GetPaymentByIdResponse payment = 5;
 }

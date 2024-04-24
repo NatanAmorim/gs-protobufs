@@ -15,12 +15,12 @@ service PaymentService {
 }
 
 message GetPaginatedPaymentsRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedPaymentsResponse {
   repeated GetPaymentByIdResponse payments = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetPaymentByIdRequest {
@@ -29,12 +29,12 @@ message GetPaymentByIdRequest {
 
 message GetPaymentByIdResponse {
   int32 payment_id = 1;
-  string comments = 2;
+  string observations = 2;
   repeated PaymentInstallment installments = 3;
 }
 
 message CreatePaymentRequest {
-  string comments = 1;
+  string observations = 1;
   repeated PaymentInstallment installments = 2;
 }
 
@@ -42,7 +42,7 @@ message CreatePaymentResponse {}
 
 message UpdatePaymentRequest {
   int32 payment_id = 1;
-  string comments = 2;
+  string observations = 2;
   repeated PaymentInstallment installments = 3;
 }
 

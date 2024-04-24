@@ -15,12 +15,12 @@ service PromotionService {
 }
 
 message GetPaginatedPromotionsRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedPromotionsResponse {
   repeated GetPromotionByIdResponse promotions = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetPromotionByIdRequest {

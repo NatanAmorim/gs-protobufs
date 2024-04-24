@@ -13,12 +13,12 @@ service UserService {
 }
 
 message GetPaginatedUsersRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedUsersResponse {
   repeated GetUserByIdResponse users = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetUserByIdRequest {

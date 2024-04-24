@@ -17,12 +17,12 @@ service InstructorService {
 }
 
 message GetPaginatedInstructorsRequest {
-  int32 cursor = 1;
+  string cursor = 1;
 }
 
 message GetPaginatedInstructorsResponse {
   repeated GetInstructorByIdResponse instructors = 1;
-  google.protobuf.Int32Value next_cursor = 2;
+  google.protobuf.StringValue next_cursor = 2;
 }
 
 message GetInstructorByIdRequest {
