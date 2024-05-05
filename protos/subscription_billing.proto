@@ -31,10 +31,9 @@ message GetSubscriptionBillingByIdRequest {
 
 message GetSubscriptionBillingByIdResponse {
   string subscription_billing_id = 1;
-  subscription.GetSubscriptionByIdResponse subscription = 2;
-  string observations = 3;
-  custom_types.decimal_value.DecimalValue total_discount = 4;
-  protos.payment.GetPaymentByIdResponse payment = 5;
+  string observations = 2;
+  custom_types.decimal_value.DecimalValue total_discount = 3;
+  protos.payment.GetPaymentByIdResponse payment = 4;
 }
 
 message CreateSubscriptionBillingRequest {

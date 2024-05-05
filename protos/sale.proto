@@ -64,7 +64,8 @@ message DeleteSaleResponse {}
 message SaleItem {
   string sale_id = 1;
   string product_variant_id = 2;
-  int32 quantity_sold = 3;
+  int32 unit_price = 3;
+  int32 quantity_sold = 4;
 }
 
 message SalePayment {

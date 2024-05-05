@@ -29,7 +29,7 @@ message GetPromotionByIdRequest {
 
 message GetPromotionByIdResponse {
   string promotion_id = 1;
-  customer.GetCustomerByIdRequest customer = 2;
+  customer.GetCustomerByIdResponse customer = 2;
   string name = 3;
   string description = 4;
   string discount_type = 5;

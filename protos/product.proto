@@ -111,7 +111,6 @@ message ProductVariant {
 
 message ProductVariantInventory {
   string product_variant_inventory_id = 1;
-  string product_variant_id = 2;
-  int32 quantity_available = 3;
-  int32 minimum_stock_amount = 4;
+  int32 quantity_available = 2;
+  int32 minimum_stock_amount = 3;
 }
