@@ -14,7 +14,7 @@ service OrderService {
 }
 
 message GetPaginatedOrdersRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedOrdersResponse {

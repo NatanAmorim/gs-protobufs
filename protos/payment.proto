@@ -15,7 +15,7 @@ service PaymentService {
 }
 
 message GetPaginatedPaymentsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedPaymentsResponse {

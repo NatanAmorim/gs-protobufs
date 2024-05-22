@@ -18,7 +18,7 @@ service SubscriptionService {
 }
 
 message GetPaginatedSubscriptionsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedSubscriptionsResponse {

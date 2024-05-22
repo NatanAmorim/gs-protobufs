@@ -3,7 +3,6 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
 import "gs_protobufs/protos/payment.proto";
-import "gs_protobufs/protos/subscription.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.subscription_billing;
@@ -17,7 +16,7 @@ service SubscriptionBillingService {
 }
 
 message GetPaginatedSubscriptionBillingsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedSubscriptionBillingsResponse {

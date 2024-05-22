@@ -18,7 +18,7 @@ service CustomerService {
 }
 
 message GetPaginatedCustomersRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedCustomersResponse {

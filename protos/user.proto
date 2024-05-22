@@ -13,7 +13,7 @@ service UserService {
 }
 
 message GetPaginatedUsersRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedUsersResponse {

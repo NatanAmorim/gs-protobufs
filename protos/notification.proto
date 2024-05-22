@@ -13,7 +13,7 @@ service NotificationService {
 }
 
 message GetPaginatedNotificationsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedNotificationsResponse {

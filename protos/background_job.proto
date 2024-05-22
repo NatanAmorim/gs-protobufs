@@ -9,7 +9,7 @@ service BackgroundJobService {
 }
 
 message GetPaginatedBackgroundJobsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedBackgroundJobsResponse {

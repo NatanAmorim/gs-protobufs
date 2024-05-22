@@ -17,7 +17,7 @@ service SaleService {
 }
 
 message GetPaginatedSalesRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedSalesResponse {

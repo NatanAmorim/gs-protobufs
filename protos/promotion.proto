@@ -15,7 +15,7 @@ service PromotionService {
 }
 
 message GetPaginatedPromotionsRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedPromotionsResponse {

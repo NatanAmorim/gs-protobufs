@@ -15,7 +15,7 @@ service AttendanceService {
 }
 
 message GetPaginatedAttendancesRequest {
-  string cursor = 1;
+  google.protobuf.StringValue cursor = 1;
 }
 
 message GetPaginatedAttendancesResponse {
