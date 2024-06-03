@@ -4,6 +4,7 @@ option csharp_namespace = "GsServer.Protobufs";
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
 import "gs_protobufs/protos/custom_types/time_of_day.proto";
 import "gs_protobufs/protos/custom_types/day_of_week.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.discipline;
@@ -11,9 +12,9 @@ package protos.discipline;
 service DisciplineService {
   rpc GetPaginatedAsync(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
   rpc GetByIdAsync(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
-  rpc PostAsync(CreateDisciplineRequest) returns (CreateDisciplineResponse);
-  rpc PutAsync(UpdateDisciplineRequest) returns (UpdateDisciplineResponse);
-  rpc DeleteAsync(DeleteDisciplineRequest) returns (DeleteDisciplineResponse);
+  rpc PostAsync(CreateDisciplineRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateDisciplineRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteDisciplineRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedDisciplinesRequest {
@@ -50,8 +51,6 @@ message CreateDisciplineRequest {
   google.protobuf.BoolValue is_active = 7;
 }
 
-message CreateDisciplineResponse {}
-
 message UpdateDisciplineRequest {
   string discipline_id = 1;
   string name = 2;
@@ -63,10 +62,6 @@ message UpdateDisciplineRequest {
   bool is_active = 8;
 }
 
-message UpdateDisciplineResponse {}
-
 message DeleteDisciplineRequest {
   string discipline_id = 1;
 }
-
-message DeleteDisciplineResponse {}

@@ -3,6 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
 import "gs_protobufs/protos/custom_types/person.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.customer;
@@ -11,10 +12,10 @@ service CustomerService {
   rpc GetPaginatedAsync(GetPaginatedCustomersRequest) returns (GetPaginatedCustomersResponse);
   rpc GetByIdAsync(GetCustomerByIdRequest) returns (GetCustomerByIdResponse);
   // Options are a lean data structure for dropdowns and alike
-  rpc GetAllOptionsAsync(GetAllCustomersOptionsRequest) returns (GetAllCustomersOptionsResponse);
-  rpc PostAsync(CreateCustomerRequest) returns (CreateCustomerResponse);
-  rpc PutAsync(UpdateCustomerRequest) returns (UpdateCustomerResponse);
-  rpc DeleteAsync(DeleteCustomerRequest) returns (DeleteCustomerResponse);
+  rpc GetAllOptionsAsync(custom_types.void.Void) returns (GetAllCustomersOptionsResponse);
+  rpc PostAsync(CreateCustomerRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateCustomerRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteCustomerRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedCustomersRequest {
@@ -45,8 +46,6 @@ message CustomerOption {
   repeated custom_types.person.Person dependents = 3;
 }
 
-message GetAllCustomersOptionsRequest {}
-
 message GetAllCustomersOptionsResponse {
   repeated CustomerOption customer_options = 1;
 }
@@ -58,8 +57,6 @@ message CreateCustomerRequest {
   string additional_information = 4;
 }
 
-message CreateCustomerResponse {}
-
 message UpdateCustomerRequest {
   string customer_id = 1;
   optional user.GetUserByIdResponse user = 2;
@@ -69,10 +66,6 @@ message UpdateCustomerRequest {
   string additional_information = 6;
 }
 
-message UpdateCustomerResponse {}
-
 message DeleteCustomerRequest {
   string customer_id = 1;
 }
-
-message DeleteCustomerResponse {}

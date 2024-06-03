@@ -1,15 +1,16 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.notification;
 service NotificationService {
   rpc GetPaginatedAsync(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
   rpc GetByIdAsync(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
-  rpc PostAsync(CreateNotificationRequest) returns (CreateNotificationResponse);
-  rpc PutAsync(UpdateNotificationRequest) returns (UpdateNotificationResponse);
-  rpc DeleteAsync(DeleteNotificationRequest) returns (DeleteNotificationResponse);
+  rpc PostAsync(CreateNotificationRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateNotificationRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteNotificationRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedNotificationsRequest {
@@ -39,8 +40,6 @@ message CreateNotificationRequest {
   string message = 3;
 }
 
-message CreateNotificationResponse {}
-
 message UpdateNotificationRequest {
   string notification_id = 1;
   string title = 2;
@@ -48,10 +47,6 @@ message UpdateNotificationRequest {
   bool is_unread = 4;
 }
 
-message UpdateNotificationResponse {}
-
 message DeleteNotificationRequest {
   string notification_id = 1;
 }
-
-message DeleteNotificationResponse {}

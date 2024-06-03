@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/person.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.instructor;
@@ -10,10 +11,10 @@ service InstructorService {
   rpc GetPaginatedAsync(GetPaginatedInstructorsRequest) returns (GetPaginatedInstructorsResponse);
   rpc GetByIdAsync(GetInstructorByIdRequest) returns (GetInstructorByIdResponse);
   // Options are a lean data structure for dropdowns and alike
-  rpc GetAllOptionsAsync(GetAllInstructorsOptionsRequest) returns (GetAllInstructorsOptionsResponse);
-  rpc PostAsync(CreateInstructorRequest) returns (CreateInstructorResponse);
-  rpc PutAsync(UpdateInstructorRequest) returns (UpdateInstructorResponse);
-  rpc DeleteAsync(DeleteInstructorRequest) returns (DeleteInstructorResponse);
+  rpc GetAllOptionsAsync(custom_types.void.Void) returns (GetAllInstructorsOptionsResponse);
+  rpc PostAsync(CreateInstructorRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateInstructorRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteInstructorRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedInstructorsRequest {
@@ -39,8 +40,6 @@ message InstructorOption {
   custom_types.person.Person person = 2;
 }
 
-message GetAllInstructorsOptionsRequest {}
-
 message GetAllInstructorsOptionsResponse {
   repeated InstructorOption instructor_options = 1;
 }
@@ -49,17 +48,11 @@ message CreateInstructorRequest {
   custom_types.person.Person person = 1;
 }
 
-message CreateInstructorResponse {}
-
 message UpdateInstructorRequest {
   string instructor_id = 1;
   custom_types.person.Person person = 2;
 }
 
-message UpdateInstructorResponse {}
-
 message DeleteInstructorRequest {
   string instructor_id = 1;
 }
-
-message DeleteInstructorResponse {}

@@ -3,6 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/calendar_date.proto";
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "gs_protobufs/protos/discipline.proto";
 import "gs_protobufs/protos/customer.proto";
 import "google/protobuf/wrappers.proto";
@@ -12,9 +13,9 @@ package protos.subscription;
 service SubscriptionService {
   rpc GetPaginatedAsync(GetPaginatedSubscriptionsRequest) returns (GetPaginatedSubscriptionsResponse);
   rpc GetByIdAsync(GetSubscriptionByIdRequest) returns (GetSubscriptionByIdResponse);
-  rpc PostAsync(CreateSubscriptionRequest) returns (CreateSubscriptionResponse);
-  rpc PutAsync(UpdateSubscriptionRequest) returns (UpdateSubscriptionResponse);
-  rpc DeleteAsync(DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse);
+  rpc PostAsync(CreateSubscriptionRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateSubscriptionRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteSubscriptionRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedSubscriptionsRequest {
@@ -51,8 +52,6 @@ message CreateSubscriptionRequest {
   bool is_active = 7;
 }
 
-message CreateSubscriptionResponse {}
-
 message UpdateSubscriptionRequest {
   string subscription_id = 1;
   string discipline_id = 2;
@@ -64,10 +63,6 @@ message UpdateSubscriptionRequest {
   bool is_active = 8;
 }
 
-message UpdateSubscriptionResponse {}
-
 message DeleteSubscriptionRequest {
   string subscription_id = 1;
 }
-
-message DeleteSubscriptionResponse {}

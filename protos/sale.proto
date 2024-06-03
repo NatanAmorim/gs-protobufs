@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "gs_protobufs/protos/customer.proto";
 import "gs_protobufs/protos/return.proto";
 import "google/protobuf/wrappers.proto";
@@ -11,9 +12,9 @@ package protos.sale;
 service SaleService {
   rpc GetPaginatedAsync(GetPaginatedSalesRequest) returns (GetPaginatedSalesResponse);
   rpc GetByIdAsync(GetSaleByIdRequest) returns (GetSaleByIdResponse);
-  rpc PostAsync(CreateSaleRequest) returns (CreateSaleResponse);
-  rpc PutAsync(UpdateSaleRequest) returns (UpdateSaleResponse);
-  rpc DeleteAsync(DeleteSaleRequest) returns (DeleteSaleResponse);
+  rpc PostAsync(CreateSaleRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateSaleRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteSaleRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedSalesRequest {
@@ -43,8 +44,6 @@ message CreateSaleRequest {
   repeated SaleItem ItemsSold = 3;
 }
 
-message CreateSaleResponse {}
-
 message UpdateSaleRequest {
   string sale_id = 1;
   google.protobuf.StringValue customer_id = 2;
@@ -53,13 +52,9 @@ message UpdateSaleRequest {
   repeated protos.return.GetReturnByIdResponse Returns = 5;
 }
 
-message UpdateSaleResponse {}
-
 message DeleteSaleRequest {
   string sale_id = 1;
 }
-
-message DeleteSaleResponse {}
 
 message SaleItem {
   string sale_id = 1;

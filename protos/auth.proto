@@ -1,15 +1,17 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "gs_protobufs/protos/custom_types/void.proto";
+
 package protos.auth;
 
 service AuthService {
   rpc LoginAsync(LoginRequest) returns (LoginResponse);
-  rpc LogoutAsync(LogoutRequest) returns (LogoutResponse);
+  rpc LogoutAsync(custom_types.void.Void) returns (custom_types.void.Void);
   rpc RefreshTokenAsync(RefreshTokenRequest) returns (RefreshTokenResponse);
-  rpc RegisterAsync(RegisterRequest) returns (RegisterResponse);
-  rpc NewPasswordAsync(NewPasswordRequest) returns (NewPasswordResponse);
-  rpc ChangePasswordAsync(ChangePasswordRequest) returns (ChangePasswordResponse);
+  rpc RegisterAsync(RegisterRequest) returns (custom_types.void.Void);
+  rpc NewPasswordAsync(NewPasswordRequest) returns (custom_types.void.Void);
+  rpc ChangePasswordAsync(ChangePasswordRequest) returns (custom_types.void.Void);
 }
 
 message LoginRequest {
@@ -20,12 +22,6 @@ message LoginResponse {
   string access_token = 1;
   string refresh_token = 2;
 }
-
-message LogoutRequest {
-  string refresh_token = 1;
-}
-
-message LogoutResponse {}
 
 message RefreshTokenRequest {
   string refresh_token = 1;
@@ -40,17 +36,11 @@ message RegisterRequest {
   string password = 2;
 }
 
-message RegisterResponse {}
-
 message NewPasswordRequest {
   string email = 1;
 }
-
-message NewPasswordResponse {}
 
 message ChangePasswordRequest {
   string old_password = 1;
   string new_password = 2;
 }
-
-message ChangePasswordResponse {}

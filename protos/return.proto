@@ -2,15 +2,16 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.return;
 service ReturnService {
   rpc GetPaginatedAsync(GetPaginatedReturnsRequest) returns (GetPaginatedReturnsResponse);
   rpc GetByIdAsync(GetReturnByIdRequest) returns (GetReturnByIdResponse);
-  rpc PostAsync(CreateReturnRequest) returns (CreateReturnResponse);
-  rpc PutAsync(UpdateReturnRequest) returns (UpdateReturnResponse);
-  rpc DeleteAsync(DeleteReturnRequest) returns (DeleteReturnResponse);
+  rpc PostAsync(CreateReturnRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateReturnRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteReturnRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedReturnsRequest {
@@ -39,8 +40,6 @@ message CreateReturnRequest {
   repeated ReturnItem ItemsReturned = 3;
 }
 
-message CreateReturnResponse {}
-
 message UpdateReturnRequest {
   string return_id = 1;
   google.protobuf.StringValue sale_id = 2;
@@ -48,13 +47,9 @@ message UpdateReturnRequest {
   repeated ReturnItem ItemsReturned = 4;
 }
 
-message UpdateReturnResponse {}
-
 message DeleteReturnRequest {
   string return_id = 1;
 }
-
-message DeleteReturnResponse {}
 
 message ReturnItem {
   string product_variant_id = 1;

@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "gs_protobufs/protos/payment.proto";
 import "gs_protobufs/protos/sale.proto";
 import "google/protobuf/wrappers.proto";
@@ -11,9 +12,9 @@ package protos.sale_billing;
 service SaleBillingService {
   rpc GetPaginatedAsync(GetPaginatedSaleBillingsRequest) returns (GetPaginatedSaleBillingsResponse);
   rpc GetByIdAsync(GetSaleBillingByIdRequest) returns (GetSaleBillingByIdResponse);
-  rpc PostAsync(CreateSaleBillingRequest) returns (CreateSaleBillingResponse);
-  rpc PutAsync(UpdateSaleBillingRequest) returns (UpdateSaleBillingResponse);
-  rpc DeleteAsync(DeleteSaleBillingRequest) returns (DeleteSaleBillingResponse);
+  rpc PostAsync(CreateSaleBillingRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateSaleBillingRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteSaleBillingRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedSaleBillingsRequest {
@@ -44,8 +45,6 @@ message CreateSaleBillingRequest {
   protos.payment.CreatePaymentRequest payment = 4;
 }
 
-message CreateSaleBillingResponse {}
-
 message UpdateSaleBillingRequest {
   string sale_billing_id = 1;
   string sale_id = 2;
@@ -54,10 +53,6 @@ message UpdateSaleBillingRequest {
   protos.payment.GetPaymentByIdResponse payment = 5;
 }
 
-message UpdateSaleBillingResponse {}
-
 message DeleteSaleBillingRequest {
   string sale_billing_id = 1;
 }
-
-message DeleteSaleBillingResponse {}

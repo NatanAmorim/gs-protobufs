@@ -1,6 +1,7 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.order;
@@ -8,9 +9,9 @@ package protos.order;
 service OrderService {
   rpc GetPaginatedAsync(GetPaginatedOrdersRequest) returns (GetPaginatedOrdersResponse);
   rpc GetByIdAsync(GetOrderByIdRequest) returns (GetOrderByIdResponse);
-  rpc PostAsync(CreateOrderRequest) returns (CreateOrderResponse);
-  rpc PutAsync(UpdateOrderRequest) returns (UpdateOrderResponse);
-  rpc DeleteAsync(DeleteOrderRequest) returns (DeleteOrderResponse);
+  rpc PostAsync(CreateOrderRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateOrderRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteOrderRequest) returns (custom_types.void.Void);
 }
 
 message GetPaginatedOrdersRequest {
@@ -35,17 +36,11 @@ message CreateOrderRequest {
   // TODO
 }
 
-message CreateOrderResponse {}
-
 message UpdateOrderRequest {
   string order_id = 1;
   // TODO
 }
 
-message UpdateOrderResponse {}
-
 message DeleteOrderRequest {
   string order_id = 1;
 }
-
-message DeleteOrderResponse {}

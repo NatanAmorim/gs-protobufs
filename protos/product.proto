@@ -2,24 +2,23 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
+import "gs_protobufs/protos/custom_types/void.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.product;
 
 service ProductService {
-  rpc GetAllAsync(GetAllProductsRequest) returns (GetAllProductsResponse);
+  rpc GetAllAsync(custom_types.void.Void) returns (GetAllProductsResponse);
   rpc GetByIdAsync(GetProductByIdRequest) returns (GetProductByIdResponse);
-  rpc PostAsync(CreateProductRequest) returns (CreateProductResponse);
-  rpc PutAsync(UpdateProductRequest) returns (UpdateProductResponse);
-  rpc DeleteAsync(DeleteProductRequest) returns (DeleteProductResponse);
+  rpc PostAsync(CreateProductRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateProductRequest) returns (custom_types.void.Void);
+  rpc DeleteAsync(DeleteProductRequest) returns (custom_types.void.Void);
 
-  rpc GetAllBrandsAsync(GetAllProductBrandsRequest) returns (GetAllProductBrandsResponse);
-  rpc PostBrandAsync(CreateProductBrandRequest) returns (CreateProductBrandResponse);
-  rpc GetAllCategoriesAsync(GetAllProductCategoriesRequest) returns (GetAllProductCategoriesResponse);
-  rpc PostCategoryAsync(CreateProductCategoryRequest) returns (CreateProductCategoryResponse);
+  rpc GetAllBrandsAsync(custom_types.void.Void) returns (GetAllProductBrandsResponse);
+  rpc PostBrandAsync(CreateProductBrandRequest) returns (custom_types.void.Void);
+  rpc GetAllCategoriesAsync(custom_types.void.Void) returns (GetAllProductCategoriesResponse);
+  rpc PostCategoryAsync(CreateProductCategoryRequest) returns (custom_types.void.Void);
 }
-
-message GetAllProductsRequest {}
 
 message GetAllProductsResponse {
   repeated GetProductByIdResponse products = 1;
@@ -46,8 +45,6 @@ message CreateProductRequest {
   repeated ProductVariant variants = 6;
 }
 
-message CreateProductResponse {}
-
 message UpdateProductRequest {
   string product_id = 1;
   string name = 2;
@@ -57,15 +54,9 @@ message UpdateProductRequest {
   repeated ProductVariant variants = 6;
 }
 
-message UpdateProductResponse {}
-
 message DeleteProductRequest {
   string product_id = 1;
 }
-
-message DeleteProductResponse {}
-
-message GetAllProductBrandsRequest {}
 
 message GetAllProductBrandsResponse {
   repeated ProductBrand brands = 1;
@@ -75,14 +66,10 @@ message CreateProductBrandRequest {
   string name = 1;
 }
 
-message CreateProductBrandResponse {}
-
 message ProductBrand {
   string product_brand_id = 1;
   string name = 2;
 }
-
-message GetAllProductCategoriesRequest {}
 
 message GetAllProductCategoriesResponse {
   repeated ProductCategory brands = 1;
@@ -91,8 +78,6 @@ message GetAllProductCategoriesResponse {
 message CreateProductCategoryRequest {
   string name = 1;
 }
-
-message CreateProductCategoryResponse {}
 
 message ProductCategory {
   string product_category_id = 1;
