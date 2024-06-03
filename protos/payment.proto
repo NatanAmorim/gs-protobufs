@@ -3,16 +3,16 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/calendar_date.proto";
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.payment;
 service PaymentService {
   rpc GetPaginatedAsync(GetPaginatedPaymentsRequest) returns (GetPaginatedPaymentsResponse);
   rpc GetByIdAsync(GetPaymentByIdRequest) returns (GetPaymentByIdResponse);
-  rpc PostAsync(CreatePaymentRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdatePaymentRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeletePaymentRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreatePaymentRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdatePaymentRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeletePaymentRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedPaymentsRequest {

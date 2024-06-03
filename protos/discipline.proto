@@ -4,7 +4,7 @@ option csharp_namespace = "GsServer.Protobufs";
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
 import "gs_protobufs/protos/custom_types/time_of_day.proto";
 import "gs_protobufs/protos/custom_types/day_of_week.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.discipline;
@@ -12,9 +12,9 @@ package protos.discipline;
 service DisciplineService {
   rpc GetPaginatedAsync(GetPaginatedDisciplinesRequest) returns (GetPaginatedDisciplinesResponse);
   rpc GetByIdAsync(GetDisciplineByIdRequest) returns (GetDisciplineByIdResponse);
-  rpc PostAsync(CreateDisciplineRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateDisciplineRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteDisciplineRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateDisciplineRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateDisciplineRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteDisciplineRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedDisciplinesRequest {

@@ -2,7 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/calendar_date.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "gs_protobufs/protos/customer.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -10,9 +10,9 @@ package protos.promotion;
 service PromotionService {
   rpc GetPaginatedAsync(GetPaginatedPromotionsRequest) returns (GetPaginatedPromotionsResponse);
   rpc GetByIdAsync(GetPromotionByIdRequest) returns (GetPromotionByIdResponse);
-  rpc PostAsync(CreatePromotionRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdatePromotionRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeletePromotionRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreatePromotionRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdatePromotionRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeletePromotionRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedPromotionsRequest {

@@ -2,16 +2,16 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.return;
 service ReturnService {
   rpc GetPaginatedAsync(GetPaginatedReturnsRequest) returns (GetPaginatedReturnsResponse);
   rpc GetByIdAsync(GetReturnByIdRequest) returns (GetReturnByIdResponse);
-  rpc PostAsync(CreateReturnRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateReturnRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteReturnRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateReturnRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateReturnRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteReturnRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedReturnsRequest {

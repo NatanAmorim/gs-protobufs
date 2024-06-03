@@ -3,7 +3,7 @@ option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/calendar_date.proto";
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "gs_protobufs/protos/discipline.proto";
 import "gs_protobufs/protos/customer.proto";
 import "google/protobuf/wrappers.proto";
@@ -13,9 +13,9 @@ package protos.subscription;
 service SubscriptionService {
   rpc GetPaginatedAsync(GetPaginatedSubscriptionsRequest) returns (GetPaginatedSubscriptionsResponse);
   rpc GetByIdAsync(GetSubscriptionByIdRequest) returns (GetSubscriptionByIdResponse);
-  rpc PostAsync(CreateSubscriptionRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateSubscriptionRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteSubscriptionRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateSubscriptionRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateSubscriptionRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteSubscriptionRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedSubscriptionsRequest {

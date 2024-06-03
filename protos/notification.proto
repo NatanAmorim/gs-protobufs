@@ -1,16 +1,16 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.notification;
 service NotificationService {
   rpc GetPaginatedAsync(GetPaginatedNotificationsRequest) returns (GetPaginatedNotificationsResponse);
   rpc GetByIdAsync(GetNotificationByIdRequest) returns (GetNotificationByIdResponse);
-  rpc PostAsync(CreateNotificationRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateNotificationRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteNotificationRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateNotificationRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateNotificationRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteNotificationRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedNotificationsRequest {

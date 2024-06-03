@@ -2,7 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "gs_protobufs/protos/customer.proto";
 import "gs_protobufs/protos/return.proto";
 import "google/protobuf/wrappers.proto";
@@ -12,9 +12,9 @@ package protos.sale;
 service SaleService {
   rpc GetPaginatedAsync(GetPaginatedSalesRequest) returns (GetPaginatedSalesResponse);
   rpc GetByIdAsync(GetSaleByIdRequest) returns (GetSaleByIdResponse);
-  rpc PostAsync(CreateSaleRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateSaleRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteSaleRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateSaleRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateSaleRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteSaleRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedSalesRequest {

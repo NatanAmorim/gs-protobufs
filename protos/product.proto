@@ -2,22 +2,22 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/custom_types/decimal_value.proto";
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.product;
 
 service ProductService {
-  rpc GetAllAsync(custom_types.void.Void) returns (GetAllProductsResponse);
+  rpc GetAllAsync(custom_types.void.VoidValue) returns (GetAllProductsResponse);
   rpc GetByIdAsync(GetProductByIdRequest) returns (GetProductByIdResponse);
-  rpc PostAsync(CreateProductRequest) returns (custom_types.void.Void);
-  rpc PutAsync(UpdateProductRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteProductRequest) returns (custom_types.void.Void);
+  rpc PostAsync(CreateProductRequest) returns (custom_types.void.VoidValue);
+  rpc PutAsync(UpdateProductRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteProductRequest) returns (custom_types.void.VoidValue);
 
-  rpc GetAllBrandsAsync(custom_types.void.Void) returns (GetAllProductBrandsResponse);
-  rpc PostBrandAsync(CreateProductBrandRequest) returns (custom_types.void.Void);
-  rpc GetAllCategoriesAsync(custom_types.void.Void) returns (GetAllProductCategoriesResponse);
-  rpc PostCategoryAsync(CreateProductCategoryRequest) returns (custom_types.void.Void);
+  rpc GetAllBrandsAsync(custom_types.void.VoidValue) returns (GetAllProductBrandsResponse);
+  rpc PostBrandAsync(CreateProductBrandRequest) returns (custom_types.void.VoidValue);
+  rpc GetAllCategoriesAsync(custom_types.void.VoidValue) returns (GetAllProductCategoriesResponse);
+  rpc PostCategoryAsync(CreateProductCategoryRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetAllProductsResponse {

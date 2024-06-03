@@ -1,29 +1,29 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-// Source: https://github.com/dotnet-architecture/eBooks/blob/1ed30275281b9060964fcb2a4c363fe7797fe3f3/current/grpc-for-wcf-developers/gRPC-for-WCF-Developers.pdf#decimals
-// I recommend downloading the whole PDF ("Download raw file").
-// More info in here https://visualrecode.com/blog/csharp-decimals-in-grpc/
+/// Source: https://github.com/dotnet-architecture/eBooks/blob/1ed30275281b9060964fcb2a4c363fe7797fe3f3/current/grpc-for-wcf-developers/gRPC-for-WCF-Developers.pdf#decimals
+/// I recommend downloading the whole PDF ("Download raw file").
+/// More info in here https://visualrecode.com/blog/csharp-decimals-in-grpc/
 
-// According to the IEEE Standard for Floating Point Arithmetic (IEEE-754),
-// five cups of coffee at $4.99 a cup will cost $24.949999.
-// The decimal type in C# and F# (or Decimal in VB.NET) does not implement the
-// IEEE-754 standard, and is guaranteed to be precise. It exists to handle
-// money values.
+/// According to the IEEE Standard for Floating Point Arithmetic (IEEE-754),
+/// five cups of coffee at $4.99 a cup will cost $24.949999.
+/// The decimal type in C# and F# (or Decimal in VB.NET) does not implement the
+/// IEEE-754 standard, and is guaranteed to be precise. It exists to handle
+/// money values.
 package custom_types.decimal_value;
-// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
-// Name "DecimalValue" prevents conflict with C# Decimal type
+/// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
+/// Name "DecimalValue" prevents conflict with C# Decimal type
 message DecimalValue {
 
-  // The whole units of the amount.
-  // For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+  /// The whole units of the amount.
+  /// For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
   int64 units = 1;
 
-  // Number of nano (10^-9) units of the amount.
-  // The value must be between -999,999,999 and +999,999,999 inclusive.
-  // If `units` is positive, `nanos` must be positive or zero.
-  // If `units` is zero, `nanos` can be positive, zero, or negative.
-  // If `units` is negative, `nanos` must be negative or zero.
-  // For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+  /// Number of nano (10^-9) units of the amount.
+  /// The value must be between -999,999,999 and +999,999,999 inclusive.
+  /// If `units` is positive, `nanos` must be positive or zero.
+  /// If `units` is zero, `nanos` can be positive, zero, or negative.
+  /// If `units` is negative, `nanos` must be negative or zero.
+  /// For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
   sfixed32 nanos = 2;
 }

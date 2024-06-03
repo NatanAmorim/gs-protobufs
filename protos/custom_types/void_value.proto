@@ -3,4 +3,5 @@ option csharp_namespace = "GsServer.Protobufs";
 
 package custom_types.void;
 
-message Void {}
+/// Name "VoidValue" prevents conflict with Void type
+message VoidValue {}

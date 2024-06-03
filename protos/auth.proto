@@ -1,17 +1,17 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 
 package protos.auth;
 
 service AuthService {
   rpc LoginAsync(LoginRequest) returns (LoginResponse);
-  rpc LogoutAsync(custom_types.void.Void) returns (custom_types.void.Void);
+  rpc LogoutAsync(custom_types.void.VoidValue) returns (custom_types.void.VoidValue);
   rpc RefreshTokenAsync(RefreshTokenRequest) returns (RefreshTokenResponse);
-  rpc RegisterAsync(RegisterRequest) returns (custom_types.void.Void);
-  rpc NewPasswordAsync(NewPasswordRequest) returns (custom_types.void.Void);
-  rpc ChangePasswordAsync(ChangePasswordRequest) returns (custom_types.void.Void);
+  rpc RegisterAsync(RegisterRequest) returns (custom_types.void.VoidValue);
+  rpc NewPasswordAsync(NewPasswordRequest) returns (custom_types.void.VoidValue);
+  rpc ChangePasswordAsync(ChangePasswordRequest) returns (custom_types.void.VoidValue);
 }
 
 message LoginRequest {

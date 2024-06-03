@@ -1,7 +1,7 @@
 syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
-import "gs_protobufs/protos/custom_types/void.proto";
+import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
 
 package protos.user;
@@ -9,8 +9,8 @@ package protos.user;
 service UserService {
   rpc GetPaginatedAsync(GetPaginatedUsersRequest) returns (GetPaginatedUsersResponse);
   rpc GetByIdAsync(GetUserByIdRequest) returns (GetUserByIdResponse);
-  rpc PutAsync(UpdateUserRequest) returns (custom_types.void.Void);
-  rpc DeleteAsync(DeleteUserRequest) returns (custom_types.void.Void);
+  rpc PutAsync(UpdateUserRequest) returns (custom_types.void.VoidValue);
+  rpc DeleteAsync(DeleteUserRequest) returns (custom_types.void.VoidValue);
 }
 
 message GetPaginatedUsersRequest {
