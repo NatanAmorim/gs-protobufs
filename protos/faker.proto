@@ -1,0 +1,19 @@
+syntax = "proto3";
+option csharp_namespace = "GsServer.Protobufs";
+
+import "gs_protobufs/protos/customer.proto";
+import "google/protobuf/wrappers.proto";
+
+package protos.faker;
+
+service FakerService {
+  rpc PostFakeCustomerAsync(PostFakeCustomerAsyncRequest) returns (PostFakeCustomerAsyncResponse);
+}
+
+message PostFakeCustomerAsyncRequest {
+  int32 quantity = 1;
+}
+
+message PostFakeCustomerAsyncResponse {
+  repeated protos.customer.GetCustomerByIdResponse customers = 1;
+}
