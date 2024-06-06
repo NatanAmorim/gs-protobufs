@@ -2,6 +2,7 @@ syntax = "proto3";
 option csharp_namespace = "GsServer.Protobufs";
 
 import "gs_protobufs/protos/user.proto";
+import "gs_protobufs/protos/custom_types/dependent.proto";
 import "gs_protobufs/protos/custom_types/person.proto";
 import "gs_protobufs/protos/custom_types/void_value.proto";
 import "google/protobuf/wrappers.proto";
@@ -35,7 +36,7 @@ message GetCustomerByIdResponse {
   string customer_id = 1;
   optional user.GetUserByIdResponse user = 2;
   custom_types.person.Person person = 3;
-  repeated custom_types.person.Person dependents = 4;
+  repeated custom_types.dependent.Dependent dependents = 4;
   string billing_address = 5;
   string additional_information  = 6;
 }
