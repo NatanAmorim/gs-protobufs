@@ -44,7 +44,7 @@ message GetCustomerByIdResponse {
 message CustomerOption {
   string customer_id = 1;
   custom_types.person.Person person = 2;
-  repeated custom_types.person.Person dependents = 3;
+  repeated custom_types.dependent.Dependent dependents = 3;
 }
 
 message GetAllCustomersOptionsResponse {
@@ -53,7 +53,7 @@ message GetAllCustomersOptionsResponse {
 
 message CreateCustomerRequest {
   custom_types.person.Person person = 1;
-  repeated custom_types.person.Person dependents = 2;
+  repeated custom_types.dependent.Dependent dependents = 2;
   string billing_address = 3;
   string additional_information = 4;
 }
@@ -62,7 +62,7 @@ message UpdateCustomerRequest {
   string customer_id = 1;
   optional user.GetUserByIdResponse user = 2;
   custom_types.person.Person person = 3;
-  repeated custom_types.person.Person dependents = 4;
+  repeated custom_types.dependent.Dependent dependents = 4;
   string billing_address = 5;
   string additional_information = 6;
 }
